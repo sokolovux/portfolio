@@ -1,0 +1,7 @@
+// Bootstrap only exposes one sans-serif stack via $font-family-sans-serif; Crimson Pro is the display face and needs a dedicated class.
+// fs-* and fw-* utilities are banned, so size and weight must live here too.
+.font-display {
+  font-family: "Crimson Pro", Georgia, serif;
+  font-size: 3.75rem;
+  font-weight: 500;
+}

@@ -1,0 +1,40 @@
+---
+name: design
+alwaysApply: true
+---
+
+# Design System Rules
+
+## Core rule
+All layouts and UI must be built using vanilla Bootstrap 5.3 components and utilities. Reach for a Bootstrap utility first — always. Custom CSS is a last resort with a documented reason.
+
+## Spacing
+Prefer gap-* on flex/grid parents over margin utilities on children for spacing between siblings. Margin utilities are fine for spacing a block from the page edge.
+
+## Static assets
+All static assets live under public/ only. Use kebab-case filenames. Reference with root-absolute paths (/brand/logo.svg). One canonical copy per asset — never duplicate.
+
+## Buttons
+Use only: btn-outline-secondary (default), btn-primary (primary CTA), btn-outline-success, btn-outline-warning, btn-outline-danger, btn-outline-info.
+Never use: solid btn-secondary/success/warning/danger/info, btn-outline-primary, btn-dark, btn-light.
+
+## Banned Bootstrap utilities
+Never use: fs-1 through fs-6, fw-* utilities, display-1 through display-6, bg-dark, bg-light, text-dark, text-light, and all -dark/-light variants.
+Use instead: bg-body, bg-body-secondary, text-body, text-muted.
+For type scale: use h1–h6 elements, lead, small — not font size utilities.
+
+## Banned CSS patterns
+- No inline style={{}} props
+- No hardcoded hex colors anywhere
+- No custom design tokens (--color-*, --font-*, etc.) — use --bs-* variables only
+- No component-level CSS files
+- No CSS modules, styled-components, or CSS-in-JS
+- No custom margin/padding/flex rules in CSS — use Bootstrap utilities
+- No <strong> or <b> for font weight
+- No ::-webkit-scrollbar rules
+
+## Custom CSS
+Lives in shared/design/_extensions.scss only. Every custom rule needs a comment explaining why Bootstrap can't handle it.
+
+## Before writing code
+Always list files you plan to create, ask clarifying questions, and surface ambiguities before writing any code.
