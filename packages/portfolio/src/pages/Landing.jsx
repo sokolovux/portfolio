@@ -40,6 +40,10 @@ export default function Landing() {
           <span className="text-highlight">*</span>About
         </h4>
         <p>Get in touch.</p>
+        <div className="d-flex flex-wrap gap-2">
+          <BtnCustom label="Button"/>
+          <BtnCustom variant="secondary" label="Button"/>
+        </div>
       </section>
 
       <section id="work" className="container py-5 d-flex flex-column gap-2 border-bottom">
