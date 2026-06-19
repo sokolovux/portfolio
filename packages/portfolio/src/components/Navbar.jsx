@@ -1,16 +1,41 @@
 import Headroom from 'headroom.js'
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import BrandLink from './BrandLink.jsx'
 import ScrambleOnHover from './ScrambleOnHover.jsx'
 
 const NAV_LINKS = [
-  { label: 'Experience', href: '#experience' },
-  { label: 'About', href: '#about' },
-  { label: 'Work', href: '#work' },
+  { label: 'Experience', to: '/#experience' },
+  { label: 'About', to: '/#about' },
+  { label: 'Work', to: '/#work' },
   { label: 'CV', href: '/cv.pdf', target: '_blank', rel: 'noopener noreferrer' },
 ]
 
-const CONTACT_LINK = { label: 'Contact', href: '#contact' }
+const CONTACT_LINK = { label: 'Contact', to: '/#contact' }
+
+function NavLink({ link }) {
+  if (link.to) {
+    return (
+      <ScrambleOnHover
+        text={link.label}
+        tag={Link}
+        className="nav-link"
+        to={link.to}
+      />
+    )
+  }
+
+  return (
+    <ScrambleOnHover
+      text={link.label}
+      tag="a"
+      className="nav-link"
+      href={link.href}
+      target={link.target}
+      rel={link.rel}
+    />
+  )
+}
 
 export default function Navbar() {
   const navRef = useRef(null)
@@ -48,23 +73,10 @@ export default function Navbar() {
           <div className="d-flex flex-wrap align-items-center justify-content-between gap-3 w-100">
             <div className="d-flex flex-wrap gap-3">
               {NAV_LINKS.map((link) => (
-                <ScrambleOnHover
-                  key={link.label}
-                  text={link.label}
-                  tag="a"
-                  className="nav-link"
-                  href={link.href}
-                  target={link.target}
-                  rel={link.rel}
-                />
+                <NavLink key={link.label} link={link} />
               ))}
             </div>
-            <ScrambleOnHover
-              text={CONTACT_LINK.label}
-              tag="a"
-              className="nav-link"
-              href={CONTACT_LINK.href}
-            />
+            <NavLink link={CONTACT_LINK} />
           </div>
         </div>
       </nav>

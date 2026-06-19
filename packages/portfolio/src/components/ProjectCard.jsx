@@ -25,7 +25,7 @@ export default function ProjectCard({
       </div>
       <div className="col-md-6">
         <div
-          className="project-card__image"
+          className="project-card__image shadow"
           role="img"
           aria-label={imageLabel ?? `${title} project preview`}
         />

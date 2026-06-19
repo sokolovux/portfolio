@@ -10,5 +10,5 @@ export default function ProjectRoute() {
     return <Navigate to="/" replace />
   }
 
-  return <ProjectPage title={project.title} />
+  return <ProjectPage project={project} />
 }

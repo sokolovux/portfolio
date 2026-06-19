@@ -1,3 +1,58 @@
+const LOREM_PARAGRAPHS = [
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+]
+
+function createSubsections() {
+  return [
+    {
+      title: 'Context',
+      paragraphs: LOREM_PARAGRAPHS.slice(0, 1),
+      subsections: [
+        { title: 'Problem Space', paragraphs: LOREM_PARAGRAPHS.slice(0, 1) },
+        { title: 'Constraints', paragraphs: LOREM_PARAGRAPHS.slice(0, 1) },
+      ],
+    },
+    {
+      title: 'Approach',
+      paragraphs: LOREM_PARAGRAPHS.slice(0, 1),
+      subsections: [
+        { title: 'Methodology', paragraphs: LOREM_PARAGRAPHS.slice(0, 1) },
+        { title: 'Timeline', paragraphs: LOREM_PARAGRAPHS.slice(0, 1) },
+      ],
+    },
+  ]
+}
+
+function createSections(projectTitle) {
+  return [
+    {
+      title: 'Overview',
+      paragraphs: LOREM_PARAGRAPHS,
+      imageLabel: `${projectTitle} overview`,
+      subsections: createSubsections(),
+    },
+    {
+      title: 'Research',
+      paragraphs: LOREM_PARAGRAPHS,
+      imageLabel: `${projectTitle} research`,
+      subsections: createSubsections(),
+    },
+    {
+      title: 'Design',
+      paragraphs: LOREM_PARAGRAPHS,
+      imageLabel: `${projectTitle} design`,
+      subsections: createSubsections(),
+    },
+    {
+      title: 'Outcome',
+      paragraphs: LOREM_PARAGRAPHS,
+      imageLabel: `${projectTitle} outcome`,
+      subsections: createSubsections(),
+    },
+  ]
+}
+
 export const PROJECTS = [
   {
     slug: 'voicebox',
@@ -7,6 +62,7 @@ export const PROJECTS = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     href: '/work/voicebox',
+    sections: createSections('Voicebox'),
   },
   {
     slug: 'roomerang',
@@ -16,6 +72,7 @@ export const PROJECTS = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     href: '/work/roomerang',
+    sections: createSections('Roomerang'),
   },
   {
     slug: 'alice',
@@ -25,6 +82,7 @@ export const PROJECTS = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     href: '/work/alice',
+    sections: createSections('Alice'),
   },
   {
     slug: 'mirawell-health',
@@ -34,6 +92,7 @@ export const PROJECTS = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     href: '/work/mirawell-health',
+    sections: createSections('Mirawell Health'),
   },
 ]
 

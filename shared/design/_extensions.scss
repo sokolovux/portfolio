@@ -135,7 +135,7 @@ a {
   border: var(--bs-border-width) solid var(--bs-primary);
   border-radius: var(--bs-border-radius);
   padding: 6px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: var(--bs-box-shadow);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -195,7 +195,7 @@ a {
   .btn-custom__outer {
     background: linear-gradient(to top, var(--bs-gray-300), var(--bs-gray-100));
     border-color: var(--bs-border-color);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: var(--bs-box-shadow);
   }
 
   .btn-custom__inner {
@@ -225,7 +225,7 @@ section {
 
 // Bootstrap has no scroll-padding utility; fixed navbar covers hash-link targets.
 html {
-  scroll-padding-top: 4rem;
+  scroll-padding-top: 48px;
 }
 
 // headroom.js toggles pinned/unpinned classes; Bootstrap has no translateY hide animation.
@@ -251,4 +251,44 @@ html {
   .navbar-headroom {
     transition: none;
   }
+}
+
+// Bootstrap nav-link is coupled to navbar layout; TOC links share typography/hover without nav padding.
+.toc-link {
+  display: block;
+  padding: 0;
+  color: inherit;
+  text-decoration: none;
+  // fw-* is banned; override h6 weight inherited from global anchor styles.
+  font-weight: 400;
+
+  &:hover,
+  &:focus {
+    color: $primary;
+  }
+
+  &.toc-link--active {
+    color: $primary;
+  }
+
+  // Bootstrap ps-3 is $spacer; level 3 uses double that offset.
+  &.toc-link--level-2 {
+    padding-left: $spacer;
+  }
+}
+
+// Bootstrap has no fixed vertical-center utility; left is set from JS via --table-of-contents-left.
+.table-of-contents {
+  position: fixed;
+  top: 50%;
+  left: var(--table-of-contents-left, 0);
+  z-index: 1010;
+  max-width: 12rem;
+  transform: translateY(-50%);
+}
+
+// Keep TOC in DOM for fit measurement; Bootstrap has no visibility-only hide utility for this case.
+.table-of-contents--hidden {
+  visibility: hidden;
+  pointer-events: none;
 }

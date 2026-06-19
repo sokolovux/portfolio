@@ -1,10 +1,21 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import BtnCustom from '../components/BtnCustom.jsx'
 import DividerText from '../components/DividerText.jsx'
 import ProjectCard from '../components/ProjectCard.jsx'
 import TextScramble from '../components/TextScramble.jsx'
 import { PROJECTS } from '../constants/projects.js'
+import { scrollToHashTarget } from '../utils/scrollToHash.js'
 
 export default function Landing() {
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (!hash) return
+
+    scrollToHashTarget(hash.slice(1))
+  }, [hash])
+
   return (
     <>
       <section className="container py-5 text-left d-flex flex-column gap-3">
@@ -18,7 +29,7 @@ export default function Landing() {
           <BtnCustom variant="secondary" label="Get in touch" href="#contact" />
         </div>
         <div
-          className="landing-placeholder-image"
+          className="landing-placeholder-image shadow"
           role="img"
           aria-label="Placeholder image"
         />

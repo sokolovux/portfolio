@@ -14,6 +14,12 @@ Prefer gap-* on flex/grid parents over margin utilities on children for spacing 
 ## Static assets
 All static assets live under public/ only. Use kebab-case filenames. Reference with root-absolute paths (/brand/logo.svg). One canonical copy per asset — never duplicate.
 
+## Images
+Every image must include the Bootstrap `shadow` utility — no exceptions.
+- `<img>` tags: add `shadow` to `className` (combine with other utilities as needed, e.g. `className="img-fluid shadow"`).
+- Image placeholders (`role="img"`): add `shadow` alongside any custom layout class.
+- Do not duplicate shadow values in custom CSS; use the `shadow` utility only.
+
 ## Buttons
 Use only: btn-outline-secondary (default), btn-primary (primary CTA), btn-outline-success, btn-outline-warning, btn-outline-danger, btn-outline-info.
 Never use: solid btn-secondary/success/warning/danger/info, btn-outline-primary, btn-dark, btn-light.
