@@ -90,7 +90,7 @@ a {
 .divider-text {
   position: relative;
   font-weight: 400 !important;
-  opacity: 0.19 !important;
+  color: var(--bs-gray-300) !important;
 }
 
 .divider-text__probe {
@@ -221,4 +221,34 @@ p {
 
 section {
   min-height: 480px;
+}
+
+// Bootstrap has no scroll-padding utility; fixed navbar covers hash-link targets.
+html {
+  scroll-padding-top: 4rem;
+}
+
+// headroom.js toggles pinned/unpinned classes; Bootstrap has no translateY hide animation.
+.navbar-headroom {
+  will-change: transform;
+  transition: transform 0.3s ease;
+
+  &.headroom--pinned {
+    transform: translateY(0);
+  }
+
+  &.headroom--unpinned {
+    transform: translateY(-100%);
+  }
+}
+
+// Bootstrap has no fixed-nav spacer utility; reserve approximate two-row nav height.
+.navbar-spacer {
+  min-height: 7.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-headroom {
+    transition: none;
+  }
 }

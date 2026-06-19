@@ -21,7 +21,7 @@ export default function ProjectCard({
         </p>
         <h5>{title}</h5>
         <small className="text-muted">{description}</small>
-        <BtnCustom variant="secondary" label="View project" href={href} />
+        <BtnCustom variant="secondary" label="Read more" href={href} />
       </div>
       <div className="col-md-6">
         <div

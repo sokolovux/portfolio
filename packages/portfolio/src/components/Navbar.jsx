@@ -1,3 +1,5 @@
+import Headroom from 'headroom.js'
+import { useEffect, useRef } from 'react'
 import BrandLink from './BrandLink.jsx'
 import ScrambleOnHover from './ScrambleOnHover.jsx'
 
@@ -10,24 +12,54 @@ const NAV_LINKS = [
 ]
 
 export default function Navbar() {
+  const navRef = useRef(null)
+
+  useEffect(() => {
+    const nav = navRef.current
+    if (!nav) return undefined
+
+    const headroom = new Headroom(nav, {
+      tolerance: { up: 10, down: 10 },
+    })
+    headroom.init()
+
+    return () => {
+      if (headroom.scrollTracker) {
+        headroom.destroy()
+        return
+      }
+
+      if (headroom.initialised) {
+        headroom.initialised = false
+        Object.keys(headroom.classes).forEach((key) => headroom.removeClass(key))
+      }
+    }
+  }, [])
+
   return (
-    <nav className="navbar sticky-top bg-body py-3 border-bottom">
-      <div className="container d-flex flex-column align-items-start gap-2">
-        <BrandLink />
-        <div className="d-flex flex-wrap gap-3 w-100">
-          {NAV_LINKS.map((link) => (
-            <ScrambleOnHover
-              key={link.label}
-              text={link.label}
-              tag="a"
-              className="nav-link"
-              href={link.href}
-              target={link.target}
-              rel={link.rel}
-            />
-          ))}
+    <>
+      <nav
+        ref={navRef}
+        className="navbar navbar-headroom fixed-top bg-body py-3 border-bottom w-100"
+      >
+        <div className="container d-flex flex-column align-items-start gap-2">
+          <BrandLink />
+          <div className="d-flex flex-wrap gap-3 w-100">
+            {NAV_LINKS.map((link) => (
+              <ScrambleOnHover
+                key={link.label}
+                text={link.label}
+                tag="a"
+                className="nav-link"
+                href={link.href}
+                target={link.target}
+                rel={link.rel}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+      <div className="navbar-spacer" aria-hidden="true" />
+    </>
   )
 }
