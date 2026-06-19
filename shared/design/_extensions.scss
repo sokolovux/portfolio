@@ -1,7 +1,163 @@
-// Bootstrap only exposes one sans-serif stack via $font-family-sans-serif; Crimson Pro is the display face and needs a dedicated class.
-// fs-* and fw-* utilities are banned, so size and weight must live here too.
-.font-display {
-  font-family: "Crimson Pro", Georgia, serif;
-  font-size: 3.75rem;
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  letter-spacing: $headings-letter-spacing;
+  text-transform: uppercase;
+}
+
+// Bootstrap reboot adds bottom margins to headings and paragraphs; use gap-* on parents for rhythm.
+h1, h2, h3, h4, h5, h6, p, a, small {
+  margin-bottom: 0;
+}
+
+// Bootstrap has no mono display class; fw-* is banned so weight must live here too.
+.display-mono {
+  font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-weight: 500;
+}
+
+// Bootstrap has no opacity-62 utility; scrambling glyphs dim relative to resolved text.
+.text-scramble-glyph {
+  opacity: 1;
+  color: $primary
+}
+
+// Bootstrap has no bg-gray-* utilities; DS page swatches read from compiled --bs-gray-* tokens.
+@each $name, $value in $grays {
+  .ds-swatch-gray-#{$name} {
+    background-color: var(--bs-gray-#{$name});
+  }
+}
+// Bootstrap has no responsive type scale for one-off hero sizes; fs-* utilities are banned.
+.landing-heading {
+  font-size: 2rem;
+  line-height: 1;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 2rem; // sm — 576px+
+  }
+
+  @include media-breakpoint-up(md) {
+    font-size: 3rem; // md — 768px+
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: 4rem; // lg — 992px+
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: 4rem; // xl — 1200px+
+  }
+
+  @include media-breakpoint-up(xxl) {
+    font-size: 4rem; // xxl — 1400px+
+  }
+}
+
+.text-highlight {
+  color: $primary;
+}
+
+a {
+  text-decoration: none;
+}
+
+// Bootstrap btn styles don't support layered gradient keys; custom structure required.
+.btn-custom {
+  background: none;
+  border: none;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 3px;
+  }
+}
+
+.btn-custom__outer {
+  background: linear-gradient(
+    to top,
+    var(--bs-primary),
+    color-mix(in srgb, var(--bs-primary) 85%, white 35%)
+  );
+  border: var(--bs-border-width) solid var(--bs-primary);
+  border-radius: var(--bs-border-radius);
+  padding: 6px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-custom__inner {
+  background: linear-gradient(
+    to bottom,
+    var(--bs-primary),
+    color-mix(in srgb, var(--bs-primary) 85%, white 35%)
+  );
+  border-radius: var(--bs-border-radius-pill);
+  padding: 8px 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-custom__overlay {
+  position: absolute;
+  inset: -6px;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: var(--bs-border-radius);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+.btn-custom:hover:not(:disabled) .btn-custom__overlay {
+  opacity: 1;
+}
+
+.btn-custom__label {
+  position: relative;
+  z-index: 2;
+  color: var(--bs-gray-100);
+  line-height: 1;
+}
+
+// Placeholder pressed state — refine gradients and shadow values later.
+.btn-custom:active:not(:disabled) {
+  .btn-custom__outer {
+    transform: scale(0.96);
+    transition: transform 0.1s ease;
+    box-shadow: none;
+  }
+}
+
+.btn-custom--secondary {
+  .btn-custom__outer {
+    background: linear-gradient(to top, var(--bs-gray-300), var(--bs-gray-100));
+    border-color: var(--bs-border-color);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .btn-custom__inner {
+    background: linear-gradient(to bottom, var(--bs-gray-300), var(--bs-gray-100));
+  }
+
+  .btn-custom__label {
+    color: var(--bs-gray-900);
+  }
+
+  &:active:not(:disabled) {
+    .btn-custom__outer {
+      transform: scale(0.96);
+      transition: transform 0.1s ease;
+      box-shadow: none;
+    }
+  }
 }

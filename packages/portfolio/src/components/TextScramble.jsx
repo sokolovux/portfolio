@@ -41,9 +41,10 @@ function buildDisplayText(text, charset, elapsed, resolveAt, chars, rescramble) 
 export default function TextScramble({
   text,
   trigger = true,
-  duration = 1000,
+  duration = 2000,
   charset = DEFAULT_CHARSET,
   className,
+  style,
   tag: Tag = 'span',
 }) {
   const [frame, setFrame] = useState(() => {
@@ -120,7 +121,7 @@ export default function TextScramble({
   }, [text, trigger, duration, charset])
 
   return (
-    <Tag className={className}>
+    <Tag className={className} style={style}>
       {[...frame.displayText].map((char, index) => (
         <span
           key={index}

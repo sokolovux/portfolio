@@ -8,8 +8,8 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand">
       <div className="container">
-        <Link className="navbar-brand" to="/">
-          Maxim Sokolov
+        <Link className="h4" to="/">
+          Maxim<span className="text-highlight">*</span>Sokolov
         </Link>
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
