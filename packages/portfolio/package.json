@@ -4,11 +4,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:full": "vercel dev",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint ."
   },
   "dependencies": {
+    "@upstash/redis": "^1.38.0",
     "bootstrap": "^5.3.8",
     "headroom.js": "^0.12.0",
     "react": "^19.2.6",
@@ -24,6 +26,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
+    "vercel": "^54.14.2",
     "vite": "^8.0.12"
   }
 }
