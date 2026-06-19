@@ -28,6 +28,7 @@ Never use: solid btn-secondary/success/warning/danger/info, btn-outline-primary,
 Never use: fs-1 through fs-6, fw-* utilities, display-1 through display-6, bg-dark, bg-light, text-dark, text-light, and all -dark/-light variants.
 Use instead: bg-body, bg-body-secondary, text-body, text-muted.
 For type scale: use h1–h6 elements, lead, small — not font size utilities.
+Never apply the `small` class to heading elements (`h1`–`h6`); use the correct heading level for size instead.
 
 ## Banned CSS patterns
 - No inline style={{}} props

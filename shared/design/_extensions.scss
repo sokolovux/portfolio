@@ -171,8 +171,11 @@ a {
   transition: transform 0.1s ease, opacity 0.1s ease;
 }
 
-.btn-custom:hover:not(:disabled) .btn-custom__overlay {
-  opacity: 1;
+// Hover overlay is sm+ only; touch viewports below sm have no meaningful hover state.
+@include media-breakpoint-up(sm) {
+  .btn-custom:hover:not(:disabled) .btn-custom__overlay {
+    opacity: 1;
+  }
 }
 
 .btn-custom__label {
@@ -239,6 +242,27 @@ html {
 
   &.headroom--unpinned {
     transform: translateY(-100%);
+  }
+}
+
+// Bootstrap has no page-enter animation utility; route changes fade main content in.
+.page-transition {
+  animation: page-transition-fade-in 0.3s ease;
+}
+
+@keyframes page-transition-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition {
+    animation: none;
   }
 }
 
