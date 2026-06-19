@@ -9,7 +9,7 @@ export default function Landing() {
           <TextScramble text="I design & build" tag="h1" />
           <TextScramble text="UX/UI Designer & Engineer" tag="p" className="h5" />
         </div>
-        <p className="text-muted">I design and build digital products for brands that give a shit.</p>
+        <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
         <div className="d-flex flex-wrap gap-2">
           <BtnCustom label="View work" href="#work" />
           <BtnCustom variant="secondary" label="Get in touch" href="#contact" />
@@ -47,13 +47,6 @@ export default function Landing() {
           <span className="text-highlight">*</span>Work
         </h4>
         <p>Case studies and projects coming soon.</p>
-      </section>
-
-      <section id="cv" className="container py-5 d-flex flex-column gap-2 border-bottom">
-        <h4>
-          <span className="text-highlight">*</span>CV
-        </h4>
-        <p>Resume coming soon.</p>
       </section>
 
       <section id="contact" className="container py-5 d-flex flex-column gap-2">
