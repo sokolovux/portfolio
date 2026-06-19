@@ -11,10 +11,10 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   return (
-    <nav className="navbar sticky-top bg-body py-4 border-bottom">
-      <div className="container d-flex flex-column align-items-center gap-3">
+    <nav className="navbar sticky-top bg-body py-3 border-bottom">
+      <div className="container d-flex flex-column align-items-start gap-2">
         <BrandLink />
-        <div className="d-flex flex-wrap justify-content-center gap-4">
+        <div className="d-flex flex-wrap gap-3 w-100">
           {NAV_LINKS.map((link) => (
             <ScrambleOnHover
               key={link.label}

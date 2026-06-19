@@ -1,10 +1,13 @@
 import BtnCustom from '../components/BtnCustom.jsx'
+import DividerText from '../components/DividerText.jsx'
+import ProjectCard from '../components/ProjectCard.jsx'
 import TextScramble from '../components/TextScramble.jsx'
+import { PROJECTS } from '../constants/projects.js'
 
 export default function Landing() {
   return (
     <>
-      <section className="container py-5 text-left d-flex flex-column gap-3 border-bottom">
+      <section className="container py-5 text-left d-flex flex-column gap-3">
         <div className="d-flex flex-column gap-1">
           <TextScramble text="I design & build" tag="h1" />
           <TextScramble text="UX/UI Designer & Engineer" tag="p" className="h5" />
@@ -21,21 +24,29 @@ export default function Landing() {
         />
       </section>
 
-      <section id="experience" className="container py-5 d-flex flex-column gap-2 border-bottom">
+      <div className="container">
+        <DividerText />
+      </div>
+
+      <section id="experience" className="container py-5 d-flex flex-column gap-2">
         <h4>
           <span className="text-highlight">*</span>Experience
         </h4>
         <p>Case studies and projects coming soon.</p>
         <BtnCustom
           variant="secondary"
-          label="View full CV"
+          label="View CV"
           href="/cv.pdf"
           target="_blank"
           rel="noopener noreferrer"
         />
       </section>
 
-      <section id="about" className="container py-5 d-flex flex-column gap-2 border-bottom">
+      <div className="container">
+        <DividerText />
+      </div>
+
+      <section id="about" className="container py-5 d-flex flex-column gap-2">
         <h4>
           <span className="text-highlight">*</span>About
         </h4>
@@ -46,12 +57,24 @@ export default function Landing() {
         </div>
       </section>
 
-      <section id="work" className="container py-5 d-flex flex-column gap-2 border-bottom">
+      <div className="container">
+        <DividerText />
+      </div>
+
+      <section id="work" className="container py-5 d-flex flex-column gap-4">
         <h4>
           <span className="text-highlight">*</span>Work
         </h4>
-        <p>Case studies and projects coming soon.</p>
+        <div className="d-flex flex-column gap-5">
+          {PROJECTS.map((project) => (
+            <ProjectCard key={project.href} {...project} />
+          ))}
+        </div>
       </section>
+
+      <div className="container">
+        <DividerText />
+      </div>
 
       <section id="contact" className="container py-5 d-flex flex-column gap-2">
         <h4>
