@@ -13,7 +13,7 @@ export default function Landing() {
           <TextScramble text="UX/UI Designer & Engineer" tag="p" className="h5" />
         </div>
         <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-        <div className="d-flex flex-wrap gap-2">
+        <div className="d-flex flex-row gap-2">
           <BtnCustom label="View work" href="#work" />
           <BtnCustom variant="secondary" label="Get in touch" href="#contact" />
         </div>
@@ -46,21 +46,6 @@ export default function Landing() {
         <DividerText />
       </div>
 
-      <section id="about" className="container py-5 d-flex flex-column gap-2">
-        <h4>
-          <span className="text-highlight">*</span>About
-        </h4>
-        <p>Get in touch.</p>
-        <div className="d-flex flex-wrap gap-2">
-          <BtnCustom label="Button"/>
-          <BtnCustom variant="secondary" label="Button"/>
-        </div>
-      </section>
-
-      <div className="container">
-        <DividerText />
-      </div>
-
       <section id="work" className="container py-5 d-flex flex-column gap-4">
         <h4>
           <span className="text-highlight">*</span>Work
@@ -69,6 +54,21 @@ export default function Landing() {
           {PROJECTS.map((project) => (
             <ProjectCard key={project.href} {...project} />
           ))}
+        </div>
+      </section>
+
+      <div className="container">
+        <DividerText />
+      </div>
+
+      <section id="about" className="container py-5 d-flex flex-column gap-2">
+        <h4>
+          <span className="text-highlight">*</span>About
+        </h4>
+        <p>Get in touch.</p>
+        <div className="d-flex flex-row gap-2">
+          <BtnCustom label="Button" />
+          <BtnCustom variant="secondary" label="Button" />
         </div>
       </section>
 

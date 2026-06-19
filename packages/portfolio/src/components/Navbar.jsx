@@ -8,8 +8,9 @@ const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Work', href: '#work' },
   { label: 'CV', href: '/cv.pdf', target: '_blank', rel: 'noopener noreferrer' },
-  { label: 'Contact', href: '#contact' },
 ]
+
+const CONTACT_LINK = { label: 'Contact', href: '#contact' }
 
 export default function Navbar() {
   const navRef = useRef(null)
@@ -42,20 +43,28 @@ export default function Navbar() {
         ref={navRef}
         className="navbar navbar-headroom fixed-top bg-body py-3 border-bottom w-100"
       >
-        <div className="container d-flex flex-column align-items-start gap-2">
+        <div className="container d-flex flex-column align-items-start gap-3">
           <BrandLink />
-          <div className="d-flex flex-wrap gap-3 w-100">
-            {NAV_LINKS.map((link) => (
-              <ScrambleOnHover
-                key={link.label}
-                text={link.label}
-                tag="a"
-                className="nav-link"
-                href={link.href}
-                target={link.target}
-                rel={link.rel}
-              />
-            ))}
+          <div className="d-flex flex-wrap align-items-center justify-content-between gap-3 w-100">
+            <div className="d-flex flex-wrap gap-3">
+              {NAV_LINKS.map((link) => (
+                <ScrambleOnHover
+                  key={link.label}
+                  text={link.label}
+                  tag="a"
+                  className="nav-link"
+                  href={link.href}
+                  target={link.target}
+                  rel={link.rel}
+                />
+              ))}
+            </div>
+            <ScrambleOnHover
+              text={CONTACT_LINK.label}
+              tag="a"
+              className="nav-link"
+              href={CONTACT_LINK.href}
+            />
           </div>
         </div>
       </nav>
