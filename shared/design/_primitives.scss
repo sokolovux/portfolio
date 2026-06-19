@@ -22,7 +22,7 @@ $dark: $gray-900;
 // Body & surfaces
 $body-bg: $gray-100;
 $body-color: $gray-900;
-$body-secondary-color: $gray-600;
+$body-secondary-color: $gray-700;
 $body-secondary-bg: $gray-200;
 $body-tertiary-bg: $gray-100;
 $border-color: $gray-300;
@@ -39,6 +39,15 @@ $headings-letter-spacing: -0.06ch;
 $headings-margin-bottom: 0;
 $paragraph-margin-bottom: 0;
 $lead-font-weight: 400;
+
+// Layout
+$container-max-widths: (
+  sm: 600px,
+  md: 600px,
+  lg: 600px,
+  xl: 600px,
+  xxl: 600px
+);
 
 // Border radius
 $border-radius: 8px;
@@ -58,6 +67,9 @@ $enable-dark-mode: false;
 // Offcanvas & navbar
 $offcanvas-horizontal-width: 320px;
 $navbar-nav-link-padding-left: 12px;
+$nav-link-font-weight: $headings-font-weight;
+$nav-link-color: inherit;
+$nav-link-hover-color: inherit;
 
 // Transitions
 $transition-base: all .1s ease;

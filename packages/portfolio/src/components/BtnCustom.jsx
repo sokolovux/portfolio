@@ -4,6 +4,7 @@ export default function BtnCustom({
   variant = 'primary',
   className,
   type = 'button',
+  href,
   ...rest
 }) {
   const classes = [
@@ -14,14 +15,21 @@ export default function BtnCustom({
     .filter(Boolean)
     .join(' ')
 
+  const Tag = href ? 'a' : 'button'
+
   return (
-    <button type={type} className={classes} {...rest}>
+    <Tag
+      type={href ? undefined : type}
+      href={href}
+      className={classes}
+      {...rest}
+    >
       <span className="btn-custom__outer">
         <span className="btn-custom__inner">
           <span className="btn-custom__overlay" aria-hidden="true" />
           <h6 className="btn-custom__label">{label ?? children}</h6>
         </span>
       </span>
-    </button>
+    </Tag>
   )
 }

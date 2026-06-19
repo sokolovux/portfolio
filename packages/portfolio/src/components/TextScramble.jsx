@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
-import { SCRAMBLE_INTERVAL_MS } from '../constants/textScramble.js'
+import {
+  SCRAMBLE_DEFAULT_DURATION_MS,
+  scrambleIntervalForDuration,
+} from '../constants/textScramble.js'
 
 const DEFAULT_CHARSET =
   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?'
@@ -41,13 +44,21 @@ function buildDisplayText(text, charset, elapsed, resolveAt, chars, rescramble) 
 export default function TextScramble({
   text,
   trigger = true,
-  duration = 2000,
+  duration = SCRAMBLE_DEFAULT_DURATION_MS,
   charset = DEFAULT_CHARSET,
   className,
   style,
   tag: Tag = 'span',
+  ...rest
 }) {
   const [frame, setFrame] = useState(() => {
+    if (!trigger) {
+      return {
+        displayText: text,
+        resolved: Array.from({ length: text.length }, () => true),
+      }
+    }
+
     const scrambled = initialScramble(text, charset)
 
     return {
@@ -58,6 +69,10 @@ export default function TextScramble({
 
   useEffect(() => {
     if (!trigger) {
+      setFrame({
+        displayText: text,
+        resolved: Array.from({ length: text.length }, () => true),
+      })
       return undefined
     }
 
@@ -66,6 +81,7 @@ export default function TextScramble({
     let lastScrambleTime = null
     let chars = initialScramble(text, charset)
     const resolveAt = createResolveSchedule(text.length, duration)
+    const scrambleInterval = scrambleIntervalForDuration(duration)
 
     const animate = (timestamp) => {
       if (startTime === null) {
@@ -84,7 +100,7 @@ export default function TextScramble({
       }
 
       const rescramble =
-        lastScrambleTime === null || timestamp - lastScrambleTime >= SCRAMBLE_INTERVAL_MS
+        lastScrambleTime === null || timestamp - lastScrambleTime >= scrambleInterval
 
       if (rescramble) {
         lastScrambleTime = timestamp
@@ -121,7 +137,7 @@ export default function TextScramble({
   }, [text, trigger, duration, charset])
 
   return (
-    <Tag className={className} style={style}>
+    <Tag className={className} style={style} {...rest}>
       {[...frame.displayText].map((char, index) => (
         <span
           key={index}

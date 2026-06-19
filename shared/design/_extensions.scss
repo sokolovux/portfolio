@@ -1,5 +1,6 @@
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .h5, .h6,
+a {
   letter-spacing: $headings-letter-spacing;
   text-transform: uppercase;
 }
@@ -57,15 +58,39 @@ h1, h2, h3, h4, h5, h6, p, a, small {
   color: $primary;
 }
 
+// Bootstrap link styles use $link-color; match anchor typography to h6 instead.
 a {
+  @extend h6;
   text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+// Bootstrap has no ratio-2x1 or bg-gray-300 utility.
+.landing-placeholder-image {
+  aspect-ratio: 2 / 1;
+  width: 100%;
+  background-color: var(--bs-gray-300);
+  border-radius: var(--bs-border-radius);
 }
 
 // Bootstrap btn styles don't support layered gradient keys; custom structure required.
 .btn-custom {
+  display: block;
+  align-self: stretch;
+  width: 100%;
   background: none;
   border: none;
   padding: 0;
+
+  @include media-breakpoint-up(sm) {
+    display: inline-block;
+    align-self: flex-start;
+    width: auto;
+  }
 
   &:focus {
     outline: none;
@@ -79,6 +104,7 @@ a {
 }
 
 .btn-custom__outer {
+  width: 100%;
   background: linear-gradient(
     to top,
     var(--bs-primary),
@@ -94,6 +120,7 @@ a {
 }
 
 .btn-custom__inner {
+  width: 100%;
   background: linear-gradient(
     to bottom,
     var(--bs-primary),
@@ -109,7 +136,11 @@ a {
 
 .btn-custom__overlay {
   position: absolute;
-  inset: -6px;
+  top: -6px;
+  right: -6px;
+  bottom: -6px;
+  left: -6px;
+  width: auto;
   z-index: 1;
   background: rgba(0, 0, 0, 0.04);
   border-radius: var(--bs-border-radius);
@@ -160,4 +191,12 @@ a {
       box-shadow: none;
     }
   }
+}
+
+p {
+  color: $body-secondary-color;
+}
+
+section {
+  min-height: 480px;
 }
