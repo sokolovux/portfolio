@@ -62,12 +62,22 @@ export function getRedisEnvDiagnostics(env = process.env) {
     ) ??
     null
 
-  return {
+  const diagnostics = {
     hasUrl: Boolean(urlKey),
     hasToken: Boolean(tokenKey),
     urlKey,
     tokenKey,
   }
+
+  if (!diagnostics.hasUrl && diagnostics.hasToken) {
+    diagnostics.hint =
+      'UPSTASH_REDIS_REST_URL is missing or empty in Vercel. Add it (Production scope), then redeploy.'
+  } else if (!diagnostics.hasUrl && !diagnostics.hasToken) {
+    diagnostics.hint =
+      'Add UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN in Vercel (Production scope), then redeploy.'
+  }
+
+  return diagnostics
 }
 
 function getRedisCredentials(env) {
