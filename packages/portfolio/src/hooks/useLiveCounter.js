@@ -15,7 +15,7 @@ async function fetchCount() {
 
 export function useLiveCounter() {
   const [count, setCount] = useState(null)
-  const [available, setAvailable] = useState(true)
+  const [available, setAvailable] = useState(false)
 
   const refresh = useCallback(async () => {
     try {

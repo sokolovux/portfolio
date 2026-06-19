@@ -1,27 +1,27 @@
+import BtnCustom from './BtnCustom.jsx'
 import { useLiveCounter } from '../hooks/useLiveCounter.js'
 
 export default function LiveCounter() {
   const { count, increment, available } = useLiveCounter()
 
-  if (!available) {
-    return null
-  }
-
-  const displayCount = count ?? '…'
+  const displayCount = available && count !== null ? count.toLocaleString() : '…'
 
   return (
-    <div className="d-flex align-items-center gap-2">
-      <button
+    <div className="d-flex align-items-center gap-3">
+      <BtnCustom
+        variant="secondary"
+        label="Click me"
         type="button"
-        className="btn btn-outline-secondary btn-sm"
         onClick={increment}
-        disabled={count === null}
-        aria-label={`Bump counter, currently ${displayCount}`}
-      >
-        Bump
-      </button>
-      <span className="small text-muted" aria-live="polite">
-        {typeof displayCount === 'number' ? displayCount.toLocaleString() : displayCount}
+        disabled={!available || count === null}
+        aria-label={
+          available && count !== null
+            ? `Bump counter, currently ${count}`
+            : 'Bump counter, loading'
+        }
+      />
+      <span className="display-mono" aria-live="polite">
+        {displayCount}
       </span>
     </div>
   )
