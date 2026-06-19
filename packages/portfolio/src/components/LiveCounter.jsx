@@ -20,9 +20,12 @@ export default function LiveCounter() {
             : 'Bump counter, loading'
         }
       />
-      <span className="display-mono" aria-live="polite">
+      <div className="d-flex flex-column">
+      <span className="h5 display-mono" aria-live="polite">
         {displayCount}
-      </span>
+      </span> 
+      <p className="small text-muted">Let's get it to a million!</p>
+      </div>
     </div>
   )
 }
