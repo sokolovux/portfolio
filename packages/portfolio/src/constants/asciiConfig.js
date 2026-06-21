@@ -14,8 +14,9 @@ export const DEFAULT_ASCII_CONFIG = {
   colors: ['#fafafa', '#e2e2e2', '#b0b0b0', '#888888', '#585858'],
 }
 
-// Committed landing config — production always uses this. Update via /ascii-dev → Copy snippet.
+// Deployed landing defaults. Bump `version` whenever this changes and you deploy.
 export const LANDING_ASCII_CONFIG = {
+  version: 1,
   ...DEFAULT_ASCII_CONFIG,
 }
 
@@ -28,39 +29,60 @@ function normalizeColors(colors) {
 }
 
 function normalizeAsciiConfig(parsed = {}) {
+  const { version, ...fields } = parsed
+
   return {
     ...DEFAULT_ASCII_CONFIG,
-    ...parsed,
-    colors: normalizeColors(parsed.colors),
+    ...fields,
+    colors: normalizeColors(fields.colors),
   }
+}
+
+function getDeployedAnimationConfig() {
+  const { version, ...fields } = LANDING_ASCII_CONFIG
+
+  return normalizeAsciiConfig(fields)
 }
 
 export const ASCII_LANDING_CONFIG_STORAGE_KEY = 'portfolio:ascii-landing-config'
 export const ASCII_LANDING_CONFIG_EVENT = 'ascii-landing-config-saved'
 
 export function loadAsciiLandingConfig() {
-  const committed = normalizeAsciiConfig(LANDING_ASCII_CONFIG)
-
-  if (import.meta.env.PROD) {
-    return committed
-  }
+  const deployed = getDeployedAnimationConfig()
 
   try {
     const raw = localStorage.getItem(ASCII_LANDING_CONFIG_STORAGE_KEY)
 
     if (!raw) {
-      return committed
+      return deployed
     }
 
-    const parsed = JSON.parse(raw)
-    return normalizeAsciiConfig({ ...committed, ...parsed })
+    const saved = JSON.parse(raw)
+
+    if (saved.configVersion !== LANDING_ASCII_CONFIG.version) {
+      localStorage.removeItem(ASCII_LANDING_CONFIG_STORAGE_KEY)
+      return deployed
+    }
+
+    return normalizeAsciiConfig({ ...deployed, ...saved.config })
   } catch {
-    return committed
+    return deployed
   }
 }
 
 export function saveAsciiLandingConfig(config) {
-  localStorage.setItem(ASCII_LANDING_CONFIG_STORAGE_KEY, JSON.stringify(config))
+  localStorage.setItem(
+    ASCII_LANDING_CONFIG_STORAGE_KEY,
+    JSON.stringify({
+      configVersion: LANDING_ASCII_CONFIG.version,
+      config: normalizeAsciiConfig(config),
+    }),
+  )
+  window.dispatchEvent(new Event(ASCII_LANDING_CONFIG_EVENT))
+}
+
+export function clearAsciiLandingConfig() {
+  localStorage.removeItem(ASCII_LANDING_CONFIG_STORAGE_KEY)
   window.dispatchEvent(new Event(ASCII_LANDING_CONFIG_EVENT))
 }
 
@@ -115,7 +137,10 @@ export const ASCII_FONTS = [
 ]
 
 export function formatAsciiConfigForCode(config) {
+  const nextVersion = LANDING_ASCII_CONFIG.version + 1
+
   return `export const LANDING_ASCII_CONFIG = {
+  version: ${nextVersion},
   charset: ${JSON.stringify(config.charset)},
   frameWidth: ${config.frameWidth},
   frameHeight: ${config.frameHeight},
