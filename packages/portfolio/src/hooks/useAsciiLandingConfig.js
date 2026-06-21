@@ -1,30 +1,23 @@
 import { useEffect, useState } from 'react'
 import {
-  ASCII_LANDING_CONFIG_EVENT,
-  ASCII_LANDING_CONFIG_STORAGE_KEY,
-  loadAsciiLandingConfig,
+  fetchAsciiLandingConfig,
+  getFallbackAsciiConfig,
 } from '../constants/asciiConfig.js'
 
 export function useAsciiLandingConfig() {
-  const [config, setConfig] = useState(() => loadAsciiLandingConfig())
+  const [config, setConfig] = useState(getFallbackAsciiConfig)
 
   useEffect(() => {
-    function syncConfig() {
-      setConfig(loadAsciiLandingConfig())
-    }
+    let cancelled = false
 
-    function onStorage(event) {
-      if (event.key === ASCII_LANDING_CONFIG_STORAGE_KEY) {
-        syncConfig()
+    fetchAsciiLandingConfig().then((nextConfig) => {
+      if (!cancelled) {
+        setConfig(nextConfig)
       }
-    }
-
-    window.addEventListener(ASCII_LANDING_CONFIG_EVENT, syncConfig)
-    window.addEventListener('storage', onStorage)
+    })
 
     return () => {
-      window.removeEventListener(ASCII_LANDING_CONFIG_EVENT, syncConfig)
-      window.removeEventListener('storage', onStorage)
+      cancelled = true
     }
   }, [])
 

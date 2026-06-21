@@ -98,14 +98,22 @@ function getRedisCredentials(env) {
   return { url, token }
 }
 
-export function createCounterStore(env = process.env) {
+export function createRedis(env = process.env) {
   const credentials = getRedisCredentials(env)
 
   if (!credentials) {
     return null
   }
 
-  const redis = new Redis(credentials)
+  return new Redis(credentials)
+}
+
+export function createCounterStore(env = process.env) {
+  const redis = createRedis(env)
+
+  if (!redis) {
+    return null
+  }
 
   return {
     async get() {
