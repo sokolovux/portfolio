@@ -24,7 +24,7 @@ export default function Landing() {
       <section className="container py-5 text-left d-flex flex-column gap-4">
         <div className="d-flex flex-column gap-3">
           <div className="d-flex flex-column gap-1">
-            <TextScramble text="I design & code cool shit" tag="h1" />
+            <TextScramble text="I design & code" tag="h1" />
             <TextScramble text="UX/UI Designer & Engineer" tag="p" className="h5" />
           </div>
           <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
