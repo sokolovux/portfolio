@@ -9,6 +9,10 @@ export function useAsciiLandingConfig() {
   const [config, setConfig] = useState(() => loadAsciiLandingConfig())
 
   useEffect(() => {
+    if (import.meta.env.PROD) {
+      return undefined
+    }
+
     function syncConfig() {
       setConfig(loadAsciiLandingConfig())
     }

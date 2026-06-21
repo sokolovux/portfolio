@@ -11,7 +11,12 @@ export const DEFAULT_ASCII_CONFIG = {
   chaos: 0,
   mirrorAxis: 'none',
   globalVal: 5,
-  colors: ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff'],
+  colors: ['#fafafa', '#e2e2e2', '#b0b0b0', '#888888', '#585858'],
+}
+
+// Committed landing config — production always uses this. Update via /ascii-dev → Copy snippet.
+export const LANDING_ASCII_CONFIG = {
+  ...DEFAULT_ASCII_CONFIG,
 }
 
 function normalizeColors(colors) {
@@ -34,17 +39,23 @@ export const ASCII_LANDING_CONFIG_STORAGE_KEY = 'portfolio:ascii-landing-config'
 export const ASCII_LANDING_CONFIG_EVENT = 'ascii-landing-config-saved'
 
 export function loadAsciiLandingConfig() {
+  const committed = normalizeAsciiConfig(LANDING_ASCII_CONFIG)
+
+  if (import.meta.env.PROD) {
+    return committed
+  }
+
   try {
     const raw = localStorage.getItem(ASCII_LANDING_CONFIG_STORAGE_KEY)
 
     if (!raw) {
-      return { ...DEFAULT_ASCII_CONFIG }
+      return committed
     }
 
     const parsed = JSON.parse(raw)
-    return normalizeAsciiConfig(parsed)
+    return normalizeAsciiConfig({ ...committed, ...parsed })
   } catch {
-    return { ...DEFAULT_ASCII_CONFIG }
+    return committed
   }
 }
 
@@ -104,7 +115,7 @@ export const ASCII_FONTS = [
 ]
 
 export function formatAsciiConfigForCode(config) {
-  return `const LANDING_ASCII_CONFIG = {
+  return `export const LANDING_ASCII_CONFIG = {
   charset: ${JSON.stringify(config.charset)},
   frameWidth: ${config.frameWidth},
   frameHeight: ${config.frameHeight},

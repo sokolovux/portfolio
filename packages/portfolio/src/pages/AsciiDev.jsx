@@ -30,8 +30,9 @@ export default function AsciiDev() {
       <header className="d-flex flex-column gap-2">
         <h1>ASCII dev</h1>
         <p className="text-muted mb-0">
-          Live-tune all 12 animation controls, then press Save to update the landing page
-          animation. Copy the snippet below when you are ready to commit values to code.
+          Save updates landing on localhost only (browser storage). Production uses{' '}
+          <code>LANDING_ASCII_CONFIG</code> in <code>asciiConfig.js</code> — copy the
+          snippet below, replace that constant, and deploy.
         </p>
       </header>
 
