@@ -34,3 +34,7 @@ Currently the portfolio is a client-side SPA with no metadata strategy, crawl in
 ### Resources app
 
 - [ ] Confirm `robots.txt` / meta robots blocks indexing of the passcode-gated resources site
+
+## Domain
+
+- [ ] Reroute the maximsokolov.com domain to hisokolov.com
