@@ -1,0 +1,122 @@
+export const DEFAULT_ASCII_CONFIG = {
+  charset: ' .:-=+*%@#',
+  frameWidth: 96,
+  frameHeight: 28,
+  fontFamily: 'Geist Mono',
+  xConstant: 0.1,
+  yConstant: 0.1,
+  frameMultiplier: 0.1,
+  animationSpeed: 50,
+  pattern: 'spiralWave',
+  chaos: 0,
+  mirrorAxis: 'none',
+  globalVal: 5,
+  colors: ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff'],
+}
+
+function normalizeColors(colors) {
+  if (!Array.isArray(colors) || colors.length !== 5) {
+    return [...DEFAULT_ASCII_CONFIG.colors]
+  }
+
+  return colors
+}
+
+function normalizeAsciiConfig(parsed = {}) {
+  return {
+    ...DEFAULT_ASCII_CONFIG,
+    ...parsed,
+    colors: normalizeColors(parsed.colors),
+  }
+}
+
+export const ASCII_LANDING_CONFIG_STORAGE_KEY = 'portfolio:ascii-landing-config'
+export const ASCII_LANDING_CONFIG_EVENT = 'ascii-landing-config-saved'
+
+export function loadAsciiLandingConfig() {
+  try {
+    const raw = localStorage.getItem(ASCII_LANDING_CONFIG_STORAGE_KEY)
+
+    if (!raw) {
+      return { ...DEFAULT_ASCII_CONFIG }
+    }
+
+    const parsed = JSON.parse(raw)
+    return normalizeAsciiConfig(parsed)
+  } catch {
+    return { ...DEFAULT_ASCII_CONFIG }
+  }
+}
+
+export function saveAsciiLandingConfig(config) {
+  localStorage.setItem(ASCII_LANDING_CONFIG_STORAGE_KEY, JSON.stringify(config))
+  window.dispatchEvent(new Event(ASCII_LANDING_CONFIG_EVENT))
+}
+
+export const ASCII_PATTERNS = [
+  { value: 'spiralWave', label: 'SpiralWave' },
+  { value: 'rippling', label: 'Rippling' },
+  { value: 'grid', label: 'Grid' },
+  { value: 'centerSpiral', label: 'Center Spiral' },
+  { value: 'raySpiral', label: 'Ray Spiral' },
+  { value: 'circular', label: 'Circular' },
+  { value: 'concentricCircles', label: 'Concentric Circles' },
+  { value: 'expanding', label: 'Expanding' },
+  { value: 'twirling', label: 'Twirling' },
+  { value: 'radialRays', label: 'Radial Rays' },
+  { value: 'wavefronts', label: 'Wavefronts' },
+  { value: 'diagonalWaves', label: 'Diagonal Waves' },
+  { value: 'bounceDiagonals', label: 'Bounce Diagonals' },
+  { value: 'pulsating', label: 'Pulsating' },
+  { value: 'horizontalWave', label: 'Horizontal Wave' },
+  { value: 'verticalWave', label: 'Vertical Wave' },
+  { value: 'parabolic', label: 'Parabolic' },
+  { value: 'cross', label: 'Cross' },
+  { value: 'rise', label: 'Rise' },
+  { value: 'burst', label: 'Burst' },
+  { value: 'randomBurst', label: 'Random Burst' },
+  { value: 'squareWave', label: 'Square Wave' },
+  { value: 'mosaic', label: 'Mosaic' },
+  { value: 'helix', label: 'Helix' },
+  { value: 'spirals', label: 'Spirals' },
+  { value: 'swirling', label: 'Swirling' },
+]
+
+export const ASCII_MIRROR_OPTIONS = [
+  { value: 'none', label: 'None' },
+  { value: 'x', label: 'X-axis' },
+  { value: 'y', label: 'Y-axis' },
+]
+
+export const ASCII_FONTS = [
+  { value: 'Geist Mono', label: 'Geist Mono' },
+  { value: 'monospace', label: 'Monospace' },
+  { value: 'Consolas', label: 'Consolas' },
+  { value: 'Lucida Console', label: 'Lucida Console' },
+  { value: 'Courier New', label: 'Courier New' },
+  { value: 'Roboto Mono', label: 'Roboto Mono' },
+  { value: 'Source Code Pro', label: 'Source Code Pro' },
+  { value: 'Ubuntu Mono', label: 'Ubuntu Mono' },
+  { value: 'Space Mono', label: 'Space Mono' },
+  { value: 'Inconsolata', label: 'Inconsolata' },
+  { value: 'VT323', label: 'VT323' },
+  { value: 'Fira Mono', label: 'Fira Mono' },
+]
+
+export function formatAsciiConfigForCode(config) {
+  return `const LANDING_ASCII_CONFIG = {
+  charset: ${JSON.stringify(config.charset)},
+  frameWidth: ${config.frameWidth},
+  frameHeight: ${config.frameHeight},
+  fontFamily: ${JSON.stringify(config.fontFamily)},
+  xConstant: ${config.xConstant},
+  yConstant: ${config.yConstant},
+  frameMultiplier: ${config.frameMultiplier},
+  animationSpeed: ${config.animationSpeed},
+  pattern: ${JSON.stringify(config.pattern)},
+  chaos: ${config.chaos},
+  mirrorAxis: ${JSON.stringify(config.mirrorAxis)},
+  globalVal: ${config.globalVal},
+  colors: ${JSON.stringify(config.colors)},
+}`
+}

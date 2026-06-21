@@ -1,14 +1,17 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import AsciiAnimation from '../components/AsciiAnimation.jsx'
 import BtnCustom from '../components/BtnCustom.jsx'
 import DividerText from '../components/DividerText.jsx'
 import ProjectCard from '../components/ProjectCard.jsx'
 import TextScramble from '../components/TextScramble.jsx'
 import { PROJECTS } from '../constants/projects.js'
+import { useAsciiLandingConfig } from '../hooks/useAsciiLandingConfig.js'
 import { scrollToHashTarget } from '../utils/scrollToHash.js'
 
 export default function Landing() {
   const { hash } = useLocation()
+  const asciiConfig = useAsciiLandingConfig()
 
   useEffect(() => {
     if (!hash) return
@@ -18,21 +21,19 @@ export default function Landing() {
 
   return (
     <>
-      <section className="container py-5 text-left d-flex flex-column gap-3">
-        <div className="d-flex flex-column gap-1">
-          <TextScramble text="I design & code cool shit" tag="h1" />
-          <TextScramble text="UX/UI Designer & Engineer" tag="p" className="h5" />
+      <section className="container py-5 text-left d-flex flex-column gap-4">
+        <div className="d-flex flex-column gap-3">
+          <div className="d-flex flex-column gap-1">
+            <TextScramble text="I design & code cool shit" tag="h1" />
+            <TextScramble text="UX/UI Designer & Engineer" tag="p" className="h5" />
+          </div>
+          <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+          <div className="d-flex flex-row gap-2">
+            <BtnCustom label="View work" href="#work" />
+            <BtnCustom variant="secondary" label="Get in touch" href="#contact" />
+          </div>
         </div>
-        <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-        <div className="d-flex flex-row gap-2">
-          <BtnCustom label="View work" href="#work" />
-          <BtnCustom variant="secondary" label="Get in touch" href="#contact" />
-        </div>
-        <div
-          className="landing-placeholder-image shadow"
-          role="img"
-          aria-label="Placeholder image"
-        />
+        <AsciiAnimation config={asciiConfig} />
       </section>
 
       <div className="container">

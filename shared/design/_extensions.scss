@@ -70,6 +70,55 @@ a {
   }
 }
 
+// Bootstrap has no fluid ch/em grid; --ascii-font-size is set from JS after measuring scrollWidth.
+.ascii-animation-shell {
+  overflow: hidden;
+  max-width: 100%;
+  overscroll-behavior: contain;
+}
+
+.ascii-animation {
+  font-family: var(
+    --ascii-font-family,
+    "Geist Mono",
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace
+  );
+  font-size: var(--ascii-font-size, 10px);
+  line-height: 1;
+  white-space: pre;
+  overflow: hidden;
+  margin: 0;
+  // Bootstrap has no intrinsic-width pre helper; JS measures scrollWidth before scaling to container.
+  width: max-content;
+  max-width: none;
+}
+
+// Bootstrap has no per-cell ASCII palette; hex values are injected as --ascii-color-* from JS.
+.ascii-char-0 {
+  color: var(--ascii-color-0);
+}
+
+.ascii-char-1 {
+  color: var(--ascii-color-1);
+}
+
+.ascii-char-2 {
+  color: var(--ascii-color-2);
+}
+
+.ascii-char-3 {
+  color: var(--ascii-color-3);
+}
+
+.ascii-char-4 {
+  color: var(--ascii-color-4);
+}
+
 // Bootstrap has no ratio-2x1 or bg-gray-300 utility.
 .landing-placeholder-image {
   aspect-ratio: 2 / 1;
