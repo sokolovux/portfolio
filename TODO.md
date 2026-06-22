@@ -35,6 +35,10 @@ Currently the portfolio is a client-side SPA with no metadata strategy, crawl in
 
 - [ ] Confirm `robots.txt` / meta robots blocks indexing of the passcode-gated resources site
 
+## Performance
+
+- [ ] Do a comprehensive performance/speed checkup of the site
+
 ## Domain
 
 - [ ] Reroute the maximsokolov.com domain to hisokolov.com

@@ -51,21 +51,10 @@ export default function TextScramble({
   tag: Tag = 'span',
   ...rest
 }) {
-  const [frame, setFrame] = useState(() => {
-    if (!trigger) {
-      return {
-        displayText: text,
-        resolved: Array.from({ length: text.length }, () => true),
-      }
-    }
-
-    const scrambled = initialScramble(text, charset)
-
-    return {
-      displayText: scrambled.join(''),
-      resolved: unresolvedFlags(text.length),
-    }
-  })
+  const [frame, setFrame] = useState(() => ({
+    displayText: text,
+    resolved: Array.from({ length: text.length }, () => true),
+  }))
 
   useEffect(() => {
     if (!trigger) {

@@ -1,0 +1,62 @@
+---
+name: seo
+description: Keep SEO metadata in sync when portfolio page content changes
+alwaysApply: true
+---
+
+# SEO sync rule
+
+When you change **user-visible page content** in the portfolio app, check whether SEO metadata still matches. Update SEO **in the same change** when it does not. Do not leave stale titles, descriptions, or missing prerender/sitemap entries.
+
+## Source of truth
+
+| What | Where |
+|------|--------|
+| Home title & description | `packages/portfolio/src/constants/site.js` → `HOME_PAGE_META` |
+| Project title, summary, OG image | `packages/portfolio/src/constants/projects.js` → `title`, `description`, optional `ogImage` |
+| Route → meta mapping | `packages/portfolio/src/utils/getRouteMeta.js` |
+| Head tag rendering | `packages/portfolio/src/utils/documentMeta.js` |
+| JSON-LD structured data | `packages/portfolio/src/utils/structuredData.js` + `packages/portfolio/src/constants/site.js` (`SITE_ROLE`, `SITE_LINKEDIN`, `SITE_GITHUB`, `SITE_TELEGRAM`) |
+| Client head sync | `packages/portfolio/src/components/RouteMeta.jsx` |
+| Prerender routes | `packages/portfolio/src/constants/projects.js` → `PRERENDER_ROUTES` |
+| Crawl files | `packages/portfolio/scripts/generate-crawl-files.mjs` → `public/robots.txt`, `public/sitemap.xml` (from `PRERENDER_ROUTES` + `VITE_SITE_URL`) |
+| Canonical base URL | `VITE_SITE_URL` in env; fallback in `site.js` |
+
+Project pages derive `<title>`, `meta description`, Open Graph, Twitter, and canonical URL from `projects.js`. Home page meta is **not** auto-derived from `Landing.jsx` — update `HOME_PAGE_META` explicitly.
+
+## When to update SEO
+
+**Update metadata when you change any of these:**
+
+- Hero headline or role/tagline on the landing page → `HOME_PAGE_META.title` and/or `description` (keep aligned with visible copy; descriptions ~150–160 chars, factual, no lorem ipsum)
+- Landing bio or intro paragraph that summarizes the site → `HOME_PAGE_META.description`
+- Project name → `projects.js` `title` (also drives `<title>` and `og:title`)
+- Project card or case-study summary → `projects.js` `description`
+- Project hero/lead text on `ProjectPage` → same `description` if it is the page summary
+- Project slug or URL → `slug`, `href`, and confirm `PRERENDER_ROUTES` still correct
+- New indexable route (e.g. new `/work/:slug`) → add to `PROJECTS`, ensure `PRERENDER_ROUTES` includes it, add to `public/sitemap.xml` when that file exists
+- New share/preview image → `public/` asset + `ogImage` on the project or update `DEFAULT_OG_IMAGE` in `site.js`
+- Page becomes non-indexable (dev-only, gated) → exclude from `PRERENDER_ROUTES` / sitemap; use `noindex` when robots/meta infra exists
+
+**Usually no SEO change needed:**
+
+- Layout, styling, or animation-only edits
+- TOC, section headings, or body copy **below** the project summary (unless the summary itself changed)
+- Component refactors that do not change rendered text
+- Resources app content (passcode-gated; must stay non-indexable)
+
+## Checklist (run before finishing a content edit)
+
+1. Does visible copy still match `HOME_PAGE_META` or the project's `title` / `description`?
+2. Are titles concise and unique? Format: `{Page} — Maxim Sokolov` for projects; home uses `HOME_PAGE_META.title`.
+3. Is `description` a real summary (not placeholder), suitable for search and social previews?
+4. If a route was added or removed, is `PRERENDER_ROUTES` updated? Re-run build so `sitemap.xml` regenerates.
+5. If metadata changed, run `npm run build` in `packages/portfolio` and confirm prerendered HTML in `dist/` has correct `<head>` tags.
+
+## Structured data
+
+When JSON-LD exists, update `Person` / `CreativeWork` in `structuredData.js` when name, role, bio, project title, or summary changes. Keep `SITE_LINKEDIN`, `SITE_GITHUB`, `SITE_TELEGRAM` in `site.js` current with profile URLs. Schema must cite the same facts as visible copy and meta tags.
+
+## Resources app
+
+Do not index `packages/resources`. Never copy its content into portfolio SEO metadata.

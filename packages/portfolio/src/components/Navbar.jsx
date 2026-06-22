@@ -8,10 +8,13 @@ const NAV_LINKS = [
   { label: 'Experience', to: '/#experience' },
   { label: 'About', to: '/#about' },
   { label: 'Work', to: '/#work' },
-  { label: 'CV', href: '/cv.pdf', target: '_blank', rel: 'noopener noreferrer' },
+  { label: 'Playground', to: '/#playground' },
 ]
 
-const CONTACT_LINK = { label: 'Contact', to: '/#contact' }
+const TRAILING_NAV_LINKS = [
+  { label: 'CV', href: '/cv.pdf', target: '_blank', rel: 'noopener noreferrer' },
+  { label: 'Contact', to: '/#contact' },
+]
 
 function NavLink({ link }) {
   if (link.to) {
@@ -76,7 +79,11 @@ export default function Navbar() {
                 <NavLink key={link.label} link={link} />
               ))}
             </div>
-            <NavLink link={CONTACT_LINK} />
+            <div className="d-flex flex-wrap gap-3">
+              {TRAILING_NAV_LINKS.map((link) => (
+                <NavLink key={link.label} link={link} />
+              ))}
+            </div>
           </div>
         </div>
       </nav>

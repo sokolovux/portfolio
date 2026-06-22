@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /ds
+Disallow: /ascii-dev
+
+Sitemap: https://hisokolov.com/sitemap.xml

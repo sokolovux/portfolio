@@ -9,6 +9,11 @@ import { PROJECTS } from '../constants/projects.js'
 import { useAsciiLandingConfig } from '../hooks/useAsciiLandingConfig.js'
 import { scrollToHashTarget } from '../utils/scrollToHash.js'
 
+const PLAYGROUND_IMAGES = Array.from({ length: 8 }, (_, index) => ({
+  id: `playground-${index + 1}`,
+  label: `Playground experiment ${index + 1}`,
+}))
+
 export default function Landing() {
   const { hash } = useLocation()
   const asciiConfig = useAsciiLandingConfig()
@@ -44,7 +49,6 @@ export default function Landing() {
         <h4>
           <span className="text-highlight">*</span>Experience
         </h4>
-        <p>Case studies and projects coming soon.</p>
         <BtnCustom
           variant="secondary"
           label="View CV"
@@ -73,11 +77,31 @@ export default function Landing() {
         <DividerText />
       </div>
 
+      <section id="playground" className="container py-5 d-flex flex-column gap-4">
+        <h4>
+          <span className="text-highlight">*</span>Playground
+        </h4>
+        <div className="row row-cols-1 row-cols-md-2 g-3">
+          {PLAYGROUND_IMAGES.map((image) => (
+            <div key={image.id} className="col">
+              <div
+                className="project-card__image shadow"
+                role="img"
+                aria-label={image.label}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="container">
+        <DividerText />
+      </div>
+
       <section id="about" className="container py-5 d-flex flex-column gap-2">
         <h4>
           <span className="text-highlight">*</span>About
         </h4>
-        <p>Get in touch.</p>
         <div className="d-flex flex-row gap-2">
           <BtnCustom label="Button" />
           <BtnCustom variant="secondary" label="Button" />

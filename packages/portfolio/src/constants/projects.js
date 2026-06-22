@@ -75,14 +75,14 @@ export const PROJECTS = [
     sections: createSections('Roomerang'),
   },
   {
-    slug: 'alice',
+    slug: 'chainletter',
     index: '03',
     category: 'Project',
-    title: 'Alice',
+    title: 'Chainletter',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    href: '/work/alice',
-    sections: createSections('Alice'),
+    href: '/work/chainletter',
+    sections: createSections('Chainletter'),
   },
   {
     slug: 'mirawell-health',
@@ -99,3 +99,5 @@ export const PROJECTS = [
 export function getProjectBySlug(slug) {
   return PROJECTS.find((project) => project.slug === slug)
 }
+
+export const PRERENDER_ROUTES = ['/', ...PROJECTS.map((project) => project.href)]
