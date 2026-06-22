@@ -5,6 +5,7 @@ export default function ProjectCard({
   index,
   category,
   title,
+  badges = [],
   description,
   href,
   imageLabel,
@@ -20,6 +21,18 @@ export default function ProjectCard({
           />
         </p>
         <h5>{title}</h5>
+        {badges.length > 0 && (
+          <div className="d-flex flex-wrap gap-1">
+            {badges.map((badge, badgeIndex) => (
+              <span
+                key={`${badge}-${badgeIndex}`}
+                className="badge"
+              >
+                {badge}
+              </span>
+            ))}
+          </div>
+        )}
         <small className="text-muted">{description}</small>
         <BtnCustom variant="secondary" label="Read more" href={href} />
       </div>

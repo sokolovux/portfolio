@@ -24,6 +24,10 @@ const BUTTONS = [
   { label: 'Info', className: 'btn btn-outline-info' },
 ]
 
+const PROJECT_BADGES = ['UX/UI', 'Product']
+
+const BADGE_CLASS_NAME = 'badge'
+
 function ColorSwatch({ name, token, bgClass, textClass = '' }) {
   return (
     <div className="col-6 col-md-4 col-lg-3">
@@ -110,23 +114,23 @@ export default function DesignSystem() {
           </div>
 
           <div>
-            <p className="lead">Lead — Geist sans-serif, body scale.</p>
+            <p className="lead">Lead: Geist sans-serif, body scale.</p>
             <p>
-              Body — The quick brown fox jumps over the lazy dog. Headings use Geist at weight
+              Body: The quick brown fox jumps over the lazy dog. Headings use Geist at weight
               500 with negative letter-spacing.
             </p>
-            <p className="text-muted">Muted — secondary body color for supporting text.</p>
-            <p className="small">Small — supplementary captions and metadata.</p>
+            <p className="text-muted">Muted: secondary body color for supporting text.</p>
+            <p className="small">Small: supplementary captions and metadata.</p>
           </div>
 
           <div>
-            <p className="display-mono">Display mono — Geist Mono for monospace display text.</p>
+            <p className="display-mono">Display mono: Geist Mono for monospace display text.</p>
             <p className="small text-muted mb-0">.display-mono</p>
           </div>
 
           <div>
             <p>
-              <a href="#colors">Default link</a> — primary red, darkens on hover.
+              <a href="#colors">Default link</a>: primary red, darkens on hover.
             </p>
             <p className="small text-muted mb-0">$link-color / $link-hover-color</p>
           </div>
@@ -150,6 +154,34 @@ export default function DesignSystem() {
               {button.label}
             </button>
           ))}
+        </div>
+      </Section>
+
+      <Section title="Badges">
+        <p className="text-muted">
+          Badges for project metadata on the home page. Use in pairs below a project title.
+        </p>
+        <div className="d-flex flex-column gap-4">
+          <div className="d-flex flex-wrap gap-2">
+            {PROJECT_BADGES.map((badge) => (
+              <span key={badge} className={BADGE_CLASS_NAME}>
+                {badge}
+              </span>
+            ))}
+          </div>
+          <div className="d-flex flex-column gap-2">
+            <h5>Voicebox</h5>
+            <div className="d-flex flex-wrap gap-2">
+              {PROJECT_BADGES.map((badge) => (
+                <span key={`example-${badge}`} className={BADGE_CLASS_NAME}>
+                  {badge}
+                </span>
+              ))}
+            </div>
+            <p className="small text-muted mb-0">
+              <code>badge</code>: styled via <code>_overrides.scss</code> and <code>_extensions.scss</code>
+            </p>
+          </div>
         </div>
       </Section>
 
@@ -224,10 +256,10 @@ export default function DesignSystem() {
 
       <Section title="Border radius">
         <div className="d-flex flex-wrap gap-3">
-          <div className="bg-body-secondary border rounded p-4">Default — 16px</div>
-          <div className="bg-body-secondary border rounded-sm p-4">Small — 8px</div>
-          <div className="bg-body-secondary border rounded-lg p-4">Large — 32px</div>
-          <div className="bg-body-secondary border rounded-pill px-4 py-3">Pill — 120px</div>
+          <div className="bg-body-secondary border rounded p-4">Default: 16px</div>
+          <div className="bg-body-secondary border rounded-sm p-4">Small: 8px</div>
+          <div className="bg-body-secondary border rounded-lg p-4">Large: 32px</div>
+          <div className="bg-body-secondary border ds-radius-pill px-4 py-3">Pill: 120px</div>
         </div>
       </Section>
     </div>

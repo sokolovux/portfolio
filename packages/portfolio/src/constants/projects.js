@@ -59,6 +59,7 @@ export const PROJECTS = [
     index: '01',
     category: 'Full-time job',
     title: 'Voicebox',
+    badges: ['UX/UI', 'Product'],
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     href: '/work/voicebox',
@@ -69,6 +70,7 @@ export const PROJECTS = [
     index: '02',
     category: 'Project',
     title: 'Roomerang',
+    badges: ['UX/UI', 'Mobile'],
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     href: '/work/roomerang',
@@ -79,6 +81,7 @@ export const PROJECTS = [
     index: '03',
     category: 'Project',
     title: 'Chainletter',
+    badges: ['UX/UI', 'Web'],
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     href: '/work/chainletter',
@@ -89,6 +92,7 @@ export const PROJECTS = [
     index: '04',
     category: 'Project',
     title: 'Mirawell Health',
+    badges: ['UX/UI', 'Health'],
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     href: '/work/mirawell-health',

@@ -119,6 +119,22 @@ a {
   color: var(--ascii-color-4);
 }
 
+// Bootstrap badge has no border token; project badges use a bordered surface treatment.
+// Placeholder overrides — refine padding and type scale when badge design is final.
+.badge {
+  padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
+  font-weight: var(--bs-badge-font-weight);
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  background-color: $gray-200;
+  color: $gray-700;
+}
+
+// Bootstrap rounded-pill utility is banned in markup; DS documents pill radius via this class.
+.ds-radius-pill {
+  border-radius: var(--bs-border-radius-pill);
+}
+
 // Bootstrap has no ratio-2x1 or bg-gray-300 utility.
 .landing-placeholder-image {
   aspect-ratio: 2 / 1;

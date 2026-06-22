@@ -22,7 +22,7 @@ When you change **user-visible page content** in the portfolio app, check whethe
 | Crawl files | `packages/portfolio/scripts/generate-crawl-files.mjs` → `public/robots.txt`, `public/sitemap.xml` (from `PRERENDER_ROUTES` + `VITE_SITE_URL`) |
 | Canonical base URL | `VITE_SITE_URL` in env; fallback in `site.js` |
 
-Project pages derive `<title>`, `meta description`, Open Graph, Twitter, and canonical URL from `projects.js`. Home page meta is **not** auto-derived from `Landing.jsx` — update `HOME_PAGE_META` explicitly.
+Project pages derive `<title>`, `meta description`, Open Graph, Twitter, and canonical URL from `projects.js`. Home page meta is **not** auto-derived from `Landing.jsx`; update `HOME_PAGE_META` explicitly.
 
 ## When to update SEO
 
@@ -48,7 +48,7 @@ Project pages derive `<title>`, `meta description`, Open Graph, Twitter, and can
 ## Checklist (run before finishing a content edit)
 
 1. Does visible copy still match `HOME_PAGE_META` or the project's `title` / `description`?
-2. Are titles concise and unique? Format: `{Page} — Maxim Sokolov` for projects; home uses `HOME_PAGE_META.title`.
+2. Are titles concise and unique? Format: `{Page} | Maxim Sokolov` for projects; home uses `HOME_PAGE_META.title`. Never use em dashes in titles or descriptions.
 3. Is `description` a real summary (not placeholder), suitable for search and social previews?
 4. If a route was added or removed, is `PRERENDER_ROUTES` updated? Re-run build so `sitemap.xml` regenerates.
 5. If metadata changed, run `npm run build` in `packages/portfolio` and confirm prerendered HTML in `dist/` has correct `<head>` tags.
