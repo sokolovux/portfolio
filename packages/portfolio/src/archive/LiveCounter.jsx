@@ -1,5 +1,5 @@
-import BtnCustom from './BtnCustom.jsx'
-import { useLiveCounter } from '../hooks/useLiveCounter.js'
+import BtnCustom from '../components/BtnCustom.jsx'
+import { useLiveCounter } from './useLiveCounter.js'
 
 export default function LiveCounter() {
   const { count, increment, available } = useLiveCounter()
@@ -21,10 +21,10 @@ export default function LiveCounter() {
         }
       />
       <div className="d-flex flex-column">
-      <span className="h5 display-mono" aria-live="polite">
-        {displayCount}
-      </span> 
-      <p className="small text-muted">Let's get it to a million!</p>
+        <span className="h5 display-mono" aria-live="polite">
+          {displayCount}
+        </span>
+        <p className="small text-muted">Let's get it to a million!</p>
       </div>
     </div>
   )
