@@ -8,6 +8,7 @@ a {
 // Bootstrap reboot adds bottom margins to headings and paragraphs; use gap-* on parents for rhythm.
 h1, h2, h3, h4, h5, h6, p, a, small {
   margin-bottom: 0;
+  max-width: 480px;
 }
 
 // Bootstrap has no mono display class; fw-* is banned so weight must live here too.
@@ -138,7 +139,7 @@ a {
 // Bootstrap has no ratio-1x1 utility; landing hero portrait uses object-fit within a square frame.
 .landing-hero-image {
   aspect-ratio: 1 / 1;
-  width: 128px;
+  width: 96px;
   max-width: 100%;
   object-fit: cover;
   border-radius: var(--bs-border-radius);
@@ -154,7 +155,7 @@ a {
 
 // Bootstrap has no ratio-1x1 utility; project cards use a square preview on md+.
 .project-card__image {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1.5;
   width: 100%;
   background-color: var(--bs-gray-300);
   border-radius: var(--bs-border-radius);

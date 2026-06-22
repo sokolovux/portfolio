@@ -24,12 +24,12 @@ export default function Landing() {
   return (
     <>
       <section className="container py-5 text-left d-flex flex-column gap-4">
-        <img
-          src="/landing-hero.png"
-          alt="Maxim Sokolov"
-          className="landing-hero-image shadow"
-        />
-        <div className="d-flex flex-column gap-3">
+        <div className="d-flex flex-column gap-2">
+          <img
+            src="/landing-hero.png"
+            alt="Maxim Sokolov"
+            className="landing-hero-image shadow"
+          />
           <div className="d-flex flex-column gap-1">
             <TextScramble text="I design & code" tag="h1" />
             <TextScramble text="UX/UI Designer & Engineer" tag="p" className="h5" />
@@ -38,11 +38,8 @@ export default function Landing() {
             <li>4+ Products Shipped</li>
             <li>6+ years of experience </li>
             <li>Featured on Times Square</li>
+            <li>Worked at Mark Cuban supported startup</li>
           </ul>
-          <div className="d-flex flex-row gap-2">
-            <BtnCustom label="View work" href="#work" />
-            <BtnCustom variant="secondary" label="Get in touch" href="#contact" />
-          </div>
         </div>
       </section>
 
@@ -50,27 +47,7 @@ export default function Landing() {
         <DividerText />
       </div>
 
-      <section id="experience" className="container py-5 d-flex flex-column gap-2">
-        <h4>
-          <span className="text-highlight">*</span>Experience
-        </h4>
-        <BtnCustom
-          variant="secondary"
-          label="View CV"
-          href="/cv.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-      </section>
-
-      <div className="container">
-        <DividerText />
-      </div>
-
       <section id="work" className="container py-5 d-flex flex-column gap-4">
-        <h4>
-          <span className="text-highlight">*</span>Work
-        </h4>
         <div className="d-flex flex-column gap-5">
           {PROJECTS.map((project) => (
             <ProjectCard key={project.href} {...project} />
@@ -82,10 +59,36 @@ export default function Landing() {
         <DividerText />
       </div>
 
-      <section id="playground" className="container py-5 d-flex flex-column gap-4">
-        <h4>
-          <span className="text-highlight">*</span>Playground
+
+      <section id="about" className="container py-5 d-flex flex-column gap-2">
+        <h4 className="text-highlight">
+          Hey, I'm Maxim. <br /> Nice to meet you!
         </h4>
+        <h6>
+          I'm UX/UI Designer & Engineer.
+        </h6>
+        <p>
+          I started in brand and visual design, moved into UX/UI, then picked up AI codewriting tools and didn't put them down...
+        </p>
+        <p>
+          Today I work across the full stack: from early concepts and discovery to shipped interfaces, discussing design architecture and pushing PRs alongside engineers.
+        </p>
+        <p>
+          Based in NYC. Open to full-time roles and select freelance gigs.
+        </p>
+      </section>
+
+      <div className="container">
+        <DividerText />
+      </div>
+
+      <section id="playground" className="container py-5 d-flex flex-column gap-4">
+        <div className="d-flex flex-column gap-2">
+          <h4>
+            <span className="text-highlight">*</span>Playground
+          </h4>
+          <p>Experiments, concepts and other work.</p>
+        </div>
         <div className="row row-cols-1 row-cols-md-2 g-3">
           {PLAYGROUND_IMAGES.map((image) => (
             <div key={image.id} className="col">
@@ -97,31 +100,6 @@ export default function Landing() {
             </div>
           ))}
         </div>
-      </section>
-
-      <div className="container">
-        <DividerText />
-      </div>
-
-      <section id="about" className="container py-5 d-flex flex-column gap-2">
-        <h4>
-          <span className="text-highlight">*</span>About
-        </h4>
-        <div className="d-flex flex-row gap-2">
-          <BtnCustom label="Button" />
-          <BtnCustom variant="secondary" label="Button" />
-        </div>
-      </section>
-
-      <div className="container">
-        <DividerText />
-      </div>
-
-      <section id="contact" className="container py-5 d-flex flex-column gap-2">
-        <h4>
-          <span className="text-highlight">*</span>Contact
-        </h4>
-        <p>Get in touch.</p>
       </section>
     </>
   )

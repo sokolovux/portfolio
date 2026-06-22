@@ -88,15 +88,15 @@ export const PROJECTS = [
     sections: createSections('Chainletter'),
   },
   {
-    slug: 'mirawell-health',
+    slug: 'kyruus-health',
     index: '04',
     category: 'Project',
-    title: 'Mirawell Health',
+    title: 'Kyruus Health',
     badges: ['UX/UI', 'Health'],
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    href: '/work/mirawell-health',
-    sections: createSections('Mirawell Health'),
+    href: '/work/kyruus-health',
+    sections: createSections('Kyruus Health'),
   },
 ]
 

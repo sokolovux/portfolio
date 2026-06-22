@@ -3,17 +3,13 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import BrandLink from './BrandLink.jsx'
 import ScrambleOnHover from './ScrambleOnHover.jsx'
+import SocialLinks from './SocialLinks.jsx'
 
 const NAV_LINKS = [
-  { label: 'Experience', to: '/#experience' },
-  { label: 'About', to: '/#about' },
   { label: 'Work', to: '/#work' },
-  { label: 'Playground', to: '/#playground' },
-]
-
-const TRAILING_NAV_LINKS = [
   { label: 'CV', href: '/cv.pdf', target: '_blank', rel: 'noopener noreferrer' },
-  { label: 'Contact', to: '/#contact' },
+  { label: 'About', to: '/#about' },
+  { label: 'Playground', to: '/#playground' },
 ]
 
 function NavLink({ link }) {
@@ -76,14 +72,10 @@ export default function Navbar() {
           <div className="d-flex flex-wrap align-items-center justify-content-between gap-3 w-100">
             <div className="d-flex flex-wrap gap-3">
               {NAV_LINKS.map((link) => (
-                <NavLink key={link.label} link={link} />
+                <NavLink key={link.to ?? link.href} link={link} />
               ))}
             </div>
-            <div className="d-flex flex-wrap gap-3">
-              {TRAILING_NAV_LINKS.map((link) => (
-                <NavLink key={link.label} link={link} />
-              ))}
-            </div>
+            <SocialLinks />
           </div>
         </div>
       </nav>

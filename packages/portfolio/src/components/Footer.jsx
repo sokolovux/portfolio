@@ -1,5 +1,6 @@
 import BrandLink from './BrandLink.jsx'
 import LiveCounter from './LiveCounter.jsx'
+import SocialLinks from './SocialLinks.jsx'
 
 export default function Footer() {
   return (
@@ -11,6 +12,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Maxim Sokolov
           </p>
         </div>
+        <SocialLinks id="contact" className="d-flex flex-wrap gap-3 justify-content-center" />
         <LiveCounter />
       </div>
     </footer>

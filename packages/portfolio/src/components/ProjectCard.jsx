@@ -12,7 +12,7 @@ export default function ProjectCard({
 }) {
   return (
     <article className="project-card row g-3 g-md-4">
-      <div className="col-md-6 d-flex flex-column gap-2">
+      <div className="col-md-4 d-flex flex-column gap-2">
         <p className="small">
           <ScrambleInView
             text={`${index} / ${category}`}
@@ -36,7 +36,7 @@ export default function ProjectCard({
         <small className="text-muted">{description}</small>
         <BtnCustom variant="secondary" label="Read more" href={href} />
       </div>
-      <div className="col-md-6">
+      <div className="col-md-8">
         <div
           className="project-card__image shadow"
           role="img"

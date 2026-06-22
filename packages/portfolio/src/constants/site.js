@@ -6,12 +6,17 @@ export const SITE_URL = (import.meta.env.VITE_SITE_URL ?? 'https://hisokolov.com
 
 export const DEFAULT_OG_IMAGE = '/og-default.png'
 
-// Profile URLs for JSON-LD sameAs; fill in when ready
-export const SITE_LINKEDIN = ''
-export const SITE_GITHUB = ''
-export const SITE_TELEGRAM = ''
+export const SITE_LINKEDIN = 'https://www.linkedin.com/in/max-dezine/'
+export const SITE_GITHUB = 'https://github.com/sokolovux'
 
-export const SITE_SAME_AS = [SITE_LINKEDIN, SITE_GITHUB, SITE_TELEGRAM].filter(Boolean)
+export const SITE_SAME_AS = [SITE_LINKEDIN, SITE_GITHUB].filter(Boolean)
+
+// Base64-encoded so the address is not plain text in HTML or bundled constants.
+const SITE_EMAIL_ENCODED = 'bXNAaGlzb2tvbG92LmNvbQ=='
+
+export function getSiteEmail() {
+  return atob(SITE_EMAIL_ENCODED)
+}
 
 export const HOME_PAGE_META = {
   title: `${SITE_NAME} | ${SITE_ROLE}`,

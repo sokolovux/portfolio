@@ -35,6 +35,7 @@ export default function DividerText({ symbol = '/', className }) {
   const classes = [
     'divider-text',
     'w-100',
+    'mw-100',
     'overflow-hidden',
     'text-nowrap',
     'text-muted',
