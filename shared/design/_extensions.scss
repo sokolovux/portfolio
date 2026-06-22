@@ -6,15 +6,22 @@ a {
 }
 
 // Bootstrap reboot adds bottom margins to headings and paragraphs; use gap-* on parents for rhythm.
-h1, h2, h3, h4, h5, h6, p, a, small {
+h1, h2, h3, h4, h5, h6, a, small {
   margin-bottom: 0;
   max-width: 480px;
+}
+
+// Bootstrap has no utility pairing list items with paragraph typography.
+p, li {
+  margin-bottom: 0;
+  max-width: 480px;
+  color: inherit;
+  font-weight: inherit;
 }
 
 // Bootstrap has no mono display class; fw-* is banned so weight must live here too.
 .display-mono {
   font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -32,27 +39,30 @@ h1, h2, h3, h4, h5, h6, p, a, small {
 }
 // Bootstrap has no responsive type scale for one-off hero sizes; fs-* utilities are banned.
 .landing-heading {
+  //text-transform: none;
+  //font-family: "Geist", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 2rem;
-  line-height: 1;
+  line-height: .9;
+  max-width: none;
 
   @include media-breakpoint-up(sm) {
     font-size: 2rem; // sm — 576px+
   }
 
   @include media-breakpoint-up(md) {
-    font-size: 3rem; // md — 768px+
+    font-size: 2rem; // md — 768px+
   }
 
   @include media-breakpoint-up(lg) {
-    font-size: 4rem; // lg — 992px+
+    font-size: 2rem; // lg — 992px+
   }
 
   @include media-breakpoint-up(xl) {
-    font-size: 4rem; // xl — 1200px+
+    font-size: 2rem; // xl — 1200px+
   }
 
   @include media-breakpoint-up(xxl) {
-    font-size: 4rem; // xxl — 1400px+
+    font-size: 2rem; // xxl — 1400px+
   }
 }
 
@@ -139,10 +149,30 @@ a {
 // Bootstrap has no ratio-1x1 utility; landing hero portrait uses object-fit within a square frame.
 .landing-hero-image {
   aspect-ratio: 1 / 1;
-  width: 96px;
+  width: 128px;
   max-width: 100%;
   object-fit: cover;
   border-radius: var(--bs-border-radius);
+  box-shadow: 0 0 16px 0 rgba(#000000, 0.19) !important;
+}
+
+.landing-hero {
+  min-height: 480px;
+}
+
+// Bootstrap has no radial-gradient glow utility; hero uses a primary wash anchored to the section top.
+.landing-hero__glow {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  width: min(720px, 100vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--bs-primary) 0%, transparent 70%);
+  filter: blur(48px);
+  z-index: 0;
 }
 
 // Bootstrap has no ratio-2x1 or bg-gray-300 utility.
