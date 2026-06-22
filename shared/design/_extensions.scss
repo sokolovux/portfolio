@@ -161,6 +161,36 @@ a {
   border-radius: var(--bs-border-radius);
 }
 
+// Bootstrap row-cols cannot span columns; playground mosaic uses CSS grid.
+.playground-grid {
+  grid-template-columns: 1fr;
+}
+
+@include media-breakpoint-up(md) {
+  .playground-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .playground-grid__item--span-2 {
+    grid-column: span 2;
+  }
+}
+
+// Bootstrap ratio helpers do not include 1:1 and 3:2 placeholders used in the playground grid.
+.playground-grid__image {
+  width: 100%;
+  background-color: var(--bs-gray-300);
+  border-radius: var(--bs-border-radius);
+}
+
+.playground-grid__image--square {
+  aspect-ratio: 1;
+}
+
+.playground-grid__image--wide {
+  aspect-ratio: 1.5;
+}
+
 // Bootstrap has no off-screen measure helper; ResizeObserver needs one hidden glyph width.
 .divider-text {
   position: relative;
@@ -298,7 +328,7 @@ p {
 }
 
 section {
-  min-height: 480px;
+  //min-height: 480px;
 }
 
 // Bootstrap has no scroll-padding utility; fixed navbar covers hash-link targets.

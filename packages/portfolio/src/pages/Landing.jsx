@@ -1,17 +1,18 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import BtnCustom from '../components/BtnCustom.jsx'
-import DividerText from '../components/DividerText.jsx'
 import ProjectCard from '../components/ProjectCard.jsx'
 import TextScramble from '../components/TextScramble.jsx'
 import { PROJECTS } from '../constants/projects.js'
 import { scrollToHashTarget } from '../utils/scrollToHash.js'
 
-const PLAYGROUND_IMAGES = Array.from({ length: 8 }, (_, index) => ({
+const PLAYGROUND_ASPECT_RATIOS = [1.5, 1, 1, 1.5, 1, 1, 1.5, 1, 1.5, 1, 1, 1.5]
+
+const PLAYGROUND_IMAGES = PLAYGROUND_ASPECT_RATIOS.map((aspectRatio, index) => ({
   id: `playground-${index + 1}`,
   label: `Playground experiment ${index + 1}`,
+  aspectRatio,
+  colSpan: aspectRatio === 1.5 ? 2 : 1,
 }))
-
 export default function Landing() {
   const { hash } = useLocation()
 
@@ -43,25 +44,18 @@ export default function Landing() {
         </div>
       </section>
 
-      <div className="container">
-        <DividerText />
-      </div>
-
-      <section id="work" className="container py-5 d-flex flex-column gap-4">
-        <div className="d-flex flex-column gap-5">
-          {PROJECTS.map((project) => (
-            <ProjectCard key={project.href} {...project} />
+      <section id="work" className="container py-5 d-flex flex-column gap-4">        <div className="d-flex flex-column gap-5">
+          {PROJECTS.map((project, index, projects) => (
+            <ProjectCard
+              key={project.href}
+              {...project}
+              className={index < projects.length - 1 ? 'border-bottom pb-4' : undefined}
+            />
           ))}
         </div>
       </section>
 
-      <div className="container">
-        <DividerText />
-      </div>
-
-
-      <section id="about" className="container py-5 d-flex flex-column gap-2">
-        <h4 className="text-highlight">
+      <section id="about" className="container py-5 d-flex flex-column gap-2">        <h4 className="text-highlight">
           Hey, I'm Maxim. <br /> Nice to meet you!
         </h4>
         <h6>
@@ -78,22 +72,26 @@ export default function Landing() {
         </p>
       </section>
 
-      <div className="container">
-        <DividerText />
-      </div>
-
-      <section id="playground" className="container py-5 d-flex flex-column gap-4">
-        <div className="d-flex flex-column gap-2">
+      <section id="playground" className="container py-5 d-flex flex-column gap-4">        <div className="d-flex flex-column gap-2">
           <h4>
-            <span className="text-highlight">*</span>Playground
+            Playground
           </h4>
-          <p>Experiments, concepts and other work.</p>
+          <p>Freelance, experiments, fun and other work.</p>
         </div>
-        <div className="row row-cols-1 row-cols-md-2 g-3">
+        <div className="playground-grid d-grid gap-3">
           {PLAYGROUND_IMAGES.map((image) => (
-            <div key={image.id} className="col">
+            <div
+              key={image.id}
+              className={image.colSpan === 2 ? 'playground-grid__item--span-2' : undefined}
+            >
               <div
-                className="project-card__image shadow"
+                className={[
+                  'playground-grid__image',
+                  'shadow',
+                  image.aspectRatio === 1.5
+                    ? 'playground-grid__image--wide'
+                    : 'playground-grid__image--square',
+                ].join(' ')}
                 role="img"
                 aria-label={image.label}
               />

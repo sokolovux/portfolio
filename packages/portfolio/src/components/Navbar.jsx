@@ -67,9 +67,9 @@ export default function Navbar() {
         ref={navRef}
         className="navbar navbar-headroom fixed-top bg-body py-3 border-bottom w-100"
       >
-        <div className="container d-flex flex-column align-items-start gap-3">
+        <div className="container d-flex flex-column align-items-start gap-2">
           <BrandLink />
-          <div className="d-flex flex-wrap align-items-center justify-content-between gap-3 w-100">
+          <div className="d-flex flex-wrap align-items-center justify-content-between gap-2 w-100">
             <div className="d-flex flex-wrap gap-3">
               {NAV_LINKS.map((link) => (
                 <NavLink key={link.to ?? link.href} link={link} />
