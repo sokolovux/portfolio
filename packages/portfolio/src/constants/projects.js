@@ -1,7 +1,23 @@
+import {
+  CHAINLETTER_DESCRIPTION,
+  CHAINLETTER_LANDING_COLUMNS,
+  CHAINLETTER_SECTIONS,
+} from './chainletterContent.js'
+
 const LOREM_PARAGRAPHS = [
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
 ]
+
+function createLandingColumns() {
+  return [
+    { title: 'Role', words: ['UX', 'UI', 'Engineer'] },
+    { title: 'Timeline', words: ['Jan', '2024', 'Present'] },
+    { title: 'Team', words: ['Design', 'Product', 'Eng'] },
+    { title: 'Tools', words: ['Figma', 'React', 'Node'] },
+    { title: 'Skills', words: ['Web', 'Mobile', 'API'] },
+  ]
+}
 
 function createSubsections() {
   return [
@@ -63,6 +79,7 @@ export const PROJECTS = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     href: '/work/voicebox',
+    landingColumns: createLandingColumns(),
     sections: createSections('Voicebox'),
   },
   {
@@ -74,6 +91,7 @@ export const PROJECTS = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     href: '/work/roomerang',
+    landingColumns: createLandingColumns(),
     sections: createSections('Roomerang'),
   },
   {
@@ -82,10 +100,10 @@ export const PROJECTS = [
     category: 'Project',
     title: 'Chainletter',
     badges: ['UX/UI', 'Web'],
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: CHAINLETTER_DESCRIPTION,
     href: '/work/chainletter',
-    sections: createSections('Chainletter'),
+    landingColumns: CHAINLETTER_LANDING_COLUMNS,
+    sections: CHAINLETTER_SECTIONS,
   },
   {
     slug: 'kyruus-health',
@@ -96,6 +114,7 @@ export const PROJECTS = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     href: '/work/kyruus-health',
+    landingColumns: createLandingColumns(),
     sections: createSections('Kyruus Health'),
   },
 ]

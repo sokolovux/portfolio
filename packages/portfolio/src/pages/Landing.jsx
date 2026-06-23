@@ -13,6 +13,7 @@ const PLAYGROUND_ASPECT_RATIOS = [1.5, 1, 1, 1.5, 1, 1, 1.5, 1, 1.5, 1, 1, 1.5]
 const PLAYGROUND_IMAGES = PLAYGROUND_ASPECT_RATIOS.map((aspectRatio, index) => ({
   id: `playground-${index + 1}`,
   label: `Playground experiment ${index + 1}`,
+  subtitle: `Experiment ${index + 1}`,
   aspectRatio,
   colSpan: aspectRatio === 1.5 ? 2 : 1,
 }))
@@ -96,7 +97,7 @@ export default function Landing() {
           <div className="d-flex row row-gap-2 mt-3">
             <div className="row row-gap-1">
               <div className="col-2">
-                <p className="display-mono">2025-26</p>
+                <p className="display-mono">2025-Present</p>
               </div>
               <div className="col-3">
                 <p className="display-mono text-highlight">Voicebox</p>
@@ -107,7 +108,7 @@ export default function Landing() {
             </div>
             <div className="row row-gap-1">
               <div className="col-2">
-                <p className="display-mono">2024</p>
+                <p className="display-mono">2024-Present</p>
               </div>
               <div className="col-3">
                 <p className="display-mono text-highlight">Freelance</p>
@@ -160,17 +161,20 @@ export default function Landing() {
               key={image.id}
               className={image.colSpan === 2 ? 'playground-grid__item--span-2' : undefined}
             >
-              <div
-                className={[
-                  'playground-grid__image',
-                  'shadow',
-                  image.aspectRatio === 1.5
-                    ? 'playground-grid__image--wide'
-                    : 'playground-grid__image--square',
-                ].join(' ')}
-                role="img"
-                aria-label={image.label}
-              />
+              <div className="d-flex flex-column gap-2">
+                <div
+                  className={[
+                    'playground-grid__image',
+                    'shadow',
+                    image.aspectRatio === 1.5
+                      ? 'playground-grid__image--wide'
+                      : 'playground-grid__image--square',
+                  ].join(' ')}
+                  role="img"
+                  aria-label={image.label}
+                />
+                <small className="xs">{image.subtitle}</small>
+              </div>
             </div>
           ))}
         </div>

@@ -19,6 +19,14 @@ p, li {
   font-weight: inherit;
 }
 
+small {
+  color: $body-secondary-color;
+}
+
+.xs {
+  font-size: 0.75rem
+}
+
 // Bootstrap has no mono display class; fw-* is banned so weight must live here too.
 .display-mono {
   font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;

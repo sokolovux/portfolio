@@ -13,6 +13,10 @@ export function buildTocItems(sections) {
     items.push({ id: sectionId, title: section.title, level: 1 })
 
     for (const subsection of section.subsections ?? []) {
+      if (!subsection.title) {
+        continue
+      }
+
       const subsectionId = `${sectionId}-${slugify(subsection.title)}`
       items.push({ id: subsectionId, title: subsection.title, level: 2 })
     }
