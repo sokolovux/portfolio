@@ -6,6 +6,7 @@
     "dev": "vite",
     "dev:full": "vercel dev",
     "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist/server && node scripts/prerender.mjs && node scripts/generate-crawl-files.mjs",
+    "sync-ascii-fallbacks": "node scripts/sync-ascii-fallbacks.mjs",
     "preview": "vite preview",
     "lint": "eslint ."
   },

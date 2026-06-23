@@ -65,7 +65,8 @@ export default function AsciiDev2() {
       <header className="d-flex flex-column gap-2">
         <h1>ASCII dev 2</h1>
         <p className="text-muted mb-0">
-          Save writes the live landing hero animation to Redis for all visitors. This page is
+          Save writes the live landing hero animation to Redis for all visitors. Then run{' '}
+          <code>npm run sync-ascii-fallbacks</code> so the first paint matches Redis. This page is
           password-protected in production via <code>ASCII_DEV_PASSWORD</code>.
         </p>
         {saveError ? (
@@ -94,8 +95,9 @@ export default function AsciiDev2() {
           </button>
         </div>
         <p className="text-muted mb-0">
-          Optional backup if Redis is unavailable. Update <code>HERO_ASCII_CONFIG</code> in{' '}
-          <code>asciiConfig.js</code>.
+          Git fallback for first paint and when Redis is unavailable. Prefer{' '}
+          <code>npm run sync-ascii-fallbacks</code> after Save; copy this snippet only as a manual
+          backup.
         </p>
         <textarea
           className="form-control font-monospace"

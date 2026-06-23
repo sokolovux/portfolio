@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import {
+  asciiConfigsEqual,
   fetchAsciiHeroConfig,
   getFallbackAsciiHeroConfig,
 } from '../constants/asciiConfig.js'
@@ -12,7 +13,7 @@ export function useAsciiHeroConfig() {
 
     fetchAsciiHeroConfig().then((nextConfig) => {
       if (!cancelled) {
-        setConfig(nextConfig)
+        setConfig((current) => (asciiConfigsEqual(current, nextConfig) ? current : nextConfig))
       }
     })
 

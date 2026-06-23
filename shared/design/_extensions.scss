@@ -174,25 +174,33 @@ a {
 
 // Bootstrap has no radial-gradient glow utility; hero uses a primary wash anchored to the section top.
 .landing-hero__glow {
+  top: -50%;
+  left: 0;
   position: absolute;
-  left: 50%;
-  border-radius: 50%;
+  border-radius: 0px;
   pointer-events: none;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, var(--bs-primary) 0%, transparent 70%);
+  background: radial-gradient(var(--bs-primary) 0%, transparent 70%);
   z-index: 0;
-  top: -10%;
   width: 100%;
-  aspect-ratio: 1;
   filter: blur(36px);
+  aspect-ratio: 2;
 }
 
-@include media-breakpoint-up(md) {
+@include media-breakpoint-down(md) {
   .landing-hero__glow {
-    top: -0%;
-    width: min(720px, 100%);
-    aspect-ratio: 1.5;
-    filter: blur(48px);
+    top: -50%;
+    width: 100%;
+    filter: blur(24px);
+    aspect-ratio: 1.35;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .landing-hero__glow {
+    top: -35%;
+    width: 100%;
+    filter: blur(24px);
+    aspect-ratio: 1.2;
   }
 }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import {
+  asciiConfigsEqual,
   fetchAsciiLandingConfig,
   getFallbackAsciiConfig,
 } from '../constants/asciiConfig.js'
@@ -12,7 +13,7 @@ export function useAsciiLandingConfig() {
 
     fetchAsciiLandingConfig().then((nextConfig) => {
       if (!cancelled) {
-        setConfig(nextConfig)
+        setConfig((current) => (asciiConfigsEqual(current, nextConfig) ? current : nextConfig))
       }
     })
 

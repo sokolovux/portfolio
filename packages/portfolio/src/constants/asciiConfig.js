@@ -15,11 +15,35 @@ export const DEFAULT_ASCII_CONFIG = {
 }
 
 export const LANDING_ASCII_CONFIG = {
-  ...DEFAULT_ASCII_CONFIG,
+  charset: "01*",
+  frameWidth: 80,
+  frameHeight: 2,
+  fontFamily: "Geist Mono",
+  xConstant: 0.1,
+  yConstant: 0.1,
+  frameMultiplier: 0.1,
+  animationSpeed: 150,
+  pattern: "burst",
+  chaos: 0,
+  mirrorAxis: "none",
+  globalVal: 5,
+  colors: ["#1c1c1c","#1c1c1c","#ff1500","#1c1c1c","#ff1500"],
 }
 
 export const HERO_ASCII_CONFIG = {
-  ...DEFAULT_ASCII_CONFIG,
+  charset: "*01",
+  frameWidth: 96,
+  frameHeight: 28,
+  fontFamily: "Geist Mono",
+  xConstant: 0.1,
+  yConstant: 0.1,
+  frameMultiplier: 0.1,
+  animationSpeed: 100,
+  pattern: "rise",
+  chaos: 0,
+  mirrorAxis: "none",
+  globalVal: 5,
+  colors: ["#fafafa","#fafafa","#fafafa","#fafafa","#fafafa"],
 }
 
 function normalizeColors(colors) {
@@ -65,6 +89,10 @@ export function getFallbackAsciiConfig() {
 
 export function getFallbackAsciiHeroConfig() {
   return normalizeAsciiConfig(HERO_ASCII_CONFIG)
+}
+
+export function asciiConfigsEqual(left, right) {
+  return JSON.stringify(normalizeAsciiConfig(left)) === JSON.stringify(normalizeAsciiConfig(right))
 }
 
 async function fetchAsciiConfigFromApi(apiPath, getFallback) {
