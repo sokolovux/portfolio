@@ -1,8 +1,11 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import AsciiAnimation from '../components/AsciiAnimation.jsx'
 import ProjectCard from '../components/ProjectCard.jsx'
+import ScrambleInView from '../components/ScrambleInView.jsx'
 import TextScramble from '../components/TextScramble.jsx'
 import { PROJECTS } from '../constants/projects.js'
+import { useAsciiHeroConfig } from '../hooks/useAsciiHeroConfig.js'
 import { scrollToHashTarget } from '../utils/scrollToHash.js'
 
 const PLAYGROUND_ASPECT_RATIOS = [1.5, 1, 1, 1.5, 1, 1, 1.5, 1, 1.5, 1, 1, 1.5]
@@ -15,6 +18,7 @@ const PLAYGROUND_IMAGES = PLAYGROUND_ASPECT_RATIOS.map((aspectRatio, index) => (
 }))
 export default function Landing() {
   const { hash } = useLocation()
+  const asciiConfig = useAsciiHeroConfig()
 
   useEffect(() => {
     if (!hash) return
@@ -26,7 +30,10 @@ export default function Landing() {
     <>
       <section className="container py-5 d-flex flex-column justify-content-center align-items-center text-center landing-hero position-relative">
         <div className="landing-hero__glow" aria-hidden="true" />
-        <div className="d-flex flex-column align-items-center gap-3 position-relative">
+        <div className="landing-hero__ascii" aria-hidden="true">
+          <AsciiAnimation config={asciiConfig} />
+        </div>
+        <div className="d-flex flex-column align-items-center gap-3 position-relative z-2">
           <img
             src="/landing-hero.png"
             alt="Maxim Sokolov"
@@ -35,7 +42,12 @@ export default function Landing() {
           <div className="d-flex flex-column align-items-center gap-2">
             <TextScramble text="I'm Maxim." tag="h1" className="text-highlight landing-heading" />
             <TextScramble text="I design & code." tag="h1" className="landing-heading" />
-            <TextScramble text="UX/UI Designer & Engineer" tag="p" className="p display-mono" />
+            <TextScramble text="UX/UI Designer & Engineer" tag="p" className="p display-mono mb-1" />
+            <div className="d-flex flex-wrap gap-1 justify-content-center">
+              <div className="badge">4+ products shipped</div>
+              <div className="badge">5+ years of experience</div>
+              <div className="badge">Featured on Times Square</div>
+            </div>
           </div>
           {/*
           <ul className="mb-0 d-inline-block text-start">
@@ -60,68 +72,87 @@ export default function Landing() {
       </section>
 
       <section id="about" className="container py-5 d-flex flex-column gap-2">
-        <h4 className="text-highlight">
-          Hey, I'm Maxim. <br /> Nice to meet you!
+        <p className="small">
+          <ScrambleInView
+            text="About"
+            className="text-highlight display-mono"
+            tag="span"
+          />
+        </p>
+        <h4>
+          Nice to meet you! :)
         </h4>
-        <h6>
-          I'm UX/UI Designer & Engineer.
-        </h6>
-        <p>
+        <p className="pb-1">
           I started in brand and visual design, moved into UX/UI, then picked up AI codewriting tools and didn't put them down...
         </p>
-        <p>
+        <p className="pb-1">
           Today I work across the full stack: from early concepts and discovery to shipped interfaces, discussing design architecture and pushing PRs alongside engineers.
         </p>
-        <p>
+        <p className="pb-1">
           Based in NYC. Open to full-time roles and select freelance gigs.
         </p>
+        <div className="border-bottom pb-2"></div>
 
-
-        <div className="col-8 d-flex flex-column gap-2">
-          <div className="d-flex row row-gap-2">
+          <div className="d-flex row row-gap-2 mt-3">
             <div className="row row-gap-1">
               <div className="col-2">
-                <p className="text-muted display-mono">2025-26</p>
+                <p className="display-mono">2025-26</p>
               </div>
               <div className="col-3">
-                <p className="text-muted">Voicebox</p>
+                <p className="display-mono text-highlight">Voicebox</p>
               </div>
               <div className="col-7">
-                <p className="text-muted">UX/UI Designer & Engineer</p>
+                <p className="">UX/UI Designer & Engineer</p>
               </div>
             </div>
             <div className="row row-gap-1">
               <div className="col-2">
-                <p className="text-muted">2024</p>
+                <p className="display-mono">2024</p>
               </div>
               <div className="col-3">
-                <p className="text-muted">Freelance</p>
+                <p className="display-mono text-highlight">Freelance</p>
               </div>
               <div className="col-7">
-                <p className="text-muted">UX/UI & Web Designer</p>
+                <p className="">UX/UI & Web Designer</p>
               </div>
             </div>
             <div className="row row-gap-1">
               <div className="col-2">
-                <p className="text-muted">2023-24</p>
+                <p className="display-mono">2023-24</p>
               </div>
               <div className="col-3">
-                <p className="text-muted">Kyruus Health</p>
+                <p className="display-mono text-highlight">Kyruus Health</p>
               </div>
               <div className="col-7">
-                <p className="text-muted">UX/UI Designer</p>
+                <p className="">UX/UI Designer</p>
+              </div>
+            </div>
+            <div className="row row-gap-1">
+              <div className="col-2">
+                <p className="display-mono">2021-22</p>
+              </div>
+              <div className="col-3">
+                <p className="display-mono text-highlight">Starta Accelerator</p>
+              </div>
+              <div className="col-7">
+                <p className="">Visual & Brand Designer</p>
               </div>
             </div>
 
           </div>
-        </div>
       </section>
 
       <section id="playground" className="container py-5 d-flex flex-column gap-4">        <div className="d-flex flex-column gap-2">
+      <p className="small">
+          <ScrambleInView
+            text="Playground"
+            className="text-highlight display-mono"
+            tag="span"
+          />
+        </p>
         <h4>
-          Playground
+        Freelance, fun & other work
         </h4>
-        <p>Freelance, experiments, fun and other work.</p>
       </div>
         <div className="playground-grid d-grid gap-3">
           {PLAYGROUND_IMAGES.map((image) => (

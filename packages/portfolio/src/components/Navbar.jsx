@@ -5,37 +5,6 @@ import BrandLink from './BrandLink.jsx'
 import ScrambleOnHover from './ScrambleOnHover.jsx'
 import SocialLinks from './SocialLinks.jsx'
 
-const NAV_LINKS = [
-  { label: 'Work', to: '/#work' },
-  { label: 'CV', href: '/cv.pdf', target: '_blank', rel: 'noopener noreferrer' },
-  { label: 'About', to: '/#about' },
-  { label: 'Playground', to: '/#playground' },
-]
-
-function NavLink({ link }) {
-  if (link.to) {
-    return (
-      <ScrambleOnHover
-        text={link.label}
-        tag={Link}
-        className="nav-link"
-        to={link.to}
-      />
-    )
-  }
-
-  return (
-    <ScrambleOnHover
-      text={link.label}
-      tag="a"
-      className="nav-link"
-      href={link.href}
-      target={link.target}
-      rel={link.rel}
-    />
-  )
-}
-
 export default function Navbar() {
   const navRef = useRef(null)
 
@@ -71,9 +40,25 @@ export default function Navbar() {
           <BrandLink />
           <div className="d-flex flex-wrap align-items-center justify-content-between gap-2 w-100">
             <div className="d-flex flex-wrap gap-3">
-              {NAV_LINKS.map((link) => (
-                <NavLink key={link.to ?? link.href} link={link} />
-              ))}
+              <div>
+                <ScrambleOnHover text="Work" tag={Link} className="nav-link" to="/#work" />
+              </div>
+              <div>
+                <ScrambleOnHover
+                  text="CV"
+                  tag="a"
+                  className="nav-link"
+                  href="/cv.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              </div>
+              <div>
+                <ScrambleOnHover text="About" tag={Link} className="nav-link" to="/#about" />
+              </div>
+              <div>
+                <ScrambleOnHover text="Playground" tag={Link} className="nav-link" to="/#playground" />
+              </div>
             </div>
             <SocialLinks />
           </div>

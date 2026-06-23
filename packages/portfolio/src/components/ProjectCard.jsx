@@ -23,7 +23,7 @@ export default function ProjectCard({
           />
         </p>
         <ScrambleInView text={title} tag="h5" />
-        <small className="text-muted">{description}</small>
+        <p className="small">{description}</p>
         {badges.length > 0 && (
           <div className="d-flex flex-wrap gap-1">
             {badges.map((badge, badgeIndex) => (

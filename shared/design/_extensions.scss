@@ -23,6 +23,7 @@ p, li {
 .display-mono {
   font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   text-transform: uppercase;
+  font-weight: 400;
 }
 
 // Bootstrap has no opacity-62 utility; scrambling glyphs dim relative to resolved text.
@@ -160,19 +161,39 @@ a {
   min-height: 480px;
 }
 
+// Bootstrap has no absolute top-center overlay utility; hero ASCII sits behind headline content.
+.landing-hero__ascii {
+  position: absolute;
+  top: -5%;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
 // Bootstrap has no radial-gradient glow utility; hero uses a primary wash anchored to the section top.
 .landing-hero__glow {
   position: absolute;
-  top: -10%;
   left: 50%;
-  width: min(720px, 100vw);
-  aspect-ratio: 1;
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
   background: radial-gradient(circle, var(--bs-primary) 0%, transparent 70%);
-  filter: blur(48px);
   z-index: 0;
+  top: -10%;
+  width: 100%;
+  aspect-ratio: 1;
+  filter: blur(36px);
+}
+
+@include media-breakpoint-up(md) {
+  .landing-hero__glow {
+    top: -0%;
+    width: min(720px, 100%);
+    aspect-ratio: 1.5;
+    filter: blur(48px);
+  }
 }
 
 // Bootstrap has no ratio-2x1 or bg-gray-300 utility.
@@ -450,4 +471,8 @@ html {
 .table-of-contents--hidden {
   visibility: hidden;
   pointer-events: none;
+}
+
+.text-muted {
+  color: $gray-500 !important;
 }

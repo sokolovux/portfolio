@@ -3,6 +3,7 @@ import {
   ASCII_MIRROR_OPTIONS,
   ASCII_PATTERNS,
   DEFAULT_ASCII_CONFIG,
+  normalizeHexColor,
 } from '../constants/asciiConfig.js'
 
 function NumberField({ id, label, hint, value, onChange, step, min, max }) {
@@ -67,7 +68,9 @@ function TextField({ id, label, hint, value, onChange }) {
   )
 }
 
-function ColorField({ id, label, value, onChange }) {
+function ColorField({ id, label, value, index, onChange }) {
+  const normalizedValue = normalizeHexColor(value, index)
+
   return (
     <div className="d-flex flex-column gap-1">
       <label htmlFor={id} className="form-label mb-0">
@@ -77,8 +80,8 @@ function ColorField({ id, label, value, onChange }) {
         id={id}
         type="color"
         className="form-control form-control-color w-100"
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
+        value={normalizedValue}
+        onChange={(event) => onChange(normalizeHexColor(event.target.value, index))}
       />
     </div>
   )
@@ -215,6 +218,7 @@ export default function AsciiControls({ config, onChange, onReset }) {
               <ColorField
                 id={`ascii-color-${index}`}
                 label={`Color ${index + 1}`}
+                index={index}
                 value={color}
                 onChange={(value) => updateColor(index, value)}
               />

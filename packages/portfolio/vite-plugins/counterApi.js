@@ -1,5 +1,5 @@
 import { loadEnv } from 'vite'
-import { handleAsciiConfigRequest } from '../api/lib/asciiConfigStore.js'
+import { handleAsciiConfigRequest, handleAsciiHeroConfigRequest } from '../api/lib/asciiConfigStore.js'
 import { handleCounterRequest } from '../api/lib/counterStore.js'
 
 function sendJson(res, status, body, headers = {}) {
@@ -58,10 +58,13 @@ export function counterApiPlugin() {
           return
         }
 
-        if (pathname === '/api/ascii-config') {
+        if (pathname === '/api/ascii-config' || pathname === '/api/ascii-config-hero') {
           try {
             const body = req.method === 'PUT' ? await readRequestBody(req) : null
-            const result = await handleAsciiConfigRequest(createAsciiConfigRequest(req, body), env)
+            const request = createAsciiConfigRequest(req, body)
+            const result = pathname === '/api/ascii-config-hero'
+              ? await handleAsciiHeroConfigRequest(request, env)
+              : await handleAsciiConfigRequest(request, env)
             const headers = {
               ...(result.allow ? { Allow: result.allow } : {}),
               ...(result.headers ?? {}),

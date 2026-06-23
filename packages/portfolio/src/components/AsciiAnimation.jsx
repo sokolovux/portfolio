@@ -77,7 +77,7 @@ export default function AsciiAnimation({ config = DEFAULT_ASCII_CONFIG }) {
 
     applyAsciiFontFamily(shell, config.fontFamily ?? 'Geist Mono')
     applyAsciiColors(shell, config)
-  }, [config.fontFamily, config.colors])
+  }, [config])
 
   useLayoutEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -146,7 +146,7 @@ export default function AsciiAnimation({ config = DEFAULT_ASCII_CONFIG }) {
   }, [])
 
   return (
-    <div ref={shellRef} className="ascii-animation-shell w-100 overflow-hidden">
+    <div ref={shellRef} className="ascii-animation-shell w-100 overflow-hidden user-select-none">
       <pre ref={preRef} className="ascii-animation mb-0" aria-hidden="true">
         {frame.map((row, y) => (
           <Fragment key={y}>

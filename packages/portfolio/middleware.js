@@ -1,5 +1,5 @@
 export const config = {
-  matcher: ['/ascii-dev', '/ascii-dev/:path*'],
+  matcher: ['/ascii-dev', '/ascii-dev/:path*', '/ascii-dev-2', '/ascii-dev-2/:path*'],
 }
 
 function decodeBasicAuth(header) {

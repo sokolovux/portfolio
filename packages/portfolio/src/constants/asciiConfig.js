@@ -18,12 +18,37 @@ export const LANDING_ASCII_CONFIG = {
   ...DEFAULT_ASCII_CONFIG,
 }
 
+export const HERO_ASCII_CONFIG = {
+  ...DEFAULT_ASCII_CONFIG,
+}
+
 function normalizeColors(colors) {
   if (!Array.isArray(colors) || colors.length !== 5) {
-    return [...DEFAULT_ASCII_CONFIG.colors]
+    return DEFAULT_ASCII_CONFIG.colors.map((color, index) => normalizeHexColor(color, index))
   }
 
-  return colors
+  return colors.map((color, index) => normalizeHexColor(color, index))
+}
+
+export function normalizeHexColor(value, index = 0) {
+  const fallback = DEFAULT_ASCII_CONFIG.colors[index] ?? '#000000'
+
+  if (typeof value !== 'string') {
+    return fallback
+  }
+
+  const hex = value.trim()
+
+  if (/^#[0-9a-fA-F]{6}$/.test(hex)) {
+    return hex.toLowerCase()
+  }
+
+  if (/^#[0-9a-fA-F]{3}$/.test(hex)) {
+    const [, r, g, b] = hex
+    return `#${r}${r}${g}${g}${b}${b}`.toLowerCase()
+  }
+
+  return fallback
 }
 
 export function normalizeAsciiConfig(parsed = {}) {
@@ -38,23 +63,27 @@ export function getFallbackAsciiConfig() {
   return normalizeAsciiConfig(LANDING_ASCII_CONFIG)
 }
 
-export async function fetchAsciiLandingConfig() {
+export function getFallbackAsciiHeroConfig() {
+  return normalizeAsciiConfig(HERO_ASCII_CONFIG)
+}
+
+async function fetchAsciiConfigFromApi(apiPath, getFallback) {
   try {
-    const response = await fetch('/api/ascii-config')
+    const response = await fetch(apiPath)
 
     if (!response.ok) {
-      return getFallbackAsciiConfig()
+      return getFallback()
     }
 
     const data = await response.json()
     return normalizeAsciiConfig(data.config ?? {})
   } catch {
-    return getFallbackAsciiConfig()
+    return getFallback()
   }
 }
 
-export async function saveAsciiLandingConfig(config) {
-  const response = await fetch('/api/ascii-config', {
+async function saveAsciiConfigToApi(apiPath, config) {
+  const response = await fetch(apiPath, {
     method: 'PUT',
     credentials: 'include',
     headers: {
@@ -71,8 +100,28 @@ export async function saveAsciiLandingConfig(config) {
   return normalizeAsciiConfig(data.config ?? {})
 }
 
-export async function resetAsciiLandingConfig() {
+export function fetchAsciiLandingConfig() {
+  return fetchAsciiConfigFromApi('/api/ascii-config', getFallbackAsciiConfig)
+}
+
+export function saveAsciiLandingConfig(config) {
+  return saveAsciiConfigToApi('/api/ascii-config', config)
+}
+
+export function resetAsciiLandingConfig() {
   return saveAsciiLandingConfig(getFallbackAsciiConfig())
+}
+
+export function fetchAsciiHeroConfig() {
+  return fetchAsciiConfigFromApi('/api/ascii-config-hero', getFallbackAsciiHeroConfig)
+}
+
+export function saveAsciiHeroConfig(config) {
+  return saveAsciiConfigToApi('/api/ascii-config-hero', config)
+}
+
+export function resetAsciiHeroConfig() {
+  return saveAsciiHeroConfig(getFallbackAsciiHeroConfig())
 }
 
 export const ASCII_PATTERNS = [
@@ -125,8 +174,8 @@ export const ASCII_FONTS = [
   { value: 'Fira Mono', label: 'Fira Mono' },
 ]
 
-export function formatAsciiConfigForCode(config) {
-  return `export const LANDING_ASCII_CONFIG = {
+function formatAsciiConfigExport(constantName, config) {
+  return `export const ${constantName} = {
   charset: ${JSON.stringify(config.charset)},
   frameWidth: ${config.frameWidth},
   frameHeight: ${config.frameHeight},
@@ -141,4 +190,12 @@ export function formatAsciiConfigForCode(config) {
   globalVal: ${config.globalVal},
   colors: ${JSON.stringify(config.colors)},
 }`
+}
+
+export function formatAsciiConfigForCode(config) {
+  return formatAsciiConfigExport('LANDING_ASCII_CONFIG', config)
+}
+
+export function formatAsciiHeroConfigForCode(config) {
+  return formatAsciiConfigExport('HERO_ASCII_CONFIG', config)
 }

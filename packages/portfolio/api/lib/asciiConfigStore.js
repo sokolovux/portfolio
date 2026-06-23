@@ -6,7 +6,8 @@ import {
   verifyAsciiDevAuth,
 } from './asciiAuth.js'
 
-const ASCII_CONFIG_KEY = 'portfolio:ascii-config'
+export const ASCII_CONFIG_KEY = 'portfolio:ascii-config'
+export const ASCII_HERO_CONFIG_KEY = 'portfolio:ascii-config-hero'
 
 function normalizeColors(colors, fallback) {
   if (!Array.isArray(colors) || colors.length !== 5) {
@@ -34,7 +35,7 @@ export function normalizeAsciiConfig(parsed = {}, fallback) {
   }
 }
 
-export const FALLBACK_ASCII_CONFIG = {
+const ASCII_CONFIG_DEFAULTS = {
   charset: ' .:-=+*%@#',
   frameWidth: 96,
   frameHeight: 28,
@@ -50,7 +51,10 @@ export const FALLBACK_ASCII_CONFIG = {
   colors: ['#fafafa', '#e2e2e2', '#b0b0b0', '#888888', '#585858'],
 }
 
-function createAsciiConfigStore(env = process.env) {
+export const FALLBACK_ASCII_CONFIG = { ...ASCII_CONFIG_DEFAULTS }
+export const FALLBACK_ASCII_HERO_CONFIG = { ...ASCII_CONFIG_DEFAULTS }
+
+function createAsciiConfigStore(configKey, env = process.env) {
   const redis = createRedis(env)
 
   if (!redis) {
@@ -59,10 +63,10 @@ function createAsciiConfigStore(env = process.env) {
 
   return {
     async get() {
-      return redis.get(ASCII_CONFIG_KEY)
+      return redis.get(configKey)
     },
     async set(config) {
-      await redis.set(ASCII_CONFIG_KEY, config)
+      await redis.set(configKey, config)
       return config
     },
   }
@@ -86,15 +90,15 @@ async function readJsonBody(req) {
   return JSON.parse(Buffer.concat(chunks).toString('utf8'))
 }
 
-export async function handleAsciiConfigRequest(req, env = process.env) {
-  const store = createAsciiConfigStore(env)
+async function handleAsciiConfigRequestForKey(req, env, configKey, fallback) {
+  const store = createAsciiConfigStore(configKey, env)
 
   if (!store) {
     return {
       status: 503,
       body: {
         error: 'ASCII config unavailable',
-        config: FALLBACK_ASCII_CONFIG,
+        config: fallback,
         source: 'fallback',
         diagnostics: getRedisEnvDiagnostics(env),
       },
@@ -103,7 +107,7 @@ export async function handleAsciiConfigRequest(req, env = process.env) {
 
   if (req.method === 'GET') {
     const stored = await store.get()
-    const config = normalizeAsciiConfig(stored ?? {}, FALLBACK_ASCII_CONFIG)
+    const config = normalizeAsciiConfig(stored ?? {}, fallback)
 
     return {
       status: 200,
@@ -120,7 +124,7 @@ export async function handleAsciiConfigRequest(req, env = process.env) {
     }
 
     const parsed = req.body ?? await readJsonBody(req)
-    const config = normalizeAsciiConfig(parsed ?? {}, FALLBACK_ASCII_CONFIG)
+    const config = normalizeAsciiConfig(parsed ?? {}, fallback)
     await store.set(config)
 
     return {
@@ -137,6 +141,14 @@ export async function handleAsciiConfigRequest(req, env = process.env) {
     body: { error: 'Method not allowed' },
     allow: 'GET, PUT',
   }
+}
+
+export async function handleAsciiConfigRequest(req, env = process.env) {
+  return handleAsciiConfigRequestForKey(req, env, ASCII_CONFIG_KEY, FALLBACK_ASCII_CONFIG)
+}
+
+export async function handleAsciiHeroConfigRequest(req, env = process.env) {
+  return handleAsciiConfigRequestForKey(req, env, ASCII_HERO_CONFIG_KEY, FALLBACK_ASCII_HERO_CONFIG)
 }
 
 export function getAsciiDevAuthStatus(env = process.env) {

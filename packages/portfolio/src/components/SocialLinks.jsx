@@ -2,11 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import { getSiteEmail, SITE_GITHUB, SITE_LINKEDIN } from '../constants/site.js'
 import ScrambleOnHover from './ScrambleOnHover.jsx'
 
-const EXTERNAL_LINKS = [
-  { label: 'LinkedIn', href: SITE_LINKEDIN },
-  { label: 'GitHub', href: SITE_GITHUB },
-]
-
 const COPIED_LABEL = 'Copied!'
 const EMAIL_LABEL = 'Email'
 const COPY_RESET_MS = 2000
@@ -69,21 +64,32 @@ function EmailLink() {
   )
 }
 
-export default function SocialLinks({ id, className = 'd-flex flex-wrap gap-3' }) {
+export default function SocialLinks({ className = 'd-flex flex-wrap gap-3' }) {
   return (
-    <div id={id} className={className}>
-      <EmailLink />
-      {EXTERNAL_LINKS.map((link) => (
+    <div className={className}>
+      <div>
+        <EmailLink />
+      </div>
+      <div>
         <ScrambleOnHover
-          key={link.label}
-          text={link.label}
+          text="LinkedIn"
           tag="a"
           className="nav-link"
-          href={link.href}
+          href={SITE_LINKEDIN}
           target="_blank"
           rel="noopener noreferrer"
         />
-      ))}
+      </div>
+      <div>
+        <ScrambleOnHover
+          text="GitHub"
+          tag="a"
+          className="nav-link"
+          href={SITE_GITHUB}
+          target="_blank"
+          rel="noopener noreferrer"
+        />
+      </div>
     </div>
   )
 }

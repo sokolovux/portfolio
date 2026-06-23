@@ -4,5 +4,6 @@ Allow: /
 Disallow: /api/
 Disallow: /ds
 Disallow: /ascii-dev
+Disallow: /ascii-dev-2
 
 Sitemap: https://hisokolov.com/sitemap.xml
