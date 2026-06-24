@@ -1,3 +1,9 @@
+const PLACEHOLDER_RESULTS = [
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+]
+
 export const PROJECTS = [
   {
     slug: 'voicebox',
@@ -7,6 +13,7 @@ export const PROJECTS = [
     badges: ['UX/UI', 'Product'],
     overview:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    results: PLACEHOLDER_RESULTS,
     thumbnail: '/work/voicebox.png',
     href: '/work/voicebox',
     role: ['UX', 'UI', 'Engineer'],
@@ -23,6 +30,7 @@ export const PROJECTS = [
     badges: ['UX/UI', 'Mobile'],
     overview:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    results: PLACEHOLDER_RESULTS,
     thumbnail: '/work/roomerang.png',
     href: '/work/roomerang',
     role: ['UX', 'UI', 'Engineer'],
@@ -39,6 +47,11 @@ export const PROJECTS = [
     badges: ['UX/UI', 'Web'],
     overview:
       'Lead UX/UI design for Chainletter, a blockchain credential platform for universities. Co-led product, IA, and UX writing. Shipped in 1.5 months.',
+    results: [
+      'Shipped and piloted at multiple universities.',
+      'Product grew into Chainletter Labs across legal, enterprise, and AI verification.',
+      'Launched a developer API with institutional backing.',
+    ],
     thumbnail: '/work/chainletter.png',
     href: '/work/chainletter',
     role: ['Lead', 'UX/UI', 'Designer'],
@@ -55,6 +68,7 @@ export const PROJECTS = [
     badges: ['UX/UI', 'Health'],
     overview:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    results: PLACEHOLDER_RESULTS,
     thumbnail: '/work/kyruus-health.png',
     href: '/work/kyruus-health',
     role: ['UX', 'UI', 'Engineer'],

@@ -436,6 +436,14 @@ html {
   }
 }
 
+// Bootstrap sets $nav-link-hover-color: inherit globally; project back link needs primary hover only.
+.project-back-link {
+  &:hover,
+  &:focus {
+    color: $primary;
+  }
+}
+
 // Bootstrap nav-link is coupled to navbar layout; TOC links share typography/hover without nav padding.
 .toc-link {
   display: block;
@@ -478,4 +486,19 @@ html {
 
 .text-muted {
   color: $gray-500 !important;
+}
+
+.lead {
+  color: $body-color;
+  font-weight: 500;
+}
+
+li {
+  color: $body-secondary-color;
+}
+
+ul {
+  list-style: square;
+  list-color: $primary;
+  padding-left: map-get($spacers, 4);
 }
