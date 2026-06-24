@@ -43,7 +43,7 @@ export default function Landing() {
           />
           <div className="d-flex flex-column align-items-center gap-2">
             <TextScramble text="I'm Maxim." tag="h1" className="text-highlight landing-heading" />
-            <TextScramble text="I design & code." tag="h1" className="landing-heading" />
+            <TextScramble text="I design w& ship." tag="h1" className="landing-heading" />
             <TextScramble text="UX/UI Designer & Engineer" tag="p" className="p display-mono mb-1" />
             <div className="d-flex flex-wrap gap-1 justify-content-center">
               <div className="badge">4+ products shipped</div>

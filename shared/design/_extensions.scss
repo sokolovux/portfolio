@@ -228,6 +228,21 @@ a {
   border-radius: var(--bs-border-radius);
 }
 
+// Bootstrap row-cols cannot span columns; project hero detail cards use CSS grid.
+.project-hero-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@include media-breakpoint-up(lg) {
+  .project-hero-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.project-hero-grid__item--span-full {
+  grid-column: 1 / -1;
+}
+
 // Bootstrap row-cols cannot span columns; playground mosaic uses CSS grid.
 .playground-grid {
   grid-template-columns: 1fr;
@@ -499,6 +514,14 @@ li {
 
 ul {
   list-style: square;
-  list-color: $primary;
   padding-left: map-get($spacers, 4);
+}
+
+strong {
+  color: $primary;
+  font-weight: 500;
+}
+
+footer {
+  height: 192px;
 }

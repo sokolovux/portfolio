@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import TableOfContents from '../TableOfContents.jsx'
 import Divider from '../Divider.jsx'
 import ProjectHero from './ProjectHero.jsx'
+import ProjectResults from './ProjectResults.jsx'
 import { scrollToHashTarget } from '../../utils/scrollToHash.js'
 
 export default function ProjectLayout({ meta, tocItems, children }) {
@@ -23,6 +24,7 @@ export default function ProjectLayout({ meta, tocItems, children }) {
         <ProjectHero meta={meta} />
         <Divider />
         {children}
+        <ProjectResults meta={meta} />
       </div>
     </>
   )

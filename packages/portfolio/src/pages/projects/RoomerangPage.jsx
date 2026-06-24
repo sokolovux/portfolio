@@ -13,6 +13,7 @@ const TOC_ITEMS = [
   createTocItem('Research'),
   createTocItem('Design'),
   createTocItem('Outcome'),
+  createTocItem('Results'),
 ]
 
 export default function RoomerangPage() {

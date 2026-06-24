@@ -7,10 +7,10 @@ import ProjectSubsection from '../../components/project/ProjectSubsection.jsx'
 
 const TOC_ITEMS = [
   createTocItem('Overview'),
-  createTocItem('The starting point'),
-  createTocItem('The core UX challenge'),
-  createTocItem('The solution'),
-  createTocItem('Outcome'),
+  createTocItem('Starting point'),
+  createTocItem('Core challenge'),
+  createTocItem('Solution'),
+  createTocItem('Results'),
 ]
 
 export default function ChainletterPage() {
@@ -21,24 +21,22 @@ export default function ChainletterPage() {
       <ProjectSection id="overview" title="Overview">
         <p>
           Chainletter enables universities and credential-issuing institutions to distribute diplomas
-          and official documents that are permanently verifiable on the blockchain. Once a file is
-          recorded, its authenticity can be confirmed forever. No central authority required.
+          and other official documents and be permanently verifiable via blockchain. Once a file is
+          stamped, its authenticity can be confirmed forever. Through Chainletter.
         </p>
         <p>
-          I came on as the lead designer, but my role was broader than that. I co-led the product
-          alongside the founding engineer, running stakeholder calls, synthesizing feedback from the
+          I came on as the Lead UX/UI Designer to redesign the admin side of the product, but my role was broader than that. I co-led the product
+          alongside my Full Stack Softwar Engineer colleague, running stakeholder calls with the Chainletter team, synthesizing feedback from the
           founder, engineer, and finance lead, and making final product decisions. We built the full
           roadmap together and shipped in 1.5 months.
         </p>
       </ProjectSection>
-      <ProjectSection id="the-starting-point" title="The starting point" dividerBefore>
+      <ProjectSection id="starting-point" title="starting point" dividerBefore>
         <ProjectSubsection>
           <p>
-            This was the product when I joined. A functional but raw interface: terminology
-            borrowed directly from the blockchain layer (&quot;Postmarks,&quot; &quot;Pinata
-            groups&quot;), a visual language closer to a government IT portal than a tool
-            administrators would trust with official documents, and third-party dependencies surfaced
-            as footnotes.
+            This was the product when I joined. A functional but raw interface: terminology and copywriting
+            borrowed directly from blockchain, lots of technical/confusing jargon, a UI closer to a very old-school government IT portal than a trusted,
+            modern tool.
           </p>
           <ProjectImage label="Chainletter dashboard before redesign" />
         </ProjectSubsection>
@@ -56,20 +54,21 @@ export default function ChainletterPage() {
           </p>
         </ProjectSubsection>
       </ProjectSection>
-      <ProjectSection id="the-core-ux-challenge" title="The core UX challenge" dividerBefore>
+      <ProjectSection id="core-challenge" title="core challenge" dividerBefore>
         <p>
           The primary users were school administrators in their 40s and 50s: people who distribute
-          diplomas, not people who think about blockchain. The technology had to disappear entirely.
-          If a user had to understand what blockchain meant to use the product, we&apos;d already
-          failed.
+          diplomas, not people who think about blockchain. In the Discovery phase of the project, we
+          decided that we want to keep the messaging around the technology enabling the product for
+          marketing purposes, but significantly minimize it's impact on user flows. If a user has to
+          think outside of the usual patterns of simply dragging and ploading a file to the internet,
+          we already failed.
         </p>
         <p>Three specific problems shaped the design:</p>
         <ProjectSubsection id="permanent-actions-with-no-undo" title="Permanent actions with no undo">
           <p>
-            Recording a file on the blockchain is irreversible. A misclick isn&apos;t a mistake you
-            fix. It&apos;s a mistake that lives forever. The UI had to make the stakes of each
-            action viscerally clear without creating so much friction that the product became
-            unusable.
+            Recording a file on the blockchain is irreversible. The UI had to make the stakes of each
+            file uploada viscerally clear without creating so much friction or abstraction that the product became
+            unusable. The product needed to steer people towards intentful actions.
           </p>
         </ProjectSubsection>
         <ProjectSubsection id="terminology-that-alienates" title="Terminology that alienates">
@@ -86,7 +85,7 @@ export default function ChainletterPage() {
           </p>
         </ProjectSubsection>
       </ProjectSection>
-      <ProjectSection id="the-solution" title="The solution" dividerBefore>
+      <ProjectSection id="solution" title="solution" dividerBefore>
         <ProjectSubsection>
           <p>
             Even the login screen set a new tone: warm, direct copy replacing the clinical default.
@@ -160,13 +159,6 @@ export default function ChainletterPage() {
           </p>
           <ProjectImage label="Stamping loading state" />
         </ProjectSubsection>
-      </ProjectSection>
-      <ProjectSection id="outcome" title="Outcome" dividerBefore>
-        <p>
-          Chainletter shipped and was piloted at multiple universities. The product has since grown
-          into Chainletter Labs, now serving legal, enterprise, and AI artifact verification use
-          cases, with a developer API and institutional backing.
-        </p>
       </ProjectSection>
     </ProjectLayout>
   )
