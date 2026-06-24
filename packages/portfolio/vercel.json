@@ -3,7 +3,7 @@
   "functions": {
     "api/capture.js": {
       "maxDuration": 300,
-      "memory": 3008
+      "memory": 1024
     }
   }
 }
