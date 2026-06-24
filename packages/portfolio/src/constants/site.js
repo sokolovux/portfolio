@@ -41,7 +41,7 @@ export function absoluteUrl(path) {
 export function getProjectPageMeta(project) {
   return {
     title: `${project.title} | ${SITE_NAME}`,
-    description: project.description,
+    description: project.overview,
     path: project.href,
     type: 'article',
     image: project.ogImage ?? DEFAULT_OG_IMAGE,

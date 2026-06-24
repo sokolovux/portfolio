@@ -1,14 +1,15 @@
 import { Navigate, useParams } from 'react-router-dom'
 import { getProjectBySlug } from '../constants/projects.js'
-import ProjectPage from './ProjectPage.jsx'
+import { getProjectPage } from './projectPages.js'
 
 export default function ProjectRoute() {
   const { slug } = useParams()
   const project = getProjectBySlug(slug)
+  const ProjectPage = getProjectPage(slug)
 
-  if (!project) {
+  if (!project || !ProjectPage) {
     return <Navigate to="/" replace />
   }
 
-  return <ProjectPage project={project} />
+  return <ProjectPage />
 }

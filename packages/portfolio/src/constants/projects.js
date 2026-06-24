@@ -1,74 +1,3 @@
-import {
-  CHAINLETTER_DESCRIPTION,
-  CHAINLETTER_LANDING_COLUMNS,
-  CHAINLETTER_SECTIONS,
-} from './chainletterContent.js'
-
-const LOREM_PARAGRAPHS = [
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-  'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-]
-
-function createLandingColumns() {
-  return [
-    { title: 'Role', words: ['UX', 'UI', 'Engineer'] },
-    { title: 'Timeline', words: ['Jan', '2024', 'Present'] },
-    { title: 'Team', words: ['Design', 'Product', 'Eng'] },
-    { title: 'Tools', words: ['Figma', 'React', 'Node'] },
-    { title: 'Skills', words: ['Web', 'Mobile', 'API'] },
-  ]
-}
-
-function createSubsections() {
-  return [
-    {
-      title: 'Context',
-      paragraphs: LOREM_PARAGRAPHS.slice(0, 1),
-      subsections: [
-        { title: 'Problem Space', paragraphs: LOREM_PARAGRAPHS.slice(0, 1) },
-        { title: 'Constraints', paragraphs: LOREM_PARAGRAPHS.slice(0, 1) },
-      ],
-    },
-    {
-      title: 'Approach',
-      paragraphs: LOREM_PARAGRAPHS.slice(0, 1),
-      subsections: [
-        { title: 'Methodology', paragraphs: LOREM_PARAGRAPHS.slice(0, 1) },
-        { title: 'Timeline', paragraphs: LOREM_PARAGRAPHS.slice(0, 1) },
-      ],
-    },
-  ]
-}
-
-function createSections(projectTitle) {
-  return [
-    {
-      title: 'Overview',
-      paragraphs: LOREM_PARAGRAPHS,
-      imageLabel: `${projectTitle} overview`,
-      subsections: createSubsections(),
-    },
-    {
-      title: 'Research',
-      paragraphs: LOREM_PARAGRAPHS,
-      imageLabel: `${projectTitle} research`,
-      subsections: createSubsections(),
-    },
-    {
-      title: 'Design',
-      paragraphs: LOREM_PARAGRAPHS,
-      imageLabel: `${projectTitle} design`,
-      subsections: createSubsections(),
-    },
-    {
-      title: 'Outcome',
-      paragraphs: LOREM_PARAGRAPHS,
-      imageLabel: `${projectTitle} outcome`,
-      subsections: createSubsections(),
-    },
-  ]
-}
-
 export const PROJECTS = [
   {
     slug: 'voicebox',
@@ -76,11 +5,15 @@ export const PROJECTS = [
     category: 'Full-time job',
     title: 'Voicebox',
     badges: ['UX/UI', 'Product'],
-    description:
+    overview:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    thumbnail: '/work/voicebox.png',
     href: '/work/voicebox',
-    landingColumns: createLandingColumns(),
-    sections: createSections('Voicebox'),
+    role: ['UX', 'UI', 'Engineer'],
+    timeline: ['Jan', '2024', 'Present'],
+    team: ['Design', 'Product', 'Eng'],
+    tools: ['Figma', 'React', 'Node'],
+    skills: ['Web', 'Mobile', 'API'],
   },
   {
     slug: 'roomerang',
@@ -88,11 +21,15 @@ export const PROJECTS = [
     category: 'Project',
     title: 'Roomerang',
     badges: ['UX/UI', 'Mobile'],
-    description:
+    overview:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    thumbnail: '/work/roomerang.png',
     href: '/work/roomerang',
-    landingColumns: createLandingColumns(),
-    sections: createSections('Roomerang'),
+    role: ['UX', 'UI', 'Engineer'],
+    timeline: ['Jan', '2024', 'Present'],
+    team: ['Design', 'Product', 'Eng'],
+    tools: ['Figma', 'React', 'Node'],
+    skills: ['Web', 'Mobile', 'API'],
   },
   {
     slug: 'chainletter',
@@ -100,10 +37,15 @@ export const PROJECTS = [
     category: 'Project',
     title: 'Chainletter',
     badges: ['UX/UI', 'Web'],
-    description: CHAINLETTER_DESCRIPTION,
+    overview:
+      'Lead UX/UI design for Chainletter, a blockchain credential platform for universities. Co-led product, IA, and UX writing. Shipped in 1.5 months.',
+    thumbnail: '/work/chainletter.png',
     href: '/work/chainletter',
-    landingColumns: CHAINLETTER_LANDING_COLUMNS,
-    sections: CHAINLETTER_SECTIONS,
+    role: ['Lead', 'UX/UI', 'Designer'],
+    timeline: ['Feb 2025', 'Mar 2025', '1.5 months'],
+    team: ['Full Stack', 'Software', 'Engineer'],
+    tools: ['Figma', 'FigJam'],
+    skills: ['UX Design', 'Product Strategy', 'UX Writing'],
   },
   {
     slug: 'kyruus-health',
@@ -111,11 +53,15 @@ export const PROJECTS = [
     category: 'Project',
     title: 'Kyruus Health',
     badges: ['UX/UI', 'Health'],
-    description:
+    overview:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    thumbnail: '/work/kyruus-health.png',
     href: '/work/kyruus-health',
-    landingColumns: createLandingColumns(),
-    sections: createSections('Kyruus Health'),
+    role: ['UX', 'UI', 'Engineer'],
+    timeline: ['Jan', '2024', 'Present'],
+    team: ['Design', 'Product', 'Eng'],
+    tools: ['Figma', 'React', 'Node'],
+    skills: ['Web', 'Mobile', 'API'],
   },
 ]
 

@@ -258,19 +258,6 @@ a {
   aspect-ratio: 1.5;
 }
 
-// Bootstrap has no off-screen measure helper; ResizeObserver needs one hidden glyph width.
-.divider-text {
-  position: relative;
-  font-weight: 400 !important;
-  color: var(--bs-gray-300) !important;
-}
-
-.divider-text__probe {
-  position: absolute;
-  visibility: hidden;
-  pointer-events: none;
-}
-
 // Bootstrap btn styles don't support layered gradient keys; custom structure required.
 .btn-custom {
   display: block;

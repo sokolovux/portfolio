@@ -1,6 +1,7 @@
-import { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import AsciiAnimation from '../components/AsciiAnimation.jsx'
+import Divider from '../components/Divider.jsx'
 import ProjectCard from '../components/ProjectCard.jsx'
 import ScrambleInView from '../components/ScrambleInView.jsx'
 import TextScramble from '../components/TextScramble.jsx'
@@ -61,39 +62,43 @@ export default function Landing() {
         </div>
       </section>
 
-      <section id="work" className="container py-5 d-flex flex-column gap-4">        <div className="d-flex flex-column gap-5">
-        {PROJECTS.map((project, index, projects) => (
-          <ProjectCard
-            key={project.href}
-            {...project}
-            className={index < projects.length - 1 ? 'border-bottom pb-4' : undefined}
-          />
-        ))}
-      </div>
+      <section id="work" className="py-5 d-flex flex-column gap-4">
+        <div className="d-flex flex-column gap-5">
+          {PROJECTS.map((project) => (
+            <Fragment key={project.href}>
+              <div className="container">
+                <ProjectCard {...project} />
+              </div>
+              <Divider />
+            </Fragment>
+          ))}
+        </div>
       </section>
 
-      <section id="about" className="container py-5 d-flex flex-column gap-2">
-        <p className="small">
-          <ScrambleInView
-            text="About"
-            className="text-highlight display-mono"
-            tag="span"
-          />
-        </p>
-        <h4>
-          Nice to meet you! :)
-        </h4>
-        <p className="pb-1">
-          I started in brand and visual design, moved into UX/UI, then picked up AI codewriting tools and didn't put them down...
-        </p>
-        <p className="pb-1">
-          Today I work across the full stack: from early concepts and discovery to shipped interfaces, discussing design architecture and pushing PRs alongside engineers.
-        </p>
-        <p className="pb-1">
-          Based in NYC. Open to full-time roles and select freelance gigs.
-        </p>
-        <div className="border-bottom pb-2"></div>
-
+      <section id="about" className="py-5 d-flex flex-column gap-2">
+        <div className="container d-flex flex-column gap-2">
+          <p className="small">
+            <ScrambleInView
+              text="About"
+              className="text-highlight display-mono"
+              tag="span"
+            />
+          </p>
+          <h4>
+            Nice to meet you! :)
+          </h4>
+          <p className="pb-1">
+            I started in brand and visual design, moved into UX/UI, then picked up AI codewriting tools and didn't put them down...
+          </p>
+          <p className="pb-1">
+            Today I work across the full stack: from early concepts and discovery to shipped interfaces, discussing design architecture and pushing PRs alongside engineers.
+          </p>
+          <p className="pb-1">
+            Based in NYC. Open to full-time roles and select freelance gigs.
+          </p>
+        </div>
+        <Divider />
+        <div className="container">
           <div className="d-flex row row-gap-2 mt-3">
             <div className="row row-gap-1">
               <div className="col-2">
@@ -141,6 +146,7 @@ export default function Landing() {
             </div>
 
           </div>
+        </div>
       </section>
 
       <section id="playground" className="container py-5 d-flex flex-column gap-4">        <div className="d-flex flex-column gap-2">

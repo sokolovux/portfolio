@@ -1,4 +1,5 @@
 import BtnCustom from './BtnCustom.jsx'
+import ProjectCardImage from './ProjectCardImage.jsx'
 import ScrambleInView from './ScrambleInView.jsx'
 
 export default function ProjectCard({
@@ -7,9 +8,9 @@ export default function ProjectCard({
   category,
   title,
   badges = [],
-  description,
+  overview,
   href,
-  imageLabel,
+  thumbnail,
 }) {
   const classes = ['project-card', 'row', 'g-3', 'g-md-4', className].filter(Boolean).join(' ')
 
@@ -23,7 +24,7 @@ export default function ProjectCard({
           />
         </p>
         <ScrambleInView text={title} tag="h5" />
-        <p className="small">{description}</p>
+        <p className="small">{overview}</p>
         {badges.length > 0 && (
           <div className="d-flex flex-wrap gap-1">
             {badges.map((badge, badgeIndex) => (
@@ -39,11 +40,7 @@ export default function ProjectCard({
         <BtnCustom variant="secondary" label="Read more" className="mt-auto" href={href} />
       </div>
       <div className="col-md-8">
-        <div
-          className="project-card__image shadow"
-          role="img"
-          aria-label={imageLabel ?? `${title} project preview`}
-        />
+        <ProjectCardImage title={title} src={thumbnail} />
       </div>
     </article>  )
 }
