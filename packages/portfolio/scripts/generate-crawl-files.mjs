@@ -10,7 +10,7 @@ const publicDir = path.join(packageRoot, 'public')
 
 const SITE_URL = (process.env.VITE_SITE_URL ?? 'https://hisokolov.com').replace(/\/$/, '')
 
-const DISALLOW_PATHS = ['/api/', '/ds', '/ascii-dev', '/ascii-dev-2']
+const DISALLOW_PATHS = ['/api/', '/ds', '/ascii-dev', '/ascii-dev-2', '/capture']
 
 function escapeXml(value) {
   return value

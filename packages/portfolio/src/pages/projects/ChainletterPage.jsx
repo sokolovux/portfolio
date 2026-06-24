@@ -37,11 +37,11 @@ export default function ChainletterPage() {
         <p>
           Chainletter enables universities and credential-issuing institutions to distribute diplomas
           and other official documents and be permanently verifiable via blockchain. Once a file is
-          stamped, its authenticity can be confirmed forever. Through Chainletter.
+          stamped, its authenticity can be confirmed forever through Chainletter.
         </p>
         <p>
           I came on as the Lead UX/UI Designer to redesign the admin side of the product, but my role was broader than that. I co-led the product
-          alongside my Full Stack Softwar Engineer colleague, running stakeholder calls with the Chainletter team, synthesizing feedback from the
+          alongside my Full Stack Software Engineer colleague, running stakeholder calls with the team, synthesizing feedback from the
           founder, engineer, and finance lead, and making final product decisions. We built the full
           roadmap together and shipped in 1.5 months.
         </p>

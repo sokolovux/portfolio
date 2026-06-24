@@ -1,5 +1,6 @@
 import { loadEnv } from 'vite'
 import { handleAsciiConfigRequest, handleAsciiHeroConfigRequest } from '../api/lib/asciiConfigStore.js'
+import { handleCaptureRequest } from '../api/lib/captureService.js'
 import { handleCounterRequest } from '../api/lib/counterStore.js'
 
 function sendJson(res, status, body, headers = {}) {
@@ -11,6 +12,16 @@ function sendJson(res, status, body, headers = {}) {
   }
 
   res.end(JSON.stringify(body))
+}
+
+function sendBinary(res, status, buffer, headers = {}) {
+  res.statusCode = status
+
+  for (const [key, value] of Object.entries(headers)) {
+    res.setHeader(key, value)
+  }
+
+  res.end(buffer)
 }
 
 async function readRequestBody(req) {
@@ -53,6 +64,30 @@ export function counterApiPlugin() {
             sendJson(res, result.status, result.body, headers)
           } catch {
             sendJson(res, 500, { error: 'Counter error' })
+          }
+
+          return
+        }
+
+        if (pathname === '/api/capture') {
+          try {
+            const body = req.method === 'POST' ? await readRequestBody(req) : null
+            const result = await handleCaptureRequest({ method: req.method, body })
+            const headers = {
+              ...(result.allow ? { Allow: result.allow } : {}),
+              ...(result.contentType ? { 'Content-Type': result.contentType } : {}),
+              ...(result.filename
+                ? { 'Content-Disposition': `attachment; filename="${result.filename}"` }
+                : {}),
+            }
+
+            if (result.binary) {
+              sendBinary(res, result.status, result.binary, headers)
+            } else {
+              sendJson(res, result.status, result.body, headers)
+            }
+          } catch {
+            sendJson(res, 500, { error: 'Capture error' })
           }
 
           return

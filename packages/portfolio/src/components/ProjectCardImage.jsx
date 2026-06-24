@@ -1,5 +1,5 @@
 export default function ProjectCardImage({ title, src, alt, imageLabel, className }) {
-  const classes = ['shadow', 'w-100', className].filter(Boolean).join(' ')
+  const classes = ['shadow-lg', 'w-100', className].filter(Boolean).join(' ')
 
   if (src) {
     return (

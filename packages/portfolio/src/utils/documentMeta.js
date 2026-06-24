@@ -17,6 +17,7 @@ export function buildDocumentMeta({
   path = '/',
   image = DEFAULT_OG_IMAGE,
   type = 'website',
+  robots,
 }) {
   const canonicalUrl = absoluteUrl(path)
   const imageUrl = image.startsWith('http') ? image : absoluteUrl(image)
@@ -28,6 +29,7 @@ export function buildDocumentMeta({
     image: imageUrl,
     type,
     canonicalUrl,
+    robots,
   }
 }
 
@@ -69,6 +71,7 @@ export function renderHeadTags(meta, jsonLd = null) {
     type,
     canonicalUrl,
     image: imageUrl,
+    robots,
   } = buildDocumentMeta(meta)
 
   const tags = [
@@ -86,6 +89,10 @@ export function renderHeadTags(meta, jsonLd = null) {
     `<meta name="twitter:description" content="${escapeAttr(description)}" />`,
     `<meta name="twitter:image" content="${escapeAttr(imageUrl)}" />`,
   ]
+
+  if (robots) {
+    tags.push(`<meta name="robots" content="${escapeAttr(robots)}" />`)
+  }
 
   const jsonLdScript = renderJsonLdScript(jsonLd)
 
@@ -125,6 +132,10 @@ function upsertCanonical(href) {
   element.setAttribute('href', href)
 }
 
+function removeRobotsMeta() {
+  document.head.querySelector('meta[name="robots"]')?.remove()
+}
+
 export function applyDocumentMeta(meta) {
   const {
     title,
@@ -132,11 +143,18 @@ export function applyDocumentMeta(meta) {
     type,
     canonicalUrl,
     image: imageUrl,
+    robots,
   } = buildDocumentMeta(meta)
 
   document.title = title
   upsertCanonical(canonicalUrl)
   upsertMeta({ name: 'description', content: description })
+
+  if (robots) {
+    upsertMeta({ name: 'robots', content: robots })
+  } else {
+    removeRobotsMeta()
+  }
   upsertMeta({ property: 'og:type', content: type })
   upsertMeta({ property: 'og:site_name', content: SITE_NAME })
   upsertMeta({ property: 'og:title', content: title })

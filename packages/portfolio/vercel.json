@@ -1,3 +1,9 @@
 {
-  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }]
+  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }],
+  "functions": {
+    "api/capture.js": {
+      "maxDuration": 300,
+      "memory": 3008
+    }
+  }
 }

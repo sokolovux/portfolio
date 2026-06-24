@@ -32,7 +32,7 @@ export default function Landing() {
           <img
             src="/landing-hero.png"
             alt="Maxim Sokolov"
-            className="landing-hero-image shadow"
+            className="landing-hero-image shadow-lg"
           />
           <div className="d-flex flex-column align-items-center gap-2">
             <TextScramble text="I'm Maxim." tag="h1" className="text-highlight landing-heading" />
@@ -156,8 +156,12 @@ export default function Landing() {
         <div className="playground-grid d-grid gap-3">
           <div className="playground-grid__item--span-2">
             <div className="d-flex flex-column gap-2">
-              <PlaygroundImage wide imageLabel="Playground experiment 1" />
-              <small className="xs">Website and branding for Mirawell Health [INSERT VIDEO]</small>
+              <PlaygroundVideo
+                wide
+                src="/playground/mirawell-health-scroll.mp4"
+                ariaLabel="Mirawell Health website scroll recording"
+              />
+              <small className="xs">Website and branding for Mirawell Health</small>
             </div>
           </div>
           <div>
@@ -222,7 +226,12 @@ export default function Landing() {
           </div>
           <div className="playground-grid__item--span-2">
             <div className="d-flex flex-column gap-2">
-              <PlaygroundImage wide imageLabel="Playground experiment 9" />
+              <PlaygroundImage
+                wide
+                src="/playground/upfound.png"
+                alt="Upfound dashboard UI design with sidebar navigation and AI guide cards"
+                imageLabel="Upfound dashboard UI design"
+              />
               <small className="xs">UI design exercises</small>
             </div>
           </div>
@@ -240,7 +249,12 @@ export default function Landing() {
           </div>
           <div className="playground-grid__item--span-2">
             <div className="d-flex flex-column gap-2">
-              <PlaygroundImage wide imageLabel="Playground experiment 12" />
+              <PlaygroundImage
+                wide
+                src="/playground/posters.png"
+                alt="Three experimental poster designs: Black Hole Sun, a grayscale collage, and Nevermind"
+                imageLabel="Three experimental poster designs"
+              />
               <small className="xs">Posters that I created for fun in Figma + Photoshop</small>
             </div>
           </div>

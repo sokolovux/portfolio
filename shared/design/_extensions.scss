@@ -178,7 +178,6 @@ a {
   max-width: 100%;
   object-fit: cover;
   border-radius: var(--bs-border-radius);
-  box-shadow: 0 0 16px 0 rgba(#000000, 0.19) !important;
 }
 
 .landing-hero {
@@ -540,4 +539,9 @@ strong {
 
 footer {
   height: 192px;
+}
+
+.shadow-lg {
+  box-shadow: 0 0 12px 0 rgba(#000000, 0.09) !important;
+  //box-shadow: none !important;
 }

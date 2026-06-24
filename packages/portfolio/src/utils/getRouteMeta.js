@@ -10,6 +10,15 @@ export function getRouteMeta(pathname) {
     return HOME_PAGE_META
   }
 
+  if (pathname === '/capture') {
+    return {
+      title: 'Folioscroll',
+      description: 'Internal scroll capture tool.',
+      path: '/capture',
+      robots: 'noindex, nofollow',
+    }
+  }
+
   const projectSlug = pathname.match(/^\/work\/([^/]+)$/)?.[1]
 
   if (projectSlug) {
