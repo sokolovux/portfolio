@@ -81,12 +81,28 @@ small {
 
 // Bootstrap link styles use $link-color; match anchor typography to h6 instead.
 a {
+  text-decoration: none;
+}
+
+.nav-link {
   @extend h6;
   text-decoration: none;
   color: inherit;
-
   &:hover {
     color: inherit;
+  }
+}
+
+.in-text-link {
+  @extend p;
+  font-family: $font-family-sans-serif;
+  text-transform: none;
+  text-decoration: underline;
+  text-decoration-thickness: 0.75px;
+  text-underline-offset: 3px;
+  color: $body-secondary-color !important;
+  &:hover {
+    color: $body-color !important;
   }
 }
 
@@ -235,7 +251,7 @@ a {
 
 @include media-breakpoint-up(lg) {
   .project-hero-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -504,12 +520,12 @@ html {
 }
 
 .lead {
-  color: $body-color;
-  font-weight: 500;
+  color: $body-color !important;
 }
 
 li {
-  color: $body-secondary-color;
+  font-size: 1rem;
+  margin-bottom: 4px;
 }
 
 ul {

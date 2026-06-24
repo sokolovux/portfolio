@@ -2,6 +2,7 @@ import { getProjectBySlug } from '../../constants/projects.js'
 import { createTocItem } from '../../utils/toc.js'
 import ProjectImage from '../../components/project/ProjectImage.jsx'
 import ProjectLayout from '../../components/project/ProjectLayout.jsx'
+import ProjectResultsList, { ProjectResultsItem } from '../../components/project/ProjectResultsList.jsx'
 import ProjectSection from '../../components/project/ProjectSection.jsx'
 import ProjectSubsection from '../../components/project/ProjectSubsection.jsx'
 
@@ -13,11 +14,25 @@ const TOC_ITEMS = [
   createTocItem('Results'),
 ]
 
+function ChainletterResults({ hero = false }) {
+  return (
+    <ProjectResultsList hero={hero}>
+      <ProjectResultsItem hero={hero}>Shipped and piloted at multiple universities.</ProjectResultsItem>
+      <ProjectResultsItem hero={hero}>
+        Replaced legacy UI with an accessible, trust-forward interface.
+      </ProjectResultsItem>
+      <ProjectResultsItem hero={hero}>
+        Product has since expanded into legal, enterprise, and AI artifact verification.
+      </ProjectResultsItem>
+    </ProjectResultsList>
+  )
+}
+
 export default function ChainletterPage() {
   const meta = getProjectBySlug('chainletter')
 
   return (
-    <ProjectLayout meta={meta} tocItems={TOC_ITEMS}>
+    <ProjectLayout meta={meta} tocItems={TOC_ITEMS} results={<ChainletterResults hero />}>
       <ProjectSection id="overview" title="Overview">
         <p>
           Chainletter enables universities and credential-issuing institutions to distribute diplomas
@@ -159,6 +174,9 @@ export default function ChainletterPage() {
           </p>
           <ProjectImage label="Stamping loading state" />
         </ProjectSubsection>
+      </ProjectSection>
+      <ProjectSection id="results" title="Results" dividerBefore>
+        <ChainletterResults />
       </ProjectSection>
     </ProjectLayout>
   )

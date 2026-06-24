@@ -2,6 +2,7 @@ import { getProjectBySlug } from '../../constants/projects.js'
 import { createTocItem } from '../../utils/toc.js'
 import ProjectImage from '../../components/project/ProjectImage.jsx'
 import ProjectLayout from '../../components/project/ProjectLayout.jsx'
+import ProjectResultsList, { ProjectResultsItem } from '../../components/project/ProjectResultsList.jsx'
 import ProjectSection from '../../components/project/ProjectSection.jsx'
 import ProjectSubsection from '../../components/project/ProjectSubsection.jsx'
 
@@ -16,11 +17,27 @@ const TOC_ITEMS = [
   createTocItem('Results'),
 ]
 
+function KyruusHealthResults({ hero = false }) {
+  return (
+    <ProjectResultsList hero={hero}>
+      <ProjectResultsItem hero={hero}>
+        64% reduction in accessibility debt (60 of 93 tickets resolved).
+      </ProjectResultsItem>
+      <ProjectResultsItem hero={hero}>
+        Established repeatable accessibility patterns across the design system.
+      </ProjectResultsItem>
+      <ProjectResultsItem hero={hero}>
+        Improved compliance posture for a regulated healthcare product.
+      </ProjectResultsItem>
+    </ProjectResultsList>
+  )
+}
+
 export default function KyruusHealthPage() {
   const meta = getProjectBySlug('kyruus-health')
 
   return (
-    <ProjectLayout meta={meta} tocItems={TOC_ITEMS}>
+    <ProjectLayout meta={meta} tocItems={TOC_ITEMS} results={<KyruusHealthResults hero />}>
       <ProjectSection id="overview" title="Overview">
         <p>{LOREM}</p>
         <p>{LOREM}</p>
@@ -43,6 +60,9 @@ export default function KyruusHealthPage() {
         <p>{LOREM}</p>
         <p>{LOREM}</p>
         <ProjectImage label="Kyruus Health outcome" />
+      </ProjectSection>
+      <ProjectSection id="results" title="Results" dividerBefore>
+        <KyruusHealthResults />
       </ProjectSection>
     </ProjectLayout>
   )

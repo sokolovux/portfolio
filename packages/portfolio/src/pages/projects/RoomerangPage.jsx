@@ -2,6 +2,7 @@ import { getProjectBySlug } from '../../constants/projects.js'
 import { createTocItem } from '../../utils/toc.js'
 import ProjectImage from '../../components/project/ProjectImage.jsx'
 import ProjectLayout from '../../components/project/ProjectLayout.jsx'
+import ProjectResultsList, { ProjectResultsItem } from '../../components/project/ProjectResultsList.jsx'
 import ProjectSection from '../../components/project/ProjectSection.jsx'
 import ProjectSubsection from '../../components/project/ProjectSubsection.jsx'
 
@@ -16,11 +17,25 @@ const TOC_ITEMS = [
   createTocItem('Results'),
 ]
 
+function RoomerangResults({ hero = false }) {
+  return (
+    <ProjectResultsList hero={hero}>
+      <ProjectResultsItem hero={hero}>
+        Conceived, designed, and built the product solo from concept through deployment.
+      </ProjectResultsItem>
+      <ProjectResultsItem hero={hero}>
+        Shipped end-to-end flows for discovery, listings, and roommate matching.
+      </ProjectResultsItem>
+      <ProjectResultsItem hero={hero}>Full stack on React, Supabase, Vercel, and Railway.</ProjectResultsItem>
+    </ProjectResultsList>
+  )
+}
+
 export default function RoomerangPage() {
   const meta = getProjectBySlug('roomerang')
 
   return (
-    <ProjectLayout meta={meta} tocItems={TOC_ITEMS}>
+    <ProjectLayout meta={meta} tocItems={TOC_ITEMS} results={<RoomerangResults hero />}>
       <ProjectSection id="overview" title="Overview">
         <p>{LOREM}</p>
         <p>{LOREM}</p>
@@ -43,6 +58,9 @@ export default function RoomerangPage() {
         <p>{LOREM}</p>
         <p>{LOREM}</p>
         <ProjectImage label="Roomerang outcome" />
+      </ProjectSection>
+      <ProjectSection id="results" title="Results" dividerBefore>
+        <RoomerangResults />
       </ProjectSection>
     </ProjectLayout>
   )

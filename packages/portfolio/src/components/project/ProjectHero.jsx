@@ -7,10 +7,9 @@ const DETAIL_COLUMNS = [
   { key: 'timeline', title: 'Timeline' },
   { key: 'team', title: 'Team' },
   { key: 'tools', title: 'Tools' },
-  { key: 'skills', title: 'Skills' },
 ]
 
-export default function ProjectHero({ meta }) {
+export default function ProjectHero({ meta, results }) {
   return (
     <section className="container py-5 d-flex flex-column gap-3">
       <Link className="nav-link project-back-link" to="/#work">← Back</Link>
@@ -32,16 +31,14 @@ export default function ProjectHero({ meta }) {
             </div>
           </div>
         ))}
-        <div className="project-hero-grid__item--span-full">
-          <div className="d-flex flex-column gap-2 p-3 bg-body-secondary h-100 rounded-2">
-            <h6>Results</h6>
-            <ul className="d-flex flex-column gap-2 mb-0 small">
-              {meta.results.map((result, index) => (
-                <li key={`${meta.slug}-result-${index}`}>{result}</li>
-              ))}
-            </ul>
+        {results ? (
+          <div className="project-hero-grid__item--span-full">
+            <div className="d-flex flex-column gap-2 p-3 bg-body-secondary h-100 rounded-2">
+              <h6>Results</h6>
+              {results}
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
       <ProjectCardImage
         title={meta.title}

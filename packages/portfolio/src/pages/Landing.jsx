@@ -2,6 +2,8 @@ import { Fragment, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import AsciiAnimation from '../components/AsciiAnimation.jsx'
 import Divider from '../components/Divider.jsx'
+import PlaygroundImage from '../components/PlaygroundImage.jsx'
+import PlaygroundVideo from '../components/PlaygroundVideo.jsx'
 import ProjectCard from '../components/ProjectCard.jsx'
 import ScrambleInView from '../components/ScrambleInView.jsx'
 import TextScramble from '../components/TextScramble.jsx'
@@ -9,15 +11,6 @@ import { PROJECTS } from '../constants/projects.js'
 import { useAsciiHeroConfig } from '../hooks/useAsciiHeroConfig.js'
 import { scrollToHashTarget } from '../utils/scrollToHash.js'
 
-const PLAYGROUND_ASPECT_RATIOS = [1.5, 1, 1, 1.5, 1, 1, 1.5, 1, 1.5, 1, 1, 1.5]
-
-const PLAYGROUND_IMAGES = PLAYGROUND_ASPECT_RATIOS.map((aspectRatio, index) => ({
-  id: `playground-${index + 1}`,
-  label: `Playground experiment ${index + 1}`,
-  subtitle: `Experiment ${index + 1}`,
-  aspectRatio,
-  colSpan: aspectRatio === 1.5 ? 2 : 1,
-}))
 export default function Landing() {
   const { hash } = useLocation()
   const asciiConfig = useAsciiHeroConfig()
@@ -149,40 +142,120 @@ export default function Landing() {
         </div>
       </section>
 
-      <section id="playground" className="container py-5 d-flex flex-column gap-4">        <div className="d-flex flex-column gap-2">
-      <p className="small">
-          <ScrambleInView
-            text="Playground"
-            className="text-highlight display-mono"
-            tag="span"
-          />
-        </p>
-        <h4>
-        Freelance, fun & other work
-        </h4>
-      </div>
+      <section id="playground" className="container py-5 d-flex flex-column gap-4">
+        <div className="d-flex flex-column gap-2">
+          <p className="small">
+            <ScrambleInView
+              text="Playground"
+              className="text-highlight display-mono"
+              tag="span"
+            />
+          </p>
+          <h4>Freelance, fun & other work</h4>
+        </div>
         <div className="playground-grid d-grid gap-3">
-          {PLAYGROUND_IMAGES.map((image) => (
-            <div
-              key={image.id}
-              className={image.colSpan === 2 ? 'playground-grid__item--span-2' : undefined}
-            >
-              <div className="d-flex flex-column gap-2">
-                <div
-                  className={[
-                    'playground-grid__image',
-                    'shadow',
-                    image.aspectRatio === 1.5
-                      ? 'playground-grid__image--wide'
-                      : 'playground-grid__image--square',
-                  ].join(' ')}
-                  role="img"
-                  aria-label={image.label}
-                />
-                <small className="xs">{image.subtitle}</small>
-              </div>
+          <div className="playground-grid__item--span-2">
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage wide imageLabel="Playground experiment 1" />
+              <small className="xs">Website and branding for Mirawell Health [INSERT VIDEO]</small>
             </div>
-          ))}
+          </div>
+          <div>
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage src="/playground/alice-secure.png" imageLabel="Playground experiment 2" />
+              <small className="xs">Branding for Alice, a secure AI note taker</small>
+            </div>
+          </div>
+          <div>
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundVideo
+                src="/playground/times-square-logo.mp4"
+                ariaLabel="Logo featured on the Times Square billboard"
+              />
+              <small className="xs">A logo I designed, featured on Times Square</small>
+            </div>
+          </div>
+          <div className="playground-grid__item--span-2">
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage wide imageLabel="Playground experiment 4" />
+              <small className="xs">Website for Alice Secure [INSERT VIDEO]</small>
+            </div>
+          </div>
+          <div>
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage imageLabel="Playground experiment 5" />
+              <small className="xs">Website design for a makeup artist in NYC [INSERT MOBILE VIDEO]</small>
+            </div>
+          </div>
+          <div>
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage imageLabel="Playground experiment 6" />
+              <small className="xs">Logo for an early stage startup</small>
+            </div>
+          </div>
+          <div>
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage imageLabel="Playground experiment 6" />
+              <small className="xs">UI design exercise</small>
+            </div>
+          </div>
+          <div className="playground-grid__item--span-2">
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage
+                wide
+                src="/playground/tedxbayonne1.png"
+                alt="TEDx Bayonne team posing behind the event podium"
+                imageLabel="TEDx Bayonne team posing behind the event podium"
+              />
+              <small className="xs">Experiment 7</small>
+            </div>
+          </div>
+          <div>
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage
+                src="/playground/tedxbayonne2.png"
+                alt="Speaker on stage at TEDx Bayonne"
+                imageLabel="Speaker on stage at TEDx Bayonne"
+              />
+              <small className="xs">Experiment 8</small>
+            </div>
+          </div>
+          <div className="playground-grid__item--span-2">
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage wide imageLabel="Playground experiment 9" />
+              <small className="xs">UI design exercises</small>
+            </div>
+          </div>
+          <div>
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage imageLabel="Playground experiment 10" />
+              <small className="xs">Logo for a company conference in California</small>
+            </div>
+          </div>
+          <div>
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage imageLabel="Playground experiment 11" />
+              <small className="xs">Experiment 11</small>
+            </div>
+          </div>
+          <div className="playground-grid__item--span-2">
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage wide imageLabel="Playground experiment 12" />
+              <small className="xs">Posters that I created for fun in Figma + Photoshop</small>
+            </div>
+          </div>
+          <div>
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage imageLabel="Playground experiment 13" />
+              <small className="xs">Portraits of Hope logo design</small>
+            </div>
+          </div>
+          <div className="playground-grid__item--span-2">
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage wide imageLabel="Playground experiment 14" />
+              <small className="xs">Website design for a non-profit organization [INSERT VIDEO]</small>
+            </div>
+          </div>
         </div>
       </section>
     </>

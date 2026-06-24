@@ -3,10 +3,9 @@ import { useLocation } from 'react-router-dom'
 import TableOfContents from '../TableOfContents.jsx'
 import Divider from '../Divider.jsx'
 import ProjectHero from './ProjectHero.jsx'
-import ProjectResults from './ProjectResults.jsx'
 import { scrollToHashTarget } from '../../utils/scrollToHash.js'
 
-export default function ProjectLayout({ meta, tocItems, children }) {
+export default function ProjectLayout({ meta, tocItems, results, children }) {
   const contentRef = useRef(null)
   const { hash } = useLocation()
 
@@ -21,10 +20,9 @@ export default function ProjectLayout({ meta, tocItems, children }) {
       <TableOfContents items={tocItems} contentRef={contentRef} />
 
       <div ref={contentRef}>
-        <ProjectHero meta={meta} />
+        <ProjectHero meta={meta} results={results} />
         <Divider />
         {children}
-        <ProjectResults meta={meta} />
       </div>
     </>
   )

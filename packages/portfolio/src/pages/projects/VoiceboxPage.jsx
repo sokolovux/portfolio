@@ -2,6 +2,7 @@ import { getProjectBySlug } from '../../constants/projects.js'
 import { createTocItem } from '../../utils/toc.js'
 import ProjectImage from '../../components/project/ProjectImage.jsx'
 import ProjectLayout from '../../components/project/ProjectLayout.jsx'
+import ProjectResultsList, { ProjectResultsItem } from '../../components/project/ProjectResultsList.jsx'
 import ProjectSection from '../../components/project/ProjectSection.jsx'
 import ProjectSubsection from '../../components/project/ProjectSubsection.jsx'
 
@@ -16,11 +17,43 @@ const TOC_ITEMS = [
   createTocItem('Results'),
 ]
 
+function VoiceboxResults({ hero = false }) {
+  return (
+    <ProjectResultsList hero={hero}>
+      <ProjectResultsItem hero={hero}>
+        <small>
+          Product was chosen to be featured 3x at the <a className="in-text-link" href="https://www.nrf.com/" target="_blank" rel="noopener noreferrer">National Retail Foundation</a> and was funded by <a className="in-text-link" href="https://www.markcuban.com/" target="_blank" rel="noopener noreferrer">Mark Cuban</a>.
+        </small>
+      </ProjectResultsItem>
+      <ProjectResultsItem hero={hero}>
+        <small>
+          Pilot was launched with the <a className="in-text-link" href="https://www.miagoaairport.com/" target="_blank" rel="noopener noreferrer">GOA Internaional Airport</a>, <a className="in-text-link" href="https://www.snowflake.com/" target="_blank" rel="noopener noreferrer">Snowflake</a>, <a className="in-text-link" href="https://www.numerosmotors.com/" target="_blank" rel="noopener noreferrer">Numeros Motors</a>, and a select group of book publishers.
+        </small>
+      </ProjectResultsItem>
+      <ProjectResultsItem hero={hero}>
+        <small>
+          Redesigned and handed off key features and flows to the engineering team, building trust with customers and investors.
+        </small>
+      </ProjectResultsItem>
+      <ProjectResultsItem hero={hero}>
+        <small>
+          Design system overhauled and maintained across a year-long engagement, reducing the average time to market for new features and significantly improving the look and feel of the app.
+        </small>
+      </ProjectResultsItem>
+      <ProjectResultsItem hero={hero}>
+        <small>
+          Designed and shipped the brand identity and marketing materials for the product.
+        </small>
+      </ProjectResultsItem>
+    </ProjectResultsList>
+  )
+}
+
 export default function VoiceboxPage() {
   const meta = getProjectBySlug('voicebox')
 
   return (
-    <ProjectLayout meta={meta} tocItems={TOC_ITEMS}>
+    <ProjectLayout meta={meta} tocItems={TOC_ITEMS} results={<VoiceboxResults hero />}>
       <ProjectSection id="overview" title="Overview">
         <p>{LOREM}</p>
         <p>{LOREM}</p>
@@ -61,6 +94,9 @@ export default function VoiceboxPage() {
         <p>{LOREM}</p>
         <p>{LOREM}</p>
         <ProjectImage label="Voicebox outcome" />
+      </ProjectSection>
+      <ProjectSection id="results" title="Results" dividerBefore>
+        <VoiceboxResults />
       </ProjectSection>
     </ProjectLayout>
   )
