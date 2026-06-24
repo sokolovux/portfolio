@@ -34,10 +34,10 @@ export const PROJECTS = [
     title: 'Chainletter',
     badges: ['UX/UI'],
     overview:
-      'Lead UX/UI redesign of a blockchain credential platform for universities, shipped in 1.5 months.',
+      'Lead UX/UI redesign of Chainletter\'s university admin MVP so degree verification works for staff who do not need to understand blockchain.',
     href: '/work/chainletter',
-    role: ['Lead UX/UI Designer'],
-    timeline: ['Feb - Mar 2025', '(1.5 months)'],
+    role: ['Lead UX/UI Designer', 'Co-product lead'],
+    timeline: ['Feb - Mar 2025', '(7-8 weeks)'],
     team: ['5 people'],
     tools: ['Figma', 'FigJam'],
   },
