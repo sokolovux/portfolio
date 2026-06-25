@@ -299,6 +299,10 @@ a {
   .playground-grid__item--span-2 {
     grid-column: span 2;
   }
+
+  .playground-grid__item--span-full {
+    grid-column: 1 / -1;
+  }
 }
 
 // Bootstrap ratio helpers do not include 1:1 and 3:2 placeholders used in the playground grid.

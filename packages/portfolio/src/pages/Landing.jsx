@@ -170,46 +170,6 @@ export default function Landing() {
               <small className="xs">Branding for Alice, a secure AI note taker</small>
             </div>
           </div>
-          <div>
-            <div className="d-flex flex-column gap-2">
-              <PlaygroundVideo
-                src="/playground/times-square-logo.mp4"
-                ariaLabel="Logo featured on the Times Square billboard"
-              />
-              <small className="xs">A logo I designed, featured on Times Square</small>
-            </div>
-          </div>
-          <div className="playground-grid__item--span-2">
-            <div className="d-flex flex-column gap-2">
-              <PlaygroundVideo
-                wide
-                src="/playground/alice-secure-scroll.mp4"
-                ariaLabel="Alice Secure website scroll recording"
-              />
-              <small className="xs">Website for Alice Secure</small>
-            </div>
-          </div>
-          <div>
-            <div className="d-flex flex-column gap-2">
-              <PlaygroundVideo
-                src="/playground/hannah-lauren-mua-scroll.mp4"
-                ariaLabel="Hannah Lauren makeup artist website mobile scroll recording"
-              />
-              <small className="xs">Website design for a makeup artist in NYC</small>
-            </div>
-          </div>
-          <div>
-            <div className="d-flex flex-column gap-2">
-              <PlaygroundImage imageLabel="Playground experiment 6" />
-              <small className="xs">Logo for an early stage startup</small>
-            </div>
-          </div>
-          <div>
-            <div className="d-flex flex-column gap-2">
-              <PlaygroundImage imageLabel="Playground experiment 6" />
-              <small className="xs">UI design exercise</small>
-            </div>
-          </div>
           <div className="playground-grid__item--span-2">
             <div className="d-flex flex-column gap-2">
               <PlaygroundImage
@@ -231,6 +191,76 @@ export default function Landing() {
               <small className="xs">Experiment 8</small>
             </div>
           </div>
+          <div>
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundVideo
+                src="/playground/times-square-logo.mp4"
+                ariaLabel="Logo featured on the Times Square billboard"
+              />
+              <small className="xs">A logo I designed, featured on Times Square</small>
+            </div>
+          </div>
+          <div className="playground-grid__item--span-2">
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundVideo
+                wide
+                src="/playground/alice-secure-scroll.mp4"
+                ariaLabel="Alice Secure website scroll recording"
+              />
+              <small className="xs">Website for Alice Secure</small>
+            </div>
+          </div>
+          <div className="playground-grid__item--span-full">
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage
+                wide
+                src="/playground/cirqle.png"
+                alt="Cirqle mobile app profile settings screens showing personal, security, and notification tabs"
+                imageLabel="Cirqle mobile app profile settings screens"
+              />
+              <small className="xs">Mobile profile settings UI for Cirqle</small>
+            </div>
+          </div>
+          <div>
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundVideo
+                src="/playground/hannah-lauren-mua-scroll.mp4"
+                ariaLabel="Hannah Lauren makeup artist website mobile scroll recording"
+              />
+              <small className="xs">Website design for a makeup artist in NYC</small>
+            </div>
+          </div>
+          <div>
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage
+                src="/playground/tarka.png"
+                alt="Tarka logo on light and dark backgrounds"
+                imageLabel="Tarka logo on light and dark backgrounds"
+              />
+              <small className="xs">Logo for an early stage startup</small>
+            </div>
+          </div>
+          <div>
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage
+                src="/playground/delivery-display-font.png"
+                alt="Delivery display font showing letters A through P in a geometric grid"
+                imageLabel="Delivery display font showing letters A through P in a geometric grid"
+              />
+              <small className="xs">Display font design exercise</small>
+            </div>
+          </div>
+          <div className="playground-grid__item--span-full">
+            <div className="d-flex flex-column gap-2">
+              <PlaygroundImage
+                wide
+                src="/playground/binode.png"
+                alt="Binode mobile app onboarding screens with goal selection and language picker"
+                imageLabel="Binode mobile app onboarding screens"
+              />
+              <small className="xs">Mobile onboarding flow for Binode, a learn-to-code app concept</small>
+            </div>
+          </div>
           <div className="playground-grid__item--span-2">
             <div className="d-flex flex-column gap-2">
               <PlaygroundImage
@@ -244,7 +274,11 @@ export default function Landing() {
           </div>
           <div>
             <div className="d-flex flex-column gap-2">
-              <PlaygroundImage imageLabel="Playground experiment 10" />
+              <PlaygroundImage
+                src="/playground/ace-logo.png"
+                alt="ACE conference logo with The Next Frontier tagline"
+                imageLabel="ACE conference logo with The Next Frontier tagline"
+              />
               <small className="xs">Logo for a company conference in California</small>
             </div>
           </div>

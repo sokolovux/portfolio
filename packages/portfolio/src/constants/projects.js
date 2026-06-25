@@ -62,17 +62,17 @@ export const PROJECTS = [
     title: 'Kyruus Health',
     badges: ['UX/UI', 'Accessibility'],
     overview:
-      "Accessibility initiative resolving 60 WCAG 2.1 AA tickets across a healthcare platform's design system.",
+      "Led Kyruus Health's largest accessibility improvement: resolving 69 WCAG 2.1 AA audit findings solo across Pre-Visit, a nationwide patient check-in product.",
     href: '/work/kyruus-health',
     thumbnail: '/work/kyruus-thumb.png',
     gradient: {
       top: '#6FB4A1',
       bottom: '#5FAB96',
     },
-    role: ['UX/UI Designer'],
-    timeline: ['July 2023 - Oct 2024', '(1 year)'],
-    team: ['3 people'],
-    tools: ['Figma', 'FigJam'],
+    role: ['UX/UI Designer', '(sole accessibility lead)'],
+    timeline: ['Jun - Sep 2023', '(3 months)'],
+    team: ['Cross-functional', 'design, engineering, legal, Perkins Access'],
+    tools: ['Figma', 'Google Sheets', 'Jira'],
   },
 ]
 
