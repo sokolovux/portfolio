@@ -50,5 +50,5 @@ Use this hierarchy for all project case study body content inside `ProjectLayout
 - L1 titles: `h4` only. L2/L3 titles: `h6` only. Never `p.lead` for section titles.
 - Put `id` on the heading element (`h4` or `h6`), not on a wrapper.
 - Images, lists, and grids stay inside the section level they belong to (after relevant copy).
-- Every image/placeholder keeps the `shadow` utility.
+- Every image/placeholder keeps the `border` utility.
 - Do not add extra `container` or `py-5` on individual L1 sections.

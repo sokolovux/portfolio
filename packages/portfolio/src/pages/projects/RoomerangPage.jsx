@@ -43,7 +43,7 @@ export default function RoomerangPage() {
           <h4 id="overview">Overview</h4>
           <p>{LOREM}</p>
           <p>{LOREM}</p>
-          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Roomerang overview" />
+          <div className="landing-placeholder-image border" role="img" aria-label="Roomerang overview" />
           <div className="d-flex flex-column gap-3">
             <div className="d-flex flex-column gap-2">
               <h6 id="context">Context</h6>
@@ -57,7 +57,7 @@ export default function RoomerangPage() {
           <h4 id="research">Research</h4>
           <p>{LOREM}</p>
           <p>{LOREM}</p>
-          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Roomerang research" />
+          <div className="landing-placeholder-image border" role="img" aria-label="Roomerang research" />
         </section>
 
         <Divider />
@@ -65,7 +65,7 @@ export default function RoomerangPage() {
           <h4 id="design">Design</h4>
           <p>{LOREM}</p>
           <p>{LOREM}</p>
-          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Roomerang design" />
+          <div className="landing-placeholder-image border" role="img" aria-label="Roomerang design" />
         </section>
 
         <Divider />
@@ -73,7 +73,7 @@ export default function RoomerangPage() {
           <h4 id="outcome">Outcome</h4>
           <p>{LOREM}</p>
           <p>{LOREM}</p>
-          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Roomerang outcome" />
+          <div className="landing-placeholder-image border" role="img" aria-label="Roomerang outcome" />
         </section>
 
         <Divider />

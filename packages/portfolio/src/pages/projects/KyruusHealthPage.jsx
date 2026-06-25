@@ -43,7 +43,7 @@ export default function KyruusHealthPage() {
           <h4 id="overview">Overview</h4>
           <p>{LOREM}</p>
           <p>{LOREM}</p>
-          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health overview" />
+          <div className="landing-placeholder-image border" role="img" aria-label="Kyruus Health overview" />
           <div className="d-flex flex-column gap-3">
             <div className="d-flex flex-column gap-2">
               <h6 id="context">Context</h6>
@@ -57,7 +57,7 @@ export default function KyruusHealthPage() {
           <h4 id="research">Research</h4>
           <p>{LOREM}</p>
           <p>{LOREM}</p>
-          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health research" />
+          <div className="landing-placeholder-image border" role="img" aria-label="Kyruus Health research" />
         </section>
 
         <Divider />
@@ -65,7 +65,7 @@ export default function KyruusHealthPage() {
           <h4 id="design">Design</h4>
           <p>{LOREM}</p>
           <p>{LOREM}</p>
-          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health design" />
+          <div className="landing-placeholder-image border" role="img" aria-label="Kyruus Health design" />
         </section>
 
         <Divider />
@@ -73,7 +73,7 @@ export default function KyruusHealthPage() {
           <h4 id="outcome">Outcome</h4>
           <p>{LOREM}</p>
           <p>{LOREM}</p>
-          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health outcome" />
+          <div className="landing-placeholder-image border" role="img" aria-label="Kyruus Health outcome" />
         </section>
 
         <Divider />

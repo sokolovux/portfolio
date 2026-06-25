@@ -64,6 +64,7 @@ export const PROJECTS = [
     overview:
       "Accessibility initiative resolving 60 WCAG 2.1 AA tickets across a healthcare platform's design system.",
     href: '/work/kyruus-health',
+    thumbnail: '/work/kyruus-thumb.png',
     gradient: {
       top: '#6FB4A1',
       bottom: '#5FAB96',

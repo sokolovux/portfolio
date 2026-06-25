@@ -9,8 +9,8 @@ const TOC_ITEMS = [
   createTocItem('Target Audience'),
   createTocItem('Discovery'),
   createTocItem('My Role & Process'),
-  createTocItem('Core UX Challenges & Solutions'),
-  createTocItem('Tradeoffs & Scope Decisions'),
+  createTocItem('Core Challenges'),
+  createTocItem('Tradeoffs & Scope'),
   createTocItem('Results'),
 ]
 
@@ -23,11 +23,7 @@ function ChainletterResults({ hero = false }) {
   return (
     <ul className={listClassName}>
       <li className={itemClassName}>
-        Shipped an administrator MVP focused on degree upload and verification without blockchain
-        literacy.
-      </li>
-      <li className={itemClassName}>
-        Defined plain-language terminology and a two-state collection model for irreversible actions.
+        Shipped and piloted the app at 3 universitities.
       </li>
       <li className={itemClassName}>
         Delivered the core product loop in 7-8 weeks with a tightly scoped MVP cut list.
@@ -56,17 +52,17 @@ export default function ChainletterPage() {
             anything about blockchain.
           </p>
           <div
-            className="landing-placeholder-image shadow-lg"
+            className="landing-placeholder-image border"
             role="img"
             aria-label="Chainletter overview screen 1"
           />
           <div
-            className="landing-placeholder-image shadow-lg"
+            className="landing-placeholder-image border"
             role="img"
             aria-label="Chainletter overview screen 2"
           />
           <div
-            className="landing-placeholder-image shadow-lg"
+            className="landing-placeholder-image border"
             role="img"
             aria-label="Chainletter overview screen 3"
           />
@@ -101,17 +97,17 @@ export default function ChainletterPage() {
             </div>
           </div>
           <div
-            className="landing-placeholder-image shadow-lg"
+            className="landing-placeholder-image border"
             role="img"
             aria-label="Chainletter legacy UI screen 1"
           />
           <div
-            className="landing-placeholder-image shadow-lg"
+            className="landing-placeholder-image border"
             role="img"
             aria-label="Chainletter legacy UI screen 2"
           />
           <div
-            className="landing-placeholder-image shadow-lg"
+            className="landing-placeholder-image border"
             role="img"
             aria-label="Chainletter legacy UI screen 3"
           />
@@ -179,7 +175,7 @@ export default function ChainletterPage() {
 
         <Divider />
         <section className="d-flex flex-column gap-4">
-          <h4 id="core-ux-challenges-solutions">Core Challenges</h4>
+          <h4 id="core-challenges">Core Challenges</h4>
           <div className="d-flex flex-column gap-3">
             <div className="d-flex flex-column gap-2">
               <h6 id="terminology-mental-models">1. Terminology & Mental Models</h6>
@@ -203,12 +199,12 @@ export default function ChainletterPage() {
                   <li>Reinforced concepts with tooltips, contextual help, and warning modals across the UI</li>
                 </ul>
                 <div
-                  className="landing-placeholder-image shadow-lg"
+                  className="landing-placeholder-image border"
                   role="img"
                   aria-label="Chainletter terminology screen 1"
                 />
                 <div
-                  className="landing-placeholder-image shadow-lg"
+                  className="landing-placeholder-image border"
                   role="img"
                   aria-label="Chainletter terminology screen 2"
                 />
@@ -243,17 +239,17 @@ export default function ChainletterPage() {
                   <li>Used plain, direct language to explain consequences up front</li>
                 </ul>
                 <div
-                  className="landing-placeholder-image shadow-lg"
+                  className="landing-placeholder-image border"
                   role="img"
                   aria-label="Chainletter two-state collection screen 1"
                 />
                 <div
-                  className="landing-placeholder-image shadow-lg"
+                  className="landing-placeholder-image border"
                   role="img"
                   aria-label="Chainletter two-state collection screen 2"
                 />
                 <div
-                  className="landing-placeholder-image shadow-lg"
+                  className="landing-placeholder-image border"
                   role="img"
                   aria-label="Chainletter two-state collection screen 3"
                 />
@@ -274,17 +270,17 @@ export default function ChainletterPage() {
                   <li>Displayed error tables in modals so users could understand and fix issues quickly</li>
                 </ul>
                 <div
-                  className="landing-placeholder-image shadow-lg"
+                  className="landing-placeholder-image border"
                   role="img"
                   aria-label="Chainletter file upload screen 1"
                 />
                 <div
-                  className="landing-placeholder-image shadow-lg"
+                  className="landing-placeholder-image border"
                   role="img"
                   aria-label="Chainletter file upload screen 2"
                 />
                 <div
-                  className="landing-placeholder-image shadow-lg"
+                  className="landing-placeholder-image border"
                   role="img"
                   aria-label="Chainletter file upload screen 3"
                 />
@@ -295,7 +291,7 @@ export default function ChainletterPage() {
 
         <Divider />
         <section className="d-flex flex-column gap-4">
-          <h4 id="tradeoffs-scope-decisions">Tradeoffs & Scope</h4>
+          <h4 id="tradeoffs-scope">Tradeoffs & Scope</h4>
           <p>To stay on deadline and deliver a solid MVP, we scoped tightly and cut the following:</p>
           <ul className="mb-0">
             <li>Advanced filtering and search across Collections and Files</li>
