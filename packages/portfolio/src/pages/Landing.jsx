@@ -181,14 +181,21 @@ export default function Landing() {
           </div>
           <div className="playground-grid__item--span-2">
             <div className="d-flex flex-column gap-2">
-              <PlaygroundImage wide imageLabel="Playground experiment 4" />
-              <small className="xs">Website for Alice Secure [INSERT VIDEO]</small>
+              <PlaygroundVideo
+                wide
+                src="/playground/alice-secure-scroll.mp4"
+                ariaLabel="Alice Secure website scroll recording"
+              />
+              <small className="xs">Website for Alice Secure</small>
             </div>
           </div>
           <div>
             <div className="d-flex flex-column gap-2">
-              <PlaygroundImage imageLabel="Playground experiment 5" />
-              <small className="xs">Website design for a makeup artist in NYC [INSERT MOBILE VIDEO]</small>
+              <PlaygroundVideo
+                src="/playground/hannah-lauren-mua-scroll.mp4"
+                ariaLabel="Hannah Lauren makeup artist website mobile scroll recording"
+              />
+              <small className="xs">Website design for a makeup artist in NYC</small>
             </div>
           </div>
           <div>
@@ -266,8 +273,12 @@ export default function Landing() {
           </div>
           <div className="playground-grid__item--span-2">
             <div className="d-flex flex-column gap-2">
-              <PlaygroundImage wide imageLabel="Playground experiment 14" />
-              <small className="xs">Website design for a non-profit organization [INSERT VIDEO]</small>
+              <PlaygroundVideo
+                wide
+                src="/playground/portraits-of-hope-scroll.mp4"
+                ariaLabel="Portraits of Hope non-profit website scroll recording"
+              />
+              <small className="xs">Website design for a non-profit organization</small>
             </div>
           </div>
         </div>
