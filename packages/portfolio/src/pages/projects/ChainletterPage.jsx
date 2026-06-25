@@ -11,7 +11,6 @@ const TOC_ITEMS = [
   createTocItem('My Role & Process'),
   createTocItem('Core UX Challenges & Solutions'),
   createTocItem('Tradeoffs & Scope Decisions'),
-  createTocItem('Outcomes'),
   createTocItem('Results'),
 ]
 
@@ -57,17 +56,17 @@ export default function ChainletterPage() {
             anything about blockchain.
           </p>
           <div
-            className="project-placeholder-image shadow-lg"
+            className="landing-placeholder-image shadow-lg"
             role="img"
             aria-label="Chainletter overview screen 1"
           />
           <div
-            className="project-placeholder-image shadow-lg"
+            className="landing-placeholder-image shadow-lg"
             role="img"
             aria-label="Chainletter overview screen 2"
           />
           <div
-            className="project-placeholder-image shadow-lg"
+            className="landing-placeholder-image shadow-lg"
             role="img"
             aria-label="Chainletter overview screen 3"
           />
@@ -102,17 +101,17 @@ export default function ChainletterPage() {
             </div>
           </div>
           <div
-            className="project-placeholder-image shadow-lg"
+            className="landing-placeholder-image shadow-lg"
             role="img"
             aria-label="Chainletter legacy UI screen 1"
           />
           <div
-            className="project-placeholder-image shadow-lg"
+            className="landing-placeholder-image shadow-lg"
             role="img"
             aria-label="Chainletter legacy UI screen 2"
           />
           <div
-            className="project-placeholder-image shadow-lg"
+            className="landing-placeholder-image shadow-lg"
             role="img"
             aria-label="Chainletter legacy UI screen 3"
           />
@@ -166,9 +165,10 @@ export default function ChainletterPage() {
           </p>
           <ul className="mb-0">
             <li>Designed all lo-fi and hi-fi screens in Figma, using a Bootstrap UI kit as the base</li>
+            <li>Worked with ChatGPT and Claude in parallel to brainstorm flows, stress-test layouts and copy.</li>
             <li>Customized the components to align with Chainletter&apos;s brand and accessibility needs</li>
             <li>
-              Worked closely with Oleksii (our dev) on implementation: daily asyncs and live calls
+              Worked closely with Oleksii (our developer) on implementation: daily asyncs and live calls
             </li>
             <li>Held weekly design reviews with the full team</li>
           </ul>
@@ -179,7 +179,7 @@ export default function ChainletterPage() {
 
         <Divider />
         <section className="d-flex flex-column gap-4">
-          <h4 id="core-ux-challenges-solutions">Core UX Challenges & Solutions</h4>
+          <h4 id="core-ux-challenges-solutions">Core Challenges</h4>
           <div className="d-flex flex-column gap-3">
             <div className="d-flex flex-column gap-2">
               <h6 id="terminology-mental-models">1. Terminology & Mental Models</h6>
@@ -203,12 +203,12 @@ export default function ChainletterPage() {
                   <li>Reinforced concepts with tooltips, contextual help, and warning modals across the UI</li>
                 </ul>
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="landing-placeholder-image shadow-lg"
                   role="img"
                   aria-label="Chainletter terminology screen 1"
                 />
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="landing-placeholder-image shadow-lg"
                   role="img"
                   aria-label="Chainletter terminology screen 2"
                 />
@@ -243,17 +243,17 @@ export default function ChainletterPage() {
                   <li>Used plain, direct language to explain consequences up front</li>
                 </ul>
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="landing-placeholder-image shadow-lg"
                   role="img"
                   aria-label="Chainletter two-state collection screen 1"
                 />
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="landing-placeholder-image shadow-lg"
                   role="img"
                   aria-label="Chainletter two-state collection screen 2"
                 />
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="landing-placeholder-image shadow-lg"
                   role="img"
                   aria-label="Chainletter two-state collection screen 3"
                 />
@@ -274,17 +274,17 @@ export default function ChainletterPage() {
                   <li>Displayed error tables in modals so users could understand and fix issues quickly</li>
                 </ul>
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="landing-placeholder-image shadow-lg"
                   role="img"
                   aria-label="Chainletter file upload screen 1"
                 />
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="landing-placeholder-image shadow-lg"
                   role="img"
                   aria-label="Chainletter file upload screen 2"
                 />
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="landing-placeholder-image shadow-lg"
                   role="img"
                   aria-label="Chainletter file upload screen 3"
                 />
@@ -295,7 +295,7 @@ export default function ChainletterPage() {
 
         <Divider />
         <section className="d-flex flex-column gap-4">
-          <h4 id="tradeoffs-scope-decisions">Tradeoffs & Scope Decisions</h4>
+          <h4 id="tradeoffs-scope-decisions">Tradeoffs & Scope</h4>
           <p>To stay on deadline and deliver a solid MVP, we scoped tightly and cut the following:</p>
           <ul className="mb-0">
             <li>Advanced filtering and search across Collections and Files</li>
@@ -307,31 +307,6 @@ export default function ChainletterPage() {
             We kept focus on the core loop: creating collections, uploading files, stamping and
             verifying them, viewing status clearly, and getting help when needed.
           </p>
-        </section>
-
-        <Divider />
-        <section className="d-flex flex-column gap-4">
-          <h4 id="outcomes">Outcomes</h4>
-          <div
-            className="project-placeholder-image shadow-lg"
-            role="img"
-            aria-label="Chainletter outcome screen 1"
-          />
-          <div
-            className="project-placeholder-image shadow-lg"
-            role="img"
-            aria-label="Chainletter outcome screen 2"
-          />
-          <div
-            className="project-placeholder-image shadow-lg"
-            role="img"
-            aria-label="Chainletter outcome screen 3"
-          />
-          <div
-            className="project-placeholder-image shadow-lg"
-            role="img"
-            aria-label="Chainletter outcome screen 4"
-          />
         </section>
 
         <Divider />
