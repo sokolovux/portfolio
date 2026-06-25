@@ -38,48 +38,50 @@ export default function KyruusHealthPage() {
 
   return (
     <ProjectLayout meta={meta} tocItems={TOC_ITEMS} results={<KyruusHealthResults hero />}>
-      <section className="container py-5 d-flex flex-column gap-3">
-        <h4 id="overview">Overview</h4>
-        <p>{LOREM}</p>
-        <p>{LOREM}</p>
-        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health overview" />
-        <div className="d-flex flex-column gap-2">
-          <p id="context" className="lead">
-            Context
-          </p>
+      <div className="container py-5 d-flex flex-column gap-5">
+        <section className="d-flex flex-column gap-4">
+          <h4 id="overview">Overview</h4>
           <p>{LOREM}</p>
-        </div>
-      </section>
+          <p>{LOREM}</p>
+          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health overview" />
+          <div className="d-flex flex-column gap-3">
+            <div className="d-flex flex-column gap-2">
+              <h6 id="context">Context</h6>
+              <p>{LOREM}</p>
+            </div>
+          </div>
+        </section>
 
-      <Divider />
-      <section className="container py-5 d-flex flex-column gap-3">
-        <h4 id="research">Research</h4>
-        <p>{LOREM}</p>
-        <p>{LOREM}</p>
-        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health research" />
-      </section>
+        <Divider />
+        <section className="d-flex flex-column gap-4">
+          <h4 id="research">Research</h4>
+          <p>{LOREM}</p>
+          <p>{LOREM}</p>
+          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health research" />
+        </section>
 
-      <Divider />
-      <section className="container py-5 d-flex flex-column gap-3">
-        <h4 id="design">Design</h4>
-        <p>{LOREM}</p>
-        <p>{LOREM}</p>
-        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health design" />
-      </section>
+        <Divider />
+        <section className="d-flex flex-column gap-4">
+          <h4 id="design">Design</h4>
+          <p>{LOREM}</p>
+          <p>{LOREM}</p>
+          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health design" />
+        </section>
 
-      <Divider />
-      <section className="container py-5 d-flex flex-column gap-3">
-        <h4 id="outcome">Outcome</h4>
-        <p>{LOREM}</p>
-        <p>{LOREM}</p>
-        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health outcome" />
-      </section>
+        <Divider />
+        <section className="d-flex flex-column gap-4">
+          <h4 id="outcome">Outcome</h4>
+          <p>{LOREM}</p>
+          <p>{LOREM}</p>
+          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health outcome" />
+        </section>
 
-      <Divider />
-      <section className="container py-5 d-flex flex-column gap-3">
-        <h4 id="results">Results</h4>
-        <KyruusHealthResults />
-      </section>
+        <Divider />
+        <section className="d-flex flex-column gap-4">
+          <h4 id="results">Results</h4>
+          <KyruusHealthResults />
+        </section>
+      </div>
     </ProjectLayout>
   )
 }

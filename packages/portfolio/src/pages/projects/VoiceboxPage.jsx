@@ -72,84 +72,76 @@ export default function VoiceboxPage() {
 
   return (
     <ProjectLayout meta={meta} tocItems={TOC_ITEMS} results={<VoiceboxResults hero />}>
-      <section className="container py-5 d-flex flex-column gap-3">
-        <h4 id="overview">Overview</h4>
-        <p>{LOREM}</p>
-        <p>{LOREM}</p>
-        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Voicebox overview" />
-        <div className="d-flex flex-column gap-2">
-          <p id="context" className="lead">
-            Context
-          </p>
+      <div className="container py-5 d-flex flex-column gap-5">
+        <section className="d-flex flex-column gap-4">
+          <h4 id="overview">Overview</h4>
           <p>{LOREM}</p>
-          <div className="d-flex flex-column gap-2">
-            <p id="problem-space" className="lead">
-              Problem Space
-            </p>
-            <p>{LOREM}</p>
-          </div>
-          <div className="d-flex flex-column gap-2">
-            <p id="constraints" className="lead">
-              Constraints
-            </p>
-            <p>{LOREM}</p>
-          </div>
-        </div>
-        <div className="d-flex flex-column gap-2">
-          <p id="approach" className="lead">
-            Approach
-          </p>
           <p>{LOREM}</p>
-          <div className="d-flex flex-column gap-2">
-            <p id="methodology" className="lead">
-              Methodology
-            </p>
-            <p>{LOREM}</p>
+          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Voicebox overview" />
+          <div className="d-flex flex-column gap-3">
+            <div className="d-flex flex-column gap-2">
+              <h6 id="context">Context</h6>
+              <p>{LOREM}</p>
+              <div className="ps-3 py-2 border-start d-flex flex-column gap-1">
+                <h6 id="problem-space">Problem Space</h6>
+                <p>{LOREM}</p>
+              </div>
+              <div className="ps-3 py-2 border-start d-flex flex-column gap-1">
+                <h6 id="constraints">Constraints</h6>
+                <p>{LOREM}</p>
+              </div>
+            </div>
+            <div className="d-flex flex-column gap-2">
+              <h6 id="approach">Approach</h6>
+              <p>{LOREM}</p>
+              <div className="ps-3 py-2 border-start d-flex flex-column gap-1">
+                <h6 id="methodology">Methodology</h6>
+                <p>{LOREM}</p>
+              </div>
+              <div className="ps-3 py-2 border-start d-flex flex-column gap-1">
+                <h6 id="timeline">Timeline</h6>
+                <p>{LOREM}</p>
+              </div>
+            </div>
           </div>
-          <div className="d-flex flex-column gap-2">
-            <p id="timeline" className="lead">
-              Timeline
-            </p>
-            <p>{LOREM}</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <Divider />
-      <section className="container py-5 d-flex flex-column gap-3">
-        <h4 id="research">Research</h4>
-        <p>{LOREM}</p>
-        <p>{LOREM}</p>
-        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Voicebox research" />
-        <div className="d-flex flex-column gap-2">
-          <p id="research-context" className="lead">
-            Context
-          </p>
+        <Divider />
+        <section className="d-flex flex-column gap-4">
+          <h4 id="research">Research</h4>
           <p>{LOREM}</p>
-        </div>
-      </section>
+          <p>{LOREM}</p>
+          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Voicebox research" />
+          <div className="d-flex flex-column gap-3">
+            <div className="d-flex flex-column gap-2">
+              <h6 id="research-context">Context</h6>
+              <p>{LOREM}</p>
+            </div>
+          </div>
+        </section>
 
-      <Divider />
-      <section className="container py-5 d-flex flex-column gap-3">
-        <h4 id="design">Design</h4>
-        <p>{LOREM}</p>
-        <p>{LOREM}</p>
-        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Voicebox design" />
-      </section>
+        <Divider />
+        <section className="d-flex flex-column gap-4">
+          <h4 id="design">Design</h4>
+          <p>{LOREM}</p>
+          <p>{LOREM}</p>
+          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Voicebox design" />
+        </section>
 
-      <Divider />
-      <section className="container py-5 d-flex flex-column gap-3">
-        <h4 id="outcome">Outcome</h4>
-        <p>{LOREM}</p>
-        <p>{LOREM}</p>
-        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Voicebox outcome" />
-      </section>
+        <Divider />
+        <section className="d-flex flex-column gap-4">
+          <h4 id="outcome">Outcome</h4>
+          <p>{LOREM}</p>
+          <p>{LOREM}</p>
+          <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Voicebox outcome" />
+        </section>
 
-      <Divider />
-      <section className="container py-5 d-flex flex-column gap-3">
-        <h4 id="results">Results</h4>
-        <VoiceboxResults />
-      </section>
+        <Divider />
+        <section className="d-flex flex-column gap-4">
+          <h4 id="results">Results</h4>
+          <VoiceboxResults />
+        </section>
+      </div>
     </ProjectLayout>
   )
 }

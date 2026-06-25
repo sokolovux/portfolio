@@ -1,0 +1,54 @@
+---
+description: Case study page section hierarchy and markup template
+globs: packages/portfolio/src/pages/projects/**/*.jsx
+alwaysApply: false
+---
+
+# Case study layout
+
+Use this hierarchy for all project case study body content inside `ProjectLayout`.
+
+## Page shell
+
+- One outer wrapper: `container py-5 d-flex flex-column gap-5`
+- Place `<Divider />` between L1 sections (not before the first or after the last)
+- `ProjectLayout` still provides hero + divider above body content
+
+## Levels
+
+| Level | Element | Classes | Notes |
+|-------|---------|---------|-------|
+| L1 | `<section>` | `d-flex flex-column gap-4` | `h4` title with `id` for TOC/hash |
+| L2 | `<div>` | `d-flex flex-column gap-2` | `h6` title with `id`; group siblings in `d-flex flex-column gap-3` |
+| L3 | `<div>` | `ps-3 py-2 border-start d-flex flex-column gap-1` | `h6` title with `id` |
+
+## Template
+
+```jsx
+<div className="container py-5 d-flex flex-column gap-5">
+  <section className="d-flex flex-column gap-4">
+    <h4 id="section-slug">L1 Section Title</h4>
+    <p>Intro copy directly under L1.</p>
+    <div className="d-flex flex-column gap-3">
+      <div className="d-flex flex-column gap-2">
+        <h6 id="subsection-slug">L2 Section Title</h6>
+        <p>L2 body copy.</p>
+        <div className="ps-3 py-2 border-start d-flex flex-column gap-1">
+          <h6 id="subsubsection-slug">L3 Section Title</h6>
+          <p>L3 body copy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Divider />
+  <section className="d-flex flex-column gap-4">...</section>
+</div>
+```
+
+## Rules
+
+- L1 titles: `h4` only. L2/L3 titles: `h6` only. Never `p.lead` for section titles.
+- Put `id` on the heading element (`h4` or `h6`), not on a wrapper.
+- Images, lists, and grids stay inside the section level they belong to (after relevant copy).
+- Every image/placeholder keeps the `shadow` utility.
+- Do not add extra `container` or `py-5` on individual L1 sections.
