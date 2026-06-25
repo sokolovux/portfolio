@@ -12,14 +12,14 @@ When you change **user-visible page content** in the portfolio app, check whethe
 
 | What | Where |
 |------|--------|
-| Home title & description | `packages/portfolio/src/constants/site.js` → `HOME_PAGE_META` |
-| Project title, summary, OG image | `packages/portfolio/src/constants/projects.js` → `title`, `description`, optional `ogImage` |
-| Route → meta mapping | `packages/portfolio/src/utils/getRouteMeta.js` |
-| Head tag rendering | `packages/portfolio/src/utils/documentMeta.js` |
-| JSON-LD structured data | `packages/portfolio/src/utils/structuredData.js` + `packages/portfolio/src/constants/site.js` (`SITE_ROLE`, `SITE_LINKEDIN`, `SITE_GITHUB`, `SITE_TELEGRAM`) |
-| Client head sync | `packages/portfolio/src/components/RouteMeta.jsx` |
-| Prerender routes | `packages/portfolio/src/constants/projects.js` → `PRERENDER_ROUTES` |
-| Crawl files | `packages/portfolio/scripts/generate-crawl-files.mjs` → `public/robots.txt`, `public/sitemap.xml` (from `PRERENDER_ROUTES` + `VITE_SITE_URL`) |
+| Home title & description | `src/constants/site.js` → `HOME_PAGE_META` |
+| Project title, summary, OG image | `src/constants/projects.js` → `title`, `description`, optional `ogImage` |
+| Route → meta mapping | `src/utils/getRouteMeta.js` |
+| Head tag rendering | `src/utils/documentMeta.js` |
+| JSON-LD structured data | `src/utils/structuredData.js` + `src/constants/site.js` (`SITE_ROLE`, `SITE_LINKEDIN`, `SITE_GITHUB`, `SITE_TELEGRAM`) |
+| Client head sync | `src/components/RouteMeta.jsx` |
+| Prerender routes | `src/constants/projects.js` → `PRERENDER_ROUTES` |
+| Crawl files | `scripts/generate-crawl-files.mjs` → `public/robots.txt`, `public/sitemap.xml` (from `PRERENDER_ROUTES` + `VITE_SITE_URL`) |
 | Canonical base URL | `VITE_SITE_URL` in env; fallback in `site.js` |
 
 Project pages derive `<title>`, `meta description`, Open Graph, Twitter, and canonical URL from `projects.js`. Home page meta is **not** auto-derived from `Landing.jsx`; update `HOME_PAGE_META` explicitly.
@@ -43,7 +43,6 @@ Project pages derive `<title>`, `meta description`, Open Graph, Twitter, and can
 - Layout, styling, or animation-only edits
 - TOC, section headings, or body copy **below** the project summary (unless the summary itself changed)
 - Component refactors that do not change rendered text
-- Resources app content (passcode-gated; must stay non-indexable)
 
 ## Checklist (run before finishing a content edit)
 
@@ -51,12 +50,8 @@ Project pages derive `<title>`, `meta description`, Open Graph, Twitter, and can
 2. Are titles concise and unique? Format: `{Page} | Maxim Sokolov` for projects; home uses `HOME_PAGE_META.title`. Never use em dashes in titles or descriptions.
 3. Is `description` a real summary (not placeholder), suitable for search and social previews?
 4. If a route was added or removed, is `PRERENDER_ROUTES` updated? Re-run build so `sitemap.xml` regenerates.
-5. If metadata changed, run `npm run build` in `packages/portfolio` and confirm prerendered HTML in `dist/` has correct `<head>` tags.
+5. If metadata changed, run `npm run build` and confirm prerendered HTML in `dist/` has correct `<head>` tags.
 
 ## Structured data
 
 When JSON-LD exists, update `Person` / `CreativeWork` in `structuredData.js` when name, role, bio, project title, or summary changes. Keep `SITE_LINKEDIN`, `SITE_GITHUB`, `SITE_TELEGRAM` in `site.js` current with profile URLs. Schema must cite the same facts as visible copy and meta tags.
-
-## Resources app
-
-Do not index `packages/resources`. Never copy its content into portfolio SEO metadata.

@@ -51,7 +51,7 @@ Use instead:
 En dashes (`–`) are allowed only for numeric ranges (e.g. `150–160 chars`).
 
 ## Custom CSS
-Lives in shared/design/_extensions.scss only. Every custom rule needs a comment explaining why Bootstrap can't handle it.
+Lives in src/styles/design/_extensions.scss only. Every custom rule needs a comment explaining why Bootstrap can't handle it.
 
 ## Before writing code
 Always list files you plan to create, ask clarifying questions, and surface ambiguities before writing any code.

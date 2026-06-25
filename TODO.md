@@ -2,13 +2,13 @@
 
 ## SEO & AEO
 
-Currently the portfolio is a client-side SPA with no metadata strategy, crawl infrastructure, or structured data. The resources app is passcode-gated and not intended for indexing.
+Currently the portfolio is a client-side SPA with prerender for key routes.
 
 ### Crawlability & rendering
 
 - [ ] Prerender or SSR key routes (`/`, `/work/:slug`) so crawlers get full HTML without relying on JS
 - [ ] Ensure hero text is crawlable on first paint — `TextScramble` currently renders random characters until the animation completes
-- [ ] Add `public/robots.txt` (allow portfolio, disallow resources if applicable)
+- [ ] Add `public/robots.txt`
 - [ ] Add `public/sitemap.xml` with `/` and all `/work/:slug` URLs
 
 ### Per-page metadata
@@ -30,10 +30,6 @@ Currently the portfolio is a client-side SPA with no metadata strategy, crawl in
 - [ ] Flesh out project pages (`/work/:slug`) with real case study content
 - [ ] Decide whether landing sections (Experience, About, Contact) stay as hash anchors or become separate indexable routes
 - [ ] Add favicon and other static assets under `public/`
-
-### Resources app
-
-- [ ] Confirm `robots.txt` / meta robots blocks indexing of the passcode-gated resources site
 
 ## Performance
 

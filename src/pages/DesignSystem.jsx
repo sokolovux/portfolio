@@ -67,7 +67,7 @@ export default function DesignSystem() {
       <header className="mb-5">
         <h1>Design system</h1>
         <p className="lead text-muted">
-          Bootstrap 5.3 with shared tokens from <code>shared/design/</code>.
+          Bootstrap 5.3 with shared tokens from <code>src/styles/design/</code>.
         </p>
       </header>
 

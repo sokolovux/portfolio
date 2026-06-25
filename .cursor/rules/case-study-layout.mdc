@@ -1,6 +1,6 @@
 ---
 description: Case study page section hierarchy and markup template
-globs: packages/portfolio/src/pages/projects/**/*.jsx
+globs: src/pages/projects/**/*.jsx
 alwaysApply: false
 ---
 
