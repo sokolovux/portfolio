@@ -1,14 +1,17 @@
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6,
-a {
-  letter-spacing: $headings-letter-spacing;
-  text-transform: uppercase;
-}
+
 
 // Bootstrap reboot adds bottom margins to headings and paragraphs; use gap-* on parents for rhythm.
 h1, h2, h3, h4, h5, h6, a, small {
   margin-bottom: 0;
   max-width: 480px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: $headings-letter-spacing;
 }
 
 // Bootstrap has no utility pairing list items with paragraph typography.
@@ -86,6 +89,9 @@ a {
 
 .nav-link {
   @extend h6;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: $headings-letter-spacing;
   text-decoration: none;
   color: inherit;
   &:hover {
@@ -496,14 +502,15 @@ html {
   }
 }
 
-// Bootstrap nav-link is coupled to navbar layout; TOC links share typography/hover without nav padding.
+// Bootstrap nav-link is coupled to navbar layout; TOC links match nav-link typography without nav padding.
 .toc-link {
+  @extend h6;
   display: block;
   padding: 0;
   color: inherit;
+  letter-spacing: $headings-letter-spacing;
+  text-transform: uppercase;
   text-decoration: none;
-  // fw-* is banned; override h6 weight inherited from global anchor styles.
-  font-weight: 400;
 
   &:hover,
   &:focus {
@@ -547,6 +554,7 @@ html {
 }
 
 li {
+  color: $body-secondary-color !important;
   font-size: 1rem;
   margin-bottom: 4px;
   color: $body-secondary-color;

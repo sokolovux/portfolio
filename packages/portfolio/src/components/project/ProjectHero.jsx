@@ -1,5 +1,7 @@
+import { ArrowLeft } from 'lucide-react'
 import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import Icon from '../Icon.jsx'
 import ProjectCardImage from '../ProjectCardImage.jsx'
 
 const DETAIL_COLUMNS = [
@@ -12,7 +14,10 @@ const DETAIL_COLUMNS = [
 export default function ProjectHero({ meta, results }) {
   return (
     <section className="container py-5 d-flex flex-column gap-3">
-      <Link className="nav-link project-back-link" to="/#work">← Back</Link>
+      <Link className="nav-link project-back-link d-inline-flex align-items-center gap-2" to="/#work">
+        <Icon icon={ArrowLeft} size={20} aria-hidden />
+        Back
+      </Link>
       <h2>{meta.title}</h2>
       <p>{meta.overview}</p>
       <div className="d-grid gap-2 project-hero-grid">

@@ -6,6 +6,7 @@ import Capture from './pages/Capture.jsx'
 import DesignSystem from './pages/DesignSystem.jsx'
 import Landing from './pages/Landing.jsx'
 import ProjectRoute from './pages/ProjectRoute.jsx'
+import TestPage from './pages/TestPage.jsx'
 
 export default function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ export default function AppRoutes() {
         <Route path="/ascii-dev" element={<AsciiDev />} />
         <Route path="/ascii-dev-2" element={<AsciiDev2 />} />
         <Route path="/capture" element={<Capture />} />
+        <Route path="/test" element={<TestPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
