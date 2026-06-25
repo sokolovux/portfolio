@@ -37,9 +37,9 @@ export const PROJECTS = [
       'Lead UX/UI redesign of Chainletter\'s university admin MVP so degree verification works for staff who do not need to understand blockchain.',
     href: '/work/chainletter',
     role: ['Lead UX/UI Designer', 'Co-product lead'],
-    timeline: ['Feb - Mar 2025', '(7-8 weeks)'],
+    timeline: ['Feb - Apr 2025', '(7-8 weeks)'],
     team: ['5 people'],
-    tools: ['Figma', 'FigJam'],
+    tools: ['Figma', 'FigJam', "ChatGPT", "Claude"],
   },
   {
     slug: 'kyruus-health',

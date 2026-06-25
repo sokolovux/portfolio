@@ -1,12 +1,7 @@
 import { getProjectBySlug } from '../../constants/projects.js'
 import { createTocItem } from '../../utils/toc.js'
-import ProjectImage from '../../components/project/ProjectImage.jsx'
+import Divider from '../../components/Divider.jsx'
 import ProjectLayout from '../../components/project/ProjectLayout.jsx'
-import ProjectResultsList, { ProjectResultsItem } from '../../components/project/ProjectResultsList.jsx'
-import ProjectSection from '../../components/project/ProjectSection.jsx'
-import ProjectSubsection from '../../components/project/ProjectSubsection.jsx'
-
-const CL_IMAGE = (number) => `/work/chainletter/cl-${number}.png`
 
 const TOC_ITEMS = [
   createTocItem('Overview'),
@@ -21,18 +16,24 @@ const TOC_ITEMS = [
 ]
 
 function ChainletterResults({ hero = false }) {
+  const listClassName = hero
+    ? 'd-flex flex-column gap-2 mb-0 small'
+    : 'd-flex flex-column gap-2 mb-0'
+  const itemClassName = hero ? undefined : 'lead'
+
   return (
-    <ProjectResultsList hero={hero}>
-      <ProjectResultsItem hero={hero}>
-        Shipped an administrator MVP focused on degree upload and verification without blockchain literacy.
-      </ProjectResultsItem>
-      <ProjectResultsItem hero={hero}>
+    <ul className={listClassName}>
+      <li className={itemClassName}>
+        Shipped an administrator MVP focused on degree upload and verification without blockchain
+        literacy.
+      </li>
+      <li className={itemClassName}>
         Defined plain-language terminology and a two-state collection model for irreversible actions.
-      </ProjectResultsItem>
-      <ProjectResultsItem hero={hero}>
+      </li>
+      <li className={itemClassName}>
         Delivered the core product loop in 7-8 weeks with a tightly scoped MVP cut list.
-      </ProjectResultsItem>
-    </ProjectResultsList>
+      </li>
+    </ul>
   )
 }
 
@@ -41,7 +42,8 @@ export default function ChainletterPage() {
 
   return (
     <ProjectLayout meta={meta} tocItems={TOC_ITEMS} results={<ChainletterResults hero />}>
-      <ProjectSection id="overview" title="Overview">
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="overview">Overview</h4>
         <p>
           Chainletter is a blockchain-based platform that allows universities to have their degrees
           and certifications be verifiable to any and all outside organizations with just the
@@ -53,37 +55,93 @@ export default function ChainletterPage() {
           The end goal: help university admins upload student degrees without needing to understand
           anything about blockchain.
         </p>
-        <ProjectImage src={CL_IMAGE(1)} alt="Chainletter overview screen 1" label="Chainletter overview screen 1" />
-        <ProjectImage src={CL_IMAGE(2)} alt="Chainletter overview screen 2" label="Chainletter overview screen 2" />
-        <ProjectImage src={CL_IMAGE(3)} alt="Chainletter overview screen 3" label="Chainletter overview screen 3" />
-      </ProjectSection>
+        <div className="row g-3">
+          <div className="col-12 col-md-6">
+            <div
+              className="project-placeholder-image shadow-lg"
+              role="img"
+              aria-label="Chainletter overview screen 1"
+            />
+          </div>
+          <div className="col-12 col-md-6">
+            <div
+              className="project-placeholder-image shadow-lg"
+              role="img"
+              aria-label="Chainletter overview screen 2"
+            />
+          </div>
+          <div className="col-12 col-md-6">
+            <div
+              className="project-placeholder-image shadow-lg"
+              role="img"
+              aria-label="Chainletter overview screen 3"
+            />
+          </div>
+        </div>
+      </section>
 
-      <ProjectSection id="the-problem" title="The Problem" dividerBefore>
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="the-problem">The Problem</h4>
         <p>
           The first version of Chainletter had a lot of issues: visually, functionally, and
           structurally.
         </p>
-        <ProjectSubsection id="issue-1-ui-design" title="Issue #1: UI Design">
+        <div className="d-flex flex-column gap-1">
+          <p id="issue-1-ui-design" className="lead">
+            Issue #1: UI Design
+          </p>
           <p>The UI felt outdated and disconnected. There was no brand consistency and no real design system.</p>
-        </ProjectSubsection>
-        <ProjectSubsection id="issue-2-unintuitive-interactions" title="Issue #2: Unintuitive Interactions">
+        </div>
+        <div className="d-flex flex-column gap-1">
+          <p id="issue-2-unintuitive-interactions" className="lead">
+            Issue #2: Unintuitive Interactions
+          </p>
           <p>Basic interactions were unintuitive and required lots of guesswork.</p>
-        </ProjectSubsection>
-        <ProjectSubsection id="issue-3-microcopy-terminology" title="Issue #3: Microcopy & Terminology">
+        </div>
+        <div className="d-flex flex-column gap-1">
+          <p id="issue-3-microcopy-terminology" className="lead">
+            Issue #3: Microcopy & Terminology
+          </p>
           <p>Terminology throughout the app was inconsistent and often too technical.</p>
-        </ProjectSubsection>
-        <ProjectSubsection id="issue-4-blockchain-unfamiliarity" title="Issue #4: Blockchain Unfamiliarity">
+        </div>
+        <div className="d-flex flex-column gap-1">
+          <p id="issue-4-blockchain-unfamiliarity" className="lead">
+            Issue #4: Blockchain Unfamiliarity
+          </p>
           <p>
             Blockchain introduced permanent, irreversible actions and the interface did little to
             prepare users for that.
           </p>
-        </ProjectSubsection>
-        <ProjectImage src={CL_IMAGE(4)} alt="Chainletter legacy UI screen 1" label="Chainletter legacy UI screen 1" />
-        <ProjectImage src={CL_IMAGE(5)} alt="Chainletter legacy UI screen 2" label="Chainletter legacy UI screen 2" />
-        <ProjectImage src={CL_IMAGE(6)} alt="Chainletter legacy UI screen 3" label="Chainletter legacy UI screen 3" />
-      </ProjectSection>
+        </div>
+        <div className="row g-3">
+          <div className="col-12 col-md-6">
+            <div
+              className="project-placeholder-image shadow-lg"
+              role="img"
+              aria-label="Chainletter legacy UI screen 1"
+            />
+          </div>
+          <div className="col-12 col-md-6">
+            <div
+              className="project-placeholder-image shadow-lg"
+              role="img"
+              aria-label="Chainletter legacy UI screen 2"
+            />
+          </div>
+          <div className="col-12 col-md-6">
+            <div
+              className="project-placeholder-image shadow-lg"
+              role="img"
+              aria-label="Chainletter legacy UI screen 3"
+            />
+          </div>
+        </div>
+      </section>
 
-      <ProjectSection id="target-audience" title="Target Audience" dividerBefore>
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="target-audience">Target Audience</h4>
         <p>
           Our MVP was built specifically for university administrators: the people responsible for
           managing and verifying academic records.
@@ -95,9 +153,11 @@ export default function ChainletterPage() {
           as the documents it&apos;s certifying, and that they won&apos;t accidentally do something
           irreversible.
         </p>
-      </ProjectSection>
+      </section>
 
-      <ProjectSection id="discovery" title="Discovery" dividerBefore>
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="discovery">Discovery</h4>
         <p>
           The project was early-stage and fast-moving, so we worked with the resources we had. The
           Chainletter team brought deep knowledge of university workflows and procurement cycles,
@@ -110,9 +170,11 @@ export default function ChainletterPage() {
           introduced. We also did a quick competitor review to understand where the category was and
           where it wasn&apos;t.
         </p>
-      </ProjectSection>
+      </section>
 
-      <ProjectSection id="my-role-process" title="My Role & Process" dividerBefore>
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="my-role-process">My Role & Process</h4>
         <p>
           I led the project as both UX/UI Designer and co-product lead. The whole project took
           around 7-8 weeks.
@@ -134,10 +196,15 @@ export default function ChainletterPage() {
         <p>
           We intentionally kept things lean and fast-moving, without heavyweight process overhead.
         </p>
-      </ProjectSection>
+      </section>
 
-      <ProjectSection id="core-ux-challenges-solutions" title="Core UX Challenges & Solutions" dividerBefore>
-        <ProjectSubsection id="terminology-mental-models" title="1. Terminology & Mental Models">
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="core-ux-challenges-solutions">Core UX Challenges & Solutions</h4>
+        <div className="d-flex flex-column gap-3">
+          <p id="terminology-mental-models" className="lead">
+            1. Terminology & Mental Models
+          </p>
           <p>
             The biggest challenge was explaining blockchain interactions to non-technical users
             without using blockchain terminology.
@@ -147,7 +214,10 @@ export default function ChainletterPage() {
             permanently uploads data to the blockchain, but going full crypto-speak wasn&apos;t an
             option either.
           </p>
-          <ProjectSubsection id="terminology-solution" title="Solution">
+          <div className="d-flex flex-column gap-2">
+            <p id="terminology-solution" className="lead">
+              Solution
+            </p>
             <ul className="mb-0">
               <li>
                 Defined a simple internal glossary as an abstraction on blockchain-related
@@ -156,18 +226,38 @@ export default function ChainletterPage() {
               <li>Iterated on terminology with the team until it felt clear and trustworthy</li>
               <li>Reinforced concepts with tooltips, contextual help, and warning modals across the UI</li>
             </ul>
-            <ProjectImage src={CL_IMAGE(7)} alt="Chainletter terminology screen 1" label="Chainletter terminology screen 1" />
-            <ProjectImage src={CL_IMAGE(8)} alt="Chainletter terminology screen 2" label="Chainletter terminology screen 2" />
-          </ProjectSubsection>
-        </ProjectSubsection>
+            <div className="row g-3">
+              <div className="col-12 col-md-6">
+                <div
+                  className="project-placeholder-image shadow-lg"
+                  role="img"
+                  aria-label="Chainletter terminology screen 1"
+                />
+              </div>
+              <div className="col-12 col-md-6">
+                <div
+                  className="project-placeholder-image shadow-lg"
+                  role="img"
+                  aria-label="Chainletter terminology screen 2"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <ProjectSubsection id="permanent-actions" title="2. Permanent Actions">
+        <div className="d-flex flex-column gap-2">
+          <p id="permanent-actions" className="lead">
+            2. Permanent Actions
+          </p>
           <p>
             The core architectural challenge was separating editable, internal state from the point of
             no return. Quite a few actions within the UI had permanent consequences, and needed to
             be communicated as such in a way that empowers users, not burdens them.
           </p>
-          <ProjectSubsection id="two-state-collection-model" title="The Core Solution: A Two-State Collection Model">
+          <div className="d-flex flex-column gap-2">
+            <p id="two-state-collection-model" className="lead">
+              The Core Solution: A Two-State Collection Model
+            </p>
             <p>
               The central UX insight (and this was mine, not a technical requirement) was splitting
               the collection flow into two distinct states. Step 1: an internal draft with an editable
@@ -179,37 +269,88 @@ export default function ChainletterPage() {
               Everything else in this section (the modals, the non-editable fields, the copy) was
               built to make that two-state model legible at every level of the interface.
             </p>
-          </ProjectSubsection>
-          <ProjectSubsection id="permanent-actions-additional-solutions" title="Additional solutions">
+          </div>
+          <div className="d-flex flex-column gap-2">
+            <p id="permanent-actions-additional-solutions" className="lead">
+              Additional solutions
+            </p>
             <ul className="mb-0">
               <li>Added warning modals and non-editable fields post-stamping</li>
               <li>Used plain, direct language to explain consequences up front</li>
             </ul>
-            <ProjectImage src={CL_IMAGE(10)} alt="Chainletter two-state collection screen 1" label="Chainletter two-state collection screen 1" />
-            <ProjectImage src={CL_IMAGE(11)} alt="Chainletter two-state collection screen 2" label="Chainletter two-state collection screen 2" />
-            <ProjectImage src={CL_IMAGE(12)} alt="Chainletter two-state collection screen 3" label="Chainletter two-state collection screen 3" />
-          </ProjectSubsection>
-        </ProjectSubsection>
+            <div className="row g-3">
+              <div className="col-12 col-md-6">
+                <div
+                  className="project-placeholder-image shadow-lg"
+                  role="img"
+                  aria-label="Chainletter two-state collection screen 1"
+                />
+              </div>
+              <div className="col-12 col-md-6">
+                <div
+                  className="project-placeholder-image shadow-lg"
+                  role="img"
+                  aria-label="Chainletter two-state collection screen 2"
+                />
+              </div>
+              <div className="col-12 col-md-6">
+                <div
+                  className="project-placeholder-image shadow-lg"
+                  role="img"
+                  aria-label="Chainletter two-state collection screen 3"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <ProjectSubsection id="file-upload-error-handling" title="3. File Upload UX & Error Handling">
+        <div className="d-flex flex-column gap-2">
+          <p id="file-upload-error-handling" className="lead">
+            3. File Upload UX & Error Handling
+          </p>
           <p>
             The upload flow was hidden, lacked context on accepted file types, and gave poor feedback
             when something went wrong.
           </p>
-          <ProjectSubsection id="file-upload-solution" title="Solution">
+          <div className="d-flex flex-column gap-2">
+            <p id="file-upload-solution" className="lead">
+              Solution
+            </p>
             <ul className="mb-0">
               <li>Made the file upload UI always visible and clearly labeled</li>
               <li>Grouped errors into two buckets: shown before upload and after upload</li>
               <li>Displayed error tables in modals so users could understand and fix issues quickly</li>
             </ul>
-            <ProjectImage src={CL_IMAGE(13)} alt="Chainletter file upload screen 1" label="Chainletter file upload screen 1" />
-            <ProjectImage src={CL_IMAGE(14)} alt="Chainletter file upload screen 2" label="Chainletter file upload screen 2" />
-            <ProjectImage src={CL_IMAGE(15)} alt="Chainletter file upload screen 3" label="Chainletter file upload screen 3" />
-          </ProjectSubsection>
-        </ProjectSubsection>
-      </ProjectSection>
+            <div className="row g-3">
+              <div className="col-12 col-md-6">
+                <div
+                  className="project-placeholder-image shadow-lg"
+                  role="img"
+                  aria-label="Chainletter file upload screen 1"
+                />
+              </div>
+              <div className="col-12 col-md-6">
+                <div
+                  className="project-placeholder-image shadow-lg"
+                  role="img"
+                  aria-label="Chainletter file upload screen 2"
+                />
+              </div>
+              <div className="col-12 col-md-6">
+                <div
+                  className="project-placeholder-image shadow-lg"
+                  role="img"
+                  aria-label="Chainletter file upload screen 3"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <ProjectSection id="tradeoffs-scope-decisions" title="Tradeoffs & Scope Decisions" dividerBefore>
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="tradeoffs-scope-decisions">Tradeoffs & Scope Decisions</h4>
         <p>To stay on deadline and deliver a solid MVP, we scoped tightly and cut the following:</p>
         <ul className="mb-0">
           <li>Advanced filtering and search across Collections and Files</li>
@@ -221,18 +362,48 @@ export default function ChainletterPage() {
           We kept focus on the core loop: creating collections, uploading files, stamping and
           verifying them, viewing status clearly, and getting help when needed.
         </p>
-      </ProjectSection>
+      </section>
 
-      <ProjectSection id="outcomes" title="Outcomes" dividerBefore>
-        <ProjectImage src={CL_IMAGE(16)} alt="Chainletter outcome screen 1" label="Chainletter outcome screen 1" />
-        <ProjectImage src={CL_IMAGE(18)} alt="Chainletter outcome screen 2" label="Chainletter outcome screen 2" />
-        <ProjectImage src={CL_IMAGE(19)} alt="Chainletter outcome screen 3" label="Chainletter outcome screen 3" />
-        <ProjectImage src={CL_IMAGE(20)} alt="Chainletter outcome screen 4" label="Chainletter outcome screen 4" />
-      </ProjectSection>
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="outcomes">Outcomes</h4>
+        <div className="row g-3">
+          <div className="col-12 col-md-6">
+            <div
+              className="project-placeholder-image shadow-lg"
+              role="img"
+              aria-label="Chainletter outcome screen 1"
+            />
+          </div>
+          <div className="col-12 col-md-6">
+            <div
+              className="project-placeholder-image shadow-lg"
+              role="img"
+              aria-label="Chainletter outcome screen 2"
+            />
+          </div>
+          <div className="col-12 col-md-6">
+            <div
+              className="project-placeholder-image shadow-lg"
+              role="img"
+              aria-label="Chainletter outcome screen 3"
+            />
+          </div>
+          <div className="col-12 col-md-6">
+            <div
+              className="project-placeholder-image shadow-lg"
+              role="img"
+              aria-label="Chainletter outcome screen 4"
+            />
+          </div>
+        </div>
+      </section>
 
-      <ProjectSection id="results" title="Results" dividerBefore>
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="results">Results</h4>
         <ChainletterResults />
-      </ProjectSection>
+      </section>
     </ProjectLayout>
   )
 }

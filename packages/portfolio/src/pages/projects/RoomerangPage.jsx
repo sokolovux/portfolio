@@ -1,10 +1,7 @@
 import { getProjectBySlug } from '../../constants/projects.js'
 import { createTocItem } from '../../utils/toc.js'
-import ProjectImage from '../../components/project/ProjectImage.jsx'
+import Divider from '../../components/Divider.jsx'
 import ProjectLayout from '../../components/project/ProjectLayout.jsx'
-import ProjectResultsList, { ProjectResultsItem } from '../../components/project/ProjectResultsList.jsx'
-import ProjectSection from '../../components/project/ProjectSection.jsx'
-import ProjectSubsection from '../../components/project/ProjectSubsection.jsx'
 
 const LOREM =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
@@ -18,16 +15,21 @@ const TOC_ITEMS = [
 ]
 
 function RoomerangResults({ hero = false }) {
+  const listClassName = hero
+    ? 'd-flex flex-column gap-2 mb-0 small'
+    : 'd-flex flex-column gap-2 mb-0'
+  const itemClassName = hero ? undefined : 'lead'
+
   return (
-    <ProjectResultsList hero={hero}>
-      <ProjectResultsItem hero={hero}>
+    <ul className={listClassName}>
+      <li className={itemClassName}>
         Conceived, designed, and built the product solo from concept through deployment.
-      </ProjectResultsItem>
-      <ProjectResultsItem hero={hero}>
+      </li>
+      <li className={itemClassName}>
         Shipped end-to-end flows for discovery, listings, and roommate matching.
-      </ProjectResultsItem>
-      <ProjectResultsItem hero={hero}>Full stack on React, Supabase, Vercel, and Railway.</ProjectResultsItem>
-    </ProjectResultsList>
+      </li>
+      <li className={itemClassName}>Full stack on React, Supabase, Vercel, and Railway.</li>
+    </ul>
   )
 }
 
@@ -36,32 +38,48 @@ export default function RoomerangPage() {
 
   return (
     <ProjectLayout meta={meta} tocItems={TOC_ITEMS} results={<RoomerangResults hero />}>
-      <ProjectSection id="overview" title="Overview">
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="overview">Overview</h4>
         <p>{LOREM}</p>
         <p>{LOREM}</p>
-        <ProjectImage label="Roomerang overview" />
-        <ProjectSubsection id="context" title="Context">
+        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Roomerang overview" />
+        <div className="d-flex flex-column gap-2">
+          <p id="context" className="lead">
+            Context
+          </p>
           <p>{LOREM}</p>
-        </ProjectSubsection>
-      </ProjectSection>
-      <ProjectSection id="research" title="Research" dividerBefore>
+        </div>
+      </section>
+
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="research">Research</h4>
         <p>{LOREM}</p>
         <p>{LOREM}</p>
-        <ProjectImage label="Roomerang research" />
-      </ProjectSection>
-      <ProjectSection id="design" title="Design" dividerBefore>
+        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Roomerang research" />
+      </section>
+
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="design">Design</h4>
         <p>{LOREM}</p>
         <p>{LOREM}</p>
-        <ProjectImage label="Roomerang design" />
-      </ProjectSection>
-      <ProjectSection id="outcome" title="Outcome" dividerBefore>
+        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Roomerang design" />
+      </section>
+
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="outcome">Outcome</h4>
         <p>{LOREM}</p>
         <p>{LOREM}</p>
-        <ProjectImage label="Roomerang outcome" />
-      </ProjectSection>
-      <ProjectSection id="results" title="Results" dividerBefore>
+        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Roomerang outcome" />
+      </section>
+
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="results">Results</h4>
         <RoomerangResults />
-      </ProjectSection>
+      </section>
     </ProjectLayout>
   )
 }

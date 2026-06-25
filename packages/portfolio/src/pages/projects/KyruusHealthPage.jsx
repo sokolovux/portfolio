@@ -1,10 +1,7 @@
 import { getProjectBySlug } from '../../constants/projects.js'
 import { createTocItem } from '../../utils/toc.js'
-import ProjectImage from '../../components/project/ProjectImage.jsx'
+import Divider from '../../components/Divider.jsx'
 import ProjectLayout from '../../components/project/ProjectLayout.jsx'
-import ProjectResultsList, { ProjectResultsItem } from '../../components/project/ProjectResultsList.jsx'
-import ProjectSection from '../../components/project/ProjectSection.jsx'
-import ProjectSubsection from '../../components/project/ProjectSubsection.jsx'
 
 const LOREM =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
@@ -18,18 +15,21 @@ const TOC_ITEMS = [
 ]
 
 function KyruusHealthResults({ hero = false }) {
+  const listClassName = hero
+    ? 'd-flex flex-column gap-2 mb-0 small'
+    : 'd-flex flex-column gap-2 mb-0'
+  const itemClassName = hero ? undefined : 'lead'
+
   return (
-    <ProjectResultsList hero={hero}>
-      <ProjectResultsItem hero={hero}>
-        64% reduction in accessibility debt (60 of 93 tickets resolved).
-      </ProjectResultsItem>
-      <ProjectResultsItem hero={hero}>
+    <ul className={listClassName}>
+      <li className={itemClassName}>64% reduction in accessibility debt (60 of 93 tickets resolved).</li>
+      <li className={itemClassName}>
         Established repeatable accessibility patterns across the design system.
-      </ProjectResultsItem>
-      <ProjectResultsItem hero={hero}>
+      </li>
+      <li className={itemClassName}>
         Improved compliance posture for a regulated healthcare product.
-      </ProjectResultsItem>
-    </ProjectResultsList>
+      </li>
+    </ul>
   )
 }
 
@@ -38,32 +38,48 @@ export default function KyruusHealthPage() {
 
   return (
     <ProjectLayout meta={meta} tocItems={TOC_ITEMS} results={<KyruusHealthResults hero />}>
-      <ProjectSection id="overview" title="Overview">
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="overview">Overview</h4>
         <p>{LOREM}</p>
         <p>{LOREM}</p>
-        <ProjectImage label="Kyruus Health overview" />
-        <ProjectSubsection id="context" title="Context">
+        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health overview" />
+        <div className="d-flex flex-column gap-2">
+          <p id="context" className="lead">
+            Context
+          </p>
           <p>{LOREM}</p>
-        </ProjectSubsection>
-      </ProjectSection>
-      <ProjectSection id="research" title="Research" dividerBefore>
+        </div>
+      </section>
+
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="research">Research</h4>
         <p>{LOREM}</p>
         <p>{LOREM}</p>
-        <ProjectImage label="Kyruus Health research" />
-      </ProjectSection>
-      <ProjectSection id="design" title="Design" dividerBefore>
+        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health research" />
+      </section>
+
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="design">Design</h4>
         <p>{LOREM}</p>
         <p>{LOREM}</p>
-        <ProjectImage label="Kyruus Health design" />
-      </ProjectSection>
-      <ProjectSection id="outcome" title="Outcome" dividerBefore>
+        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health design" />
+      </section>
+
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="outcome">Outcome</h4>
         <p>{LOREM}</p>
         <p>{LOREM}</p>
-        <ProjectImage label="Kyruus Health outcome" />
-      </ProjectSection>
-      <ProjectSection id="results" title="Results" dividerBefore>
+        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Kyruus Health outcome" />
+      </section>
+
+      <Divider />
+      <section className="container py-5 d-flex flex-column gap-3">
+        <h4 id="results">Results</h4>
         <KyruusHealthResults />
-      </ProjectSection>
+      </section>
     </ProjectLayout>
   )
 }
