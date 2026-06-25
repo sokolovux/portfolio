@@ -11,7 +11,7 @@ export default function VideoPreview({ videoUrl, filename, onReset }) {
   return (
     <div className="d-flex flex-column gap-4">
       <video
-        className="w-100 shadow"
+        className="w-100 border"
         src={videoUrl}
         controls
         autoPlay

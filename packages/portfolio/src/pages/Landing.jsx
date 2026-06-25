@@ -32,7 +32,7 @@ export default function Landing() {
           <img
             src="/landing-hero.png"
             alt="Maxim Sokolov"
-            className="landing-hero-image shadow-lg"
+            className="landing-hero-image border"
           />
           <div className="d-flex flex-column align-items-center gap-2">
             <TextScramble text="I'm Maxim." tag="h1" className="text-highlight landing-heading" />

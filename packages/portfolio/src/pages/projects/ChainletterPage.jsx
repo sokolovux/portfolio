@@ -58,21 +58,21 @@ export default function ChainletterPage() {
         <div className="row g-3">
           <div className="col-12 col-md-6">
             <div
-              className="project-placeholder-image shadow-lg"
+              className="project-placeholder-image border"
               role="img"
               aria-label="Chainletter overview screen 1"
             />
           </div>
           <div className="col-12 col-md-6">
             <div
-              className="project-placeholder-image shadow-lg"
+              className="project-placeholder-image border"
               role="img"
               aria-label="Chainletter overview screen 2"
             />
           </div>
           <div className="col-12 col-md-6">
             <div
-              className="project-placeholder-image shadow-lg"
+              className="project-placeholder-image border"
               role="img"
               aria-label="Chainletter overview screen 3"
             />
@@ -117,21 +117,21 @@ export default function ChainletterPage() {
         <div className="row g-3">
           <div className="col-12 col-md-6">
             <div
-              className="project-placeholder-image shadow-lg"
+              className="project-placeholder-image border"
               role="img"
               aria-label="Chainletter legacy UI screen 1"
             />
           </div>
           <div className="col-12 col-md-6">
             <div
-              className="project-placeholder-image shadow-lg"
+              className="project-placeholder-image border"
               role="img"
               aria-label="Chainletter legacy UI screen 2"
             />
           </div>
           <div className="col-12 col-md-6">
             <div
-              className="project-placeholder-image shadow-lg"
+              className="project-placeholder-image border"
               role="img"
               aria-label="Chainletter legacy UI screen 3"
             />
@@ -229,14 +229,14 @@ export default function ChainletterPage() {
             <div className="row g-3">
               <div className="col-12 col-md-6">
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="project-placeholder-image border"
                   role="img"
                   aria-label="Chainletter terminology screen 1"
                 />
               </div>
               <div className="col-12 col-md-6">
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="project-placeholder-image border"
                   role="img"
                   aria-label="Chainletter terminology screen 2"
                 />
@@ -281,21 +281,21 @@ export default function ChainletterPage() {
             <div className="row g-3">
               <div className="col-12 col-md-6">
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="project-placeholder-image border"
                   role="img"
                   aria-label="Chainletter two-state collection screen 1"
                 />
               </div>
               <div className="col-12 col-md-6">
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="project-placeholder-image border"
                   role="img"
                   aria-label="Chainletter two-state collection screen 2"
                 />
               </div>
               <div className="col-12 col-md-6">
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="project-placeholder-image border"
                   role="img"
                   aria-label="Chainletter two-state collection screen 3"
                 />
@@ -324,21 +324,21 @@ export default function ChainletterPage() {
             <div className="row g-3">
               <div className="col-12 col-md-6">
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="project-placeholder-image border"
                   role="img"
                   aria-label="Chainletter file upload screen 1"
                 />
               </div>
               <div className="col-12 col-md-6">
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="project-placeholder-image border"
                   role="img"
                   aria-label="Chainletter file upload screen 2"
                 />
               </div>
               <div className="col-12 col-md-6">
                 <div
-                  className="project-placeholder-image shadow-lg"
+                  className="project-placeholder-image border"
                   role="img"
                   aria-label="Chainletter file upload screen 3"
                 />
@@ -370,28 +370,28 @@ export default function ChainletterPage() {
         <div className="row g-3">
           <div className="col-12 col-md-6">
             <div
-              className="project-placeholder-image shadow-lg"
+              className="project-placeholder-image border"
               role="img"
               aria-label="Chainletter outcome screen 1"
             />
           </div>
           <div className="col-12 col-md-6">
             <div
-              className="project-placeholder-image shadow-lg"
+              className="project-placeholder-image border"
               role="img"
               aria-label="Chainletter outcome screen 2"
             />
           </div>
           <div className="col-12 col-md-6">
             <div
-              className="project-placeholder-image shadow-lg"
+              className="project-placeholder-image border"
               role="img"
               aria-label="Chainletter outcome screen 3"
             />
           </div>
           <div className="col-12 col-md-6">
             <div
-              className="project-placeholder-image shadow-lg"
+              className="project-placeholder-image border"
               role="img"
               aria-label="Chainletter outcome screen 4"
             />

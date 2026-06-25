@@ -76,7 +76,7 @@ export default function VoiceboxPage() {
         <h4 id="overview">Overview</h4>
         <p>{LOREM}</p>
         <p>{LOREM}</p>
-        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Voicebox overview" />
+        <div className="landing-placeholder-image border" role="img" aria-label="Voicebox overview" />
         <div className="d-flex flex-column gap-2">
           <p id="context" className="lead">
             Context
@@ -120,7 +120,7 @@ export default function VoiceboxPage() {
         <h4 id="research">Research</h4>
         <p>{LOREM}</p>
         <p>{LOREM}</p>
-        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Voicebox research" />
+        <div className="landing-placeholder-image border" role="img" aria-label="Voicebox research" />
         <div className="d-flex flex-column gap-2">
           <p id="research-context" className="lead">
             Context
@@ -134,7 +134,7 @@ export default function VoiceboxPage() {
         <h4 id="design">Design</h4>
         <p>{LOREM}</p>
         <p>{LOREM}</p>
-        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Voicebox design" />
+        <div className="landing-placeholder-image border" role="img" aria-label="Voicebox design" />
       </section>
 
       <Divider />
@@ -142,7 +142,7 @@ export default function VoiceboxPage() {
         <h4 id="outcome">Outcome</h4>
         <p>{LOREM}</p>
         <p>{LOREM}</p>
-        <div className="landing-placeholder-image shadow-lg" role="img" aria-label="Voicebox outcome" />
+        <div className="landing-placeholder-image border" role="img" aria-label="Voicebox outcome" />
       </section>
 
       <Divider />

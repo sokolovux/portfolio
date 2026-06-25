@@ -41,9 +41,11 @@ export default function ProjectHero({ meta, results }) {
         ) : null}
       </div>
       <ProjectCardImage
+        slug={meta.slug}
         title={meta.title}
         src={meta.thumbnail}
         alt={`${meta.title} project preview`}
+        gradient={meta.gradient}
       />
     </section>
   )

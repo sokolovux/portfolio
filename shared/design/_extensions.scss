@@ -235,12 +235,34 @@ a {
   border-radius: var(--bs-border-radius);
 }
 
-// Bootstrap has no ratio-1x1 utility; project cards use a square preview on md+.
-.project-card__image {
-  aspect-ratio: 1.5;
+// Bootstrap has no ratio-3x2 utility; case study image grids use this ratio.
+.project-placeholder-image {
+  aspect-ratio: 3 / 2;
   width: 100%;
   background-color: var(--bs-gray-300);
   border-radius: var(--bs-border-radius);
+}
+
+// Bootstrap has no ratio-1x1 utility; project cards use a square preview on md+.
+// Per-project gradient stops are set from projects.js via CSS custom properties on each card.
+.project-card__image {
+  aspect-ratio: 1.5;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    var(--project-card-gradient-top, var(--bs-gray-300)),
+    var(--project-card-gradient-bottom, var(--bs-gray-100))
+  );
+  border-radius: var(--bs-border-radius);
+}
+
+// Bootstrap img-fluid does not fill a fixed aspect-ratio box; cover keeps thumbnails flush with the gradient frame.
+.project-card__image-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 // Bootstrap row-cols cannot span columns; project hero detail cards use CSS grid.
@@ -520,14 +542,18 @@ html {
 
 .lead {
   color: $body-color !important;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 li {
   font-size: 1rem;
   margin-bottom: 4px;
+  color: $body-secondary-color;
 }
 
 ul {
+  margin-bottom: 0; 
   list-style: square;
   padding-left: map-get($spacers, 4);
 }
@@ -539,9 +565,4 @@ strong {
 
 footer {
   height: 192px;
-}
-
-.shadow-lg {
-  box-shadow: 0 0 12px 0 rgba(#000000, 0.09) !important;
-  //box-shadow: none !important;
 }

@@ -6,7 +6,7 @@ export default function PlaygroundVideo({ src, ariaLabel, wide = false, classNam
   const classes = [
     'playground-grid__image',
     shapeClass,
-    'shadow',
+    'border',
     'w-100',
     'object-fit-cover',
     className,

@@ -4,6 +4,7 @@ import ScrambleInView from './ScrambleInView.jsx'
 
 export default function ProjectCard({
   className,
+  slug,
   index,
   category,
   title,
@@ -11,6 +12,7 @@ export default function ProjectCard({
   overview,
   href,
   thumbnail,
+  gradient,
 }) {
   const classes = ['project-card', 'row', 'g-3', 'g-md-4', className].filter(Boolean).join(' ')
 
@@ -40,7 +42,12 @@ export default function ProjectCard({
         <BtnCustom variant="secondary" label="Read more" className="mt-auto" href={href} />
       </div>
       <div className="col-md-8">
-        <ProjectCardImage title={title} src={thumbnail} />
+        <ProjectCardImage
+          slug={slug}
+          title={title}
+          src={thumbnail}
+          gradient={gradient}
+        />
       </div>
     </article>  )
 }
