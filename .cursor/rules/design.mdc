@@ -41,12 +41,23 @@ Never apply the `small` class to heading elements (`h1`–`h6`); use the correct
 - No ::-webkit-scrollbar rules
 
 ## Copy
+
+### Sentence case
+All user-visible text uses sentence case: capitalize only the first word and proper nouns (names). This includes headings, nav labels, buttons, badges, aria-labels, alt text, meta descriptions, and body copy.
+
+Keep capitalized:
+- People, companies, products, and place names (e.g. Kyruus Health, Voicebox, Times Square)
+- Acronyms and initialisms (e.g. UX/UI, WCAG, HIPAA, NYC)
+- Official or branded terms when they are names (e.g. Pre-Visit, SignaturePad, Figma)
+
+Lowercase everything else, including job titles and discipline labels (e.g. `UX/UI designer & engineer`, `Design systems`, `The challenge`).
+
 Never use the em dash (`—`, U+2014) in user-visible website copy. This includes page text, `<title>` and meta descriptions, Open Graph tags, aria-labels, alt text, and button/link labels.
 
 Use instead:
 - Pipe (`|`) to separate title segments (e.g. `Voicebox | Maxim Sokolov`)
 - Colon, comma, or period for label–detail pairs (e.g. `Lead: Geist sans-serif, body scale.`)
-- Hyphen-minus (`-`) for compound modifiers when a dash is needed (e.g. `UX/UI Designer & Engineer`)
+- Hyphen-minus (`-`) for compound modifiers when a dash is needed (e.g. `UX/UI designer & engineer`)
 
 En dashes (`–`) are allowed only for numeric ranges (e.g. `150–160 chars`).
 

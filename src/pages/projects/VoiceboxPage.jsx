@@ -83,7 +83,7 @@ export default function VoiceboxPage() {
               <h6 id="context">Context</h6>
               <p>{LOREM}</p>
               <div className="ps-3 py-2 border-start d-flex flex-column gap-1">
-                <h6 id="problem-space">Problem Space</h6>
+                <h6 id="problem-space">Problem space</h6>
                 <p>{LOREM}</p>
               </div>
               <div className="ps-3 py-2 border-start d-flex flex-column gap-1">

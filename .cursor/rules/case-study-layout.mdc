@@ -27,14 +27,14 @@ Use this hierarchy for all project case study body content inside `ProjectLayout
 ```jsx
 <div className="container py-5 d-flex flex-column gap-5">
   <section className="d-flex flex-column gap-4">
-    <h4 id="section-slug">L1 Section Title</h4>
+    <h4 id="section-slug">L1 section title</h4>
     <p>Intro copy directly under L1.</p>
     <div className="d-flex flex-column gap-3">
       <div className="d-flex flex-column gap-2">
-        <h6 id="subsection-slug">L2 Section Title</h6>
+        <h6 id="subsection-slug">L2 section title</h6>
         <p>L2 body copy.</p>
         <div className="ps-3 py-2 border-start d-flex flex-column gap-1">
-          <h6 id="subsubsection-slug">L3 Section Title</h6>
+          <h6 id="subsubsection-slug">L3 section title</h6>
           <p>L3 body copy.</p>
         </div>
       </div>

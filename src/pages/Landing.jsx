@@ -37,7 +37,7 @@ export default function Landing() {
           <div className="d-flex flex-column align-items-center gap-2">
             <TextScramble text="I'm Maxim." tag="h1" className="text-highlight landing-heading" />
             <TextScramble text="I design & ship." tag="h1" className="landing-heading" />
-            <TextScramble text="UX/UI Designer & Engineer" tag="p" className="p display-mono mb-1" />
+            <TextScramble text="UX/UI designer & engineer" tag="p" className="p display-mono mb-1" />
             <div className="d-flex flex-wrap gap-1 justify-content-center">
               <div className="badge">Featured on Times Square</div>
               <div className="badge">4+ products shipped</div>
@@ -101,7 +101,7 @@ export default function Landing() {
                 <p className="display-mono text-highlight">Voicebox</p>
               </div>
               <div className="col-7">
-                <p className="">UX/UI Designer & Engineer</p>
+                <p className="">UX/UI designer & engineer</p>
               </div>
             </div>
             <div className="row row-gap-1">
@@ -112,7 +112,7 @@ export default function Landing() {
                 <p className="display-mono text-highlight">Freelance</p>
               </div>
               <div className="col-7">
-                <p className="">UX/UI & Web Designer</p>
+                <p className="">UX/UI & web designer</p>
               </div>
             </div>
             <div className="row row-gap-1">
@@ -123,7 +123,7 @@ export default function Landing() {
                 <p className="display-mono text-highlight">Kyruus Health</p>
               </div>
               <div className="col-7">
-                <p className="">UX/UI Designer</p>
+                <p className="">UX/UI designer</p>
               </div>
             </div>
             <div className="row row-gap-1">
@@ -134,7 +134,7 @@ export default function Landing() {
                 <p className="display-mono text-highlight">Starta Accelerator</p>
               </div>
               <div className="col-7">
-                <p className="">Visual & Brand Designer</p>
+                <p className="">Visual & brand designer</p>
               </div>
             </div>
 

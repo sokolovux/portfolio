@@ -5,10 +5,10 @@ import ProjectLayout from '../../components/project/ProjectLayout.jsx'
 
 const TOC_ITEMS = [
   createTocItem('Overview'),
-  createTocItem('The Challenge'),
-  createTocItem('My Process'),
-  createTocItem('Scope and Results'),
-  createTocItem('SignaturePad Replacement'),
+  createTocItem('The challenge'),
+  createTocItem('My process'),
+  createTocItem('Scope and results'),
+  createTocItem('SignaturePad replacement'),
   createTocItem('Results'),
 ]
 
@@ -54,8 +54,8 @@ export default function KyruusHealthPage() {
           <p>
             Kyruus Health is a Boston-based healthcare technology company serving over 400 employees.
             Their flagship product, Pre-Visit, is a patient check-in application used by healthcare
-            providers across the US. In 2023, an external accessibility audit conducted by Perkins
-            Access identified 69 issues across the product, ranging from critical access blocks to
+            providers across the US. In 2023, an external accessibility audit conducted by an audit
+            firm identified 69 issues across the product, ranging from critical access blocks to
             moderate usability gaps, against WCAG 2.1 AA standards.
           </p>
           <p>
@@ -63,19 +63,19 @@ export default function KyruusHealthPage() {
             working across design, engineering, and legal in a 400+ person organization to move the
             needle on what became the largest accessibility improvement in the company&apos;s history.
           </p>
-          <div
-            className="landing-placeholder-image border"
-            role="img"
-            aria-label="Kyruus Health Pre-Visit product overview"
+          <img
+            src="/work/kyruus-health/kh-logo.png"
+            alt="Kyruus Health logo"
+            className="img-fluid border w-100"
           />
         </section>
 
         <Divider />
         <section className="d-flex flex-column gap-4">
-          <h4 id="the-challenge">The Challenge</h4>
+          <h4 id="the-challenge">The challenge</h4>
           <p>
-            Kyruus had committed to WCAG 2.1 AA compliance following an external audit by Perkins
-            Access, a leading accessibility consultancy. The audit surfaced 69 issues across the
+            Kyruus had committed to WCAG 2.1 AA compliance following an external audit by an audit
+            firm. The audit surfaced 69 issues across the
             Pre-Visit product: 8 critical access blocks, 21 significant barriers, and 24 moderate
             friction points, spanning every major user flow in the application.
           </p>
@@ -96,11 +96,11 @@ export default function KyruusHealthPage() {
 
         <Divider />
         <section className="d-flex flex-column gap-4">
-          <h4 id="my-process">My Process</h4>
+          <h4 id="my-process">My process</h4>
           <p>
             Because I was working alone at scale, I needed a repeatable process I could apply
             consistently across all 69 tickets in a short window. I built a tracking system in Google
-            Sheets, carrying over all audit data from Perkins&apos; platform, where I documented every
+            Sheets, carrying over all audit data from the audit firm&apos;s platform, where I documented every
             ticket&apos;s status, my notes, communications, and decisions throughout the initiative.
           </p>
           <p>For each ticket, I followed five steps:</p>
@@ -108,8 +108,8 @@ export default function KyruusHealthPage() {
             <div className="d-flex flex-column gap-2">
               <h6 id="ticket-analysis">1. Ticket analysis and WCAG guideline review</h6>
               <p>
-                Review the ticket against the relevant WCAG criterion, coordinate with the Perkins
-                contact for clarification on requirements and intent.
+                Review the ticket against the relevant WCAG criterion, coordinate with the audit
+                firm for clarification on requirements and intent.
               </p>
             </div>
             <div className="d-flex flex-column gap-2">
@@ -141,11 +141,16 @@ export default function KyruusHealthPage() {
               </p>
             </div>
           </div>
+          <img
+            src="/work/kyruus-health/kh-table.png"
+            alt="Kyruus Health accessibility remediation tracking spreadsheet"
+            className="img-fluid border w-100"
+          />
         </section>
 
         <Divider />
         <section className="d-flex flex-column gap-4">
-          <h4 id="scope-and-results">Scope and Results</h4>
+          <h4 id="scope-and-results">Scope and results</h4>
           <p>
             Over 3 months, I worked through all 69 audit tickets, analyzing, scoping, designing, and
             handing off to the development team. The work spanned the full complexity spectrum: from
@@ -156,7 +161,7 @@ export default function KyruusHealthPage() {
           <p>A few notable tickets beyond the quick-win category:</p>
           <div className="d-flex flex-column gap-3">
             <div className="d-flex flex-column gap-2">
-              <h6 id="medication-buttons">Taking / Not Taking medication buttons (E-408, E-409)</h6>
+              <h6 id="medication-buttons">Taking / not taking medication buttons (E-408, E-409)</h6>
               <p>
                 Two related critical-impact tickets: the medication status buttons weren&apos;t
                 identifiable as selectable objects by screen readers, and their selected state was
@@ -191,7 +196,7 @@ export default function KyruusHealthPage() {
 
         <Divider />
         <section className="d-flex flex-column gap-4">
-          <h4 id="signaturepad-replacement">SignaturePad Replacement</h4>
+          <h4 id="signaturepad-replacement">SignaturePad replacement</h4>
           <p>
             Of all the tickets in the audit, the SignaturePad replacement was the most complex and
             the most impactful. It was a critical-severity ticket, meaning it represented a total block
@@ -199,7 +204,7 @@ export default function KyruusHealthPage() {
           </p>
           <div className="d-flex flex-column gap-3">
             <div className="d-flex flex-column gap-2">
-              <h6 id="the-problem">The Problem</h6>
+              <h6 id="the-problem">The problem</h6>
               <p>
                 The on-screen signing component, SignaturePad, required users to drag a finger or
                 pointer across the screen to produce a signature. This made it completely inaccessible
@@ -212,17 +217,22 @@ export default function KyruusHealthPage() {
                 niche edge case. It was a gate that blocked a significant portion of users from using
                 the product at all.
               </p>
-              <div
-                className="landing-placeholder-image border"
-                role="img"
-                aria-label="Current SignaturePad flows"
+              <img
+                src="/work/kyruus-health/kh-1.png"
+                alt="Current SignaturePad flows"
+                className="img-fluid border w-100"
+              />
+              <img
+                src="/work/kyruus-health/kh-2.png"
+                alt="SignaturePad in Pre-Visit consent and intake flows"
+                className="img-fluid border w-100"
               />
             </div>
 
             <div className="d-flex flex-column gap-2">
-              <h6 id="research-four-options">Research: Four Options</h6>
+              <h6 id="research-four-options">Research: four options</h6>
               <p>
-                Our audit partner, Perkins Access, pointed us toward DocuSign as a reference for
+                The audit firm pointed us toward DocuSign as a reference for
                 accessible e-signature patterns. After reviewing DocuSign and other e-signature tools,
                 we identified four candidate approaches:
               </p>
@@ -256,21 +266,46 @@ export default function KyruusHealthPage() {
                   <h6 id="option-4-type">Option 4: Type</h6>
                   <p>
                     A text input where users type their full name, which is then rendered as a
-                    handwritten-style signature. Recommended directly by our audit partner. Fully
+                    handwritten-style signature. Recommended directly by the audit firm. Fully
                     accessible if the input field is screen-reader compatible. Also flagged for legal
                     review before proceeding.
                   </p>
                 </div>
               </div>
-              <div
-                className="landing-placeholder-image border"
-                role="img"
-                aria-label="Research reference screens for e-signature options"
-              />
+              <div className="row g-3">
+                <div className="col-md-6">
+                  <img
+                    src="/work/kyruus-health/kh-3.png"
+                    alt="Option 1: Draw e-signature reference"
+                    className="img-fluid border w-100"
+                  />
+                </div>
+                <div className="col-md-6">
+                  <img
+                    src="/work/kyruus-health/kh-4.png"
+                    alt="Option 2: Upload image e-signature reference"
+                    className="img-fluid border w-100"
+                  />
+                </div>
+                <div className="col-md-6">
+                  <img
+                    src="/work/kyruus-health/kh-5.png"
+                    alt="Option 3: Checkbox e-signature reference"
+                    className="img-fluid border w-100"
+                  />
+                </div>
+                <div className="col-md-6">
+                  <img
+                    src="/work/kyruus-health/kh-6.png"
+                    alt="Option 4: Type e-signature reference"
+                    className="img-fluid border w-100"
+                  />
+                </div>
+              </div>
             </div>
 
             <div className="d-flex flex-column gap-2">
-              <h6 id="legal-review">Legal Review</h6>
+              <h6 id="legal-review">Legal review</h6>
               <p>
                 Both the Checkbox and Type options required legal sign-off before we could move forward,
                 specifically on whether each method constituted a valid, HIPAA-compliant e-signature
@@ -289,37 +324,31 @@ export default function KyruusHealthPage() {
               <p>
                 With the Type solution approved, the next challenge was implementation within the
                 constraints of the ongoing MUI migration. All components had to stay within the MUI
-                framework to maintain alignment with the broader product direction and keep the scope
-                manageable.
+                framework, with slight visual modifications if deemed necessary.
               </p>
               <p>
                 MUI offered two components with tab-like switching behavior: Tab and Button Group. I
                 explored both, testing different layouts and placements within the signature UI. I
-                ultimately chose Button Group, positioned below the signature area, for two reasons:
+                ultimately chose Tab, positioned above the signature area as it followed the natural reading
+                pattern from top to bottom and thus created a better visual hierarchy:
               </p>
-              <ul className="mb-0">
-                <li>
-                  Mobile accessibility: Placing the control near the bottom of the screen made it
-                  easier to reach for all users on mobile, the primary device context for Pre-Visit.
-                </li>
-                <li>
-                  Layout clarity: Positioning Button Group between the signature field and the bottom
-                  of the component (rather than above it) produced a cleaner visual hierarchy and
-                  avoided a cluttered, uneven layout.
-                </li>
-              </ul>
-              <div
-                className="landing-placeholder-image border"
-                role="img"
-                aria-label="SignaturePad design iterations and layout exploration"
+              <img
+                src="/work/kyruus-health/kh-7.png"
+                alt="SignaturePad Tab and Button Group layout exploration"
+                className="img-fluid border w-100"
+              />
+              <img
+                src="/work/kyruus-health/kh-8.png"
+                alt="SignaturePad design iterations and layout exploration"
+                className="img-fluid border w-100"
               />
             </div>
 
             <div className="d-flex flex-column gap-2">
               <h6 id="solution">Solution</h6>
               <p>
-                The final solution presented users with a Button Group toggle between Draw and Type
-                modes, positioned directly below the signature area. The Type input field was fully
+                The final solution presented users with a Tab group component between Draw and Type
+                modes, positioned directly above the signature area. The Type input field was fully
                 screen-reader accessible and keyboard operable. With some visual customization to align
                 the MUI component with the existing application style, the ticket was ready for
                 engineering handoff.
@@ -329,10 +358,15 @@ export default function KyruusHealthPage() {
                 users who preferred it, while providing a fully accessible Type alternative, removing
                 a critical access block from the most user-critical component in the entire product.
               </p>
-              <div
-                className="landing-placeholder-image border"
-                role="img"
-                aria-label="Final SignaturePad solution before and after"
+              <img
+                src="/work/kyruus-health/kh-9.png"
+                alt="Final SignaturePad solution, Draw mode"
+                className="img-fluid border w-100"
+              />
+              <img
+                src="/work/kyruus-health/kh-10.png"
+                alt="Final SignaturePad solution, Type mode"
+                className="img-fluid border w-100"
               />
             </div>
           </div>

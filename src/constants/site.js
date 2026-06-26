@@ -1,6 +1,6 @@
 export const SITE_NAME = 'Maxim Sokolov'
 
-export const SITE_ROLE = 'UX/UI Designer & Engineer'
+export const SITE_ROLE = 'UX/UI designer & engineer'
 
 export const SITE_URL = (import.meta.env.VITE_SITE_URL ?? 'https://hisokolov.com').replace(/\/$/, '')
 

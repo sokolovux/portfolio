@@ -5,12 +5,12 @@ import ProjectLayout from '../../components/project/ProjectLayout.jsx'
 
 const TOC_ITEMS = [
   createTocItem('Overview'),
-  createTocItem('The Problem'),
-  createTocItem('Target Audience'),
+  createTocItem('The problem'),
+  createTocItem('Target audience'),
   createTocItem('Discovery'),
-  createTocItem('My Role & Process'),
-  createTocItem('Core Challenges'),
-  createTocItem('Tradeoffs & Scope'),
+  createTocItem('My role & process'),
+  createTocItem('Core challenges'),
+  createTocItem('Tradeoffs & scope'),
   createTocItem('Results'),
 ]
 
@@ -70,26 +70,26 @@ export default function ChainletterPage() {
 
         <Divider />
         <section className="d-flex flex-column gap-4">
-          <h4 id="the-problem">The Problem</h4>
+          <h4 id="the-problem">The problem</h4>
           <p>
             The first version of Chainletter had a lot of issues: visually, functionally, and
             structurally.
           </p>
           <div className="d-flex flex-column gap-3">
             <div className="d-flex flex-column gap-2">
-              <h6 id="issue-1-ui-design">Issue #1: UI Design</h6>
+              <h6 id="issue-1-ui-design">Issue #1: UI design</h6>
               <p>The UI felt outdated and disconnected. There was no brand consistency and no real design system.</p>
             </div>
             <div className="d-flex flex-column gap-2">
-              <h6 id="issue-2-unintuitive-interactions">Issue #2: Unintuitive Interactions</h6>
+              <h6 id="issue-2-unintuitive-interactions">Issue #2: Unintuitive interactions</h6>
               <p>Basic interactions were unintuitive and required lots of guesswork.</p>
             </div>
             <div className="d-flex flex-column gap-2">
-              <h6 id="issue-3-microcopy-terminology">Issue #3: Microcopy & Terminology</h6>
+              <h6 id="issue-3-microcopy-terminology">Issue #3: Microcopy & terminology</h6>
               <p>Terminology throughout the app was inconsistent and often too technical.</p>
             </div>
             <div className="d-flex flex-column gap-2">
-              <h6 id="issue-4-blockchain-unfamiliarity">Issue #4: Blockchain Unfamiliarity</h6>
+              <h6 id="issue-4-blockchain-unfamiliarity">Issue #4: Blockchain unfamiliarity</h6>
               <p>
                 Blockchain introduced permanent, irreversible actions and the interface did little to
                 prepare users for that.
@@ -115,7 +115,7 @@ export default function ChainletterPage() {
 
         <Divider />
         <section className="d-flex flex-column gap-4">
-          <h4 id="target-audience">Target Audience</h4>
+          <h4 id="target-audience">Target audience</h4>
           <p>
             Our MVP was built specifically for university administrators: the people responsible for
             managing and verifying academic records.
@@ -148,9 +148,9 @@ export default function ChainletterPage() {
 
         <Divider />
         <section className="d-flex flex-column gap-4">
-          <h4 id="my-role-process">My Role & Process</h4>
+          <h4 id="my-role-process">My role & process</h4>
           <p>
-            I led the project as both UX/UI Designer and co-product lead. The whole project took
+            I led the project as both UX/UI designer and co-product lead. The whole project took
             around 7-8 weeks.
           </p>
           <p>
@@ -175,10 +175,10 @@ export default function ChainletterPage() {
 
         <Divider />
         <section className="d-flex flex-column gap-4">
-          <h4 id="core-challenges">Core Challenges</h4>
+          <h4 id="core-challenges">Core challenges</h4>
           <div className="d-flex flex-column gap-3">
             <div className="d-flex flex-column gap-2">
-              <h6 id="terminology-mental-models">1. Terminology & Mental Models</h6>
+              <h6 id="terminology-mental-models">1. Terminology & mental models</h6>
               <p>
                 The biggest challenge was explaining blockchain interactions to non-technical users
                 without using blockchain terminology.
@@ -212,14 +212,14 @@ export default function ChainletterPage() {
             </div>
 
             <div className="d-flex flex-column gap-2">
-              <h6 id="permanent-actions">2. Permanent Actions</h6>
+              <h6 id="permanent-actions">2. Permanent actions</h6>
               <p>
                 The core architectural challenge was separating editable, internal state from the point of
                 no return. Quite a few actions within the UI had permanent consequences, and needed to
                 be communicated as such in a way that empowers users, not burdens them.
               </p>
               <div className="ps-3 py-2 border-start d-flex flex-column gap-1">
-                <h6 id="two-state-collection-model">The Core Solution: A Two-State Collection Model</h6>
+                <h6 id="two-state-collection-model">The core solution: a two-state collection model</h6>
                 <p>
                   The central UX insight (and this was mine, not a technical requirement) was splitting
                   the collection flow into two distinct states. Step 1: an internal draft with an editable
@@ -257,7 +257,7 @@ export default function ChainletterPage() {
             </div>
 
             <div className="d-flex flex-column gap-2">
-              <h6 id="file-upload-error-handling">3. File Upload UX & Error Handling</h6>
+              <h6 id="file-upload-error-handling">3. File upload UX & error handling</h6>
               <p>
                 The upload flow was hidden, lacked context on accepted file types, and gave poor feedback
                 when something went wrong.
@@ -291,7 +291,7 @@ export default function ChainletterPage() {
 
         <Divider />
         <section className="d-flex flex-column gap-4">
-          <h4 id="tradeoffs-scope">Tradeoffs & Scope</h4>
+          <h4 id="tradeoffs-scope">Tradeoffs & scope</h4>
           <p>To stay on deadline and deliver a solid MVP, we scoped tightly and cut the following:</p>
           <ul className="mb-0">
             <li>Advanced filtering and search across Collections and Files</li>
