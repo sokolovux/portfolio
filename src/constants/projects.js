@@ -2,8 +2,27 @@
 
 export const PROJECTS = [
   {
-    slug: 'roomerang',
+    slug: 'voicebox',
     index: '01',
+    category: 'Full-time job',
+    title: 'Voicebox',
+    badges: ['UX/UI', 'Design systems', 'Design engineering', 'Web design', 'Branding'],
+    overview:
+      'Sole designer at Voicebox for 13 months across brand, product UX, design systems, and front-end implementation on an enterprise voice feedback platform.',
+    href: '/work/voicebox',
+    thumbnail: '/work/voicebox-thumb.png',
+    gradient: {
+      top: '#FAFAFA',
+      bottom: '#F5F5F5',
+    },
+    role: ['UX/UI designer & engineer', 'Web designer', 'Brand designer'],
+    timeline: ['May 2025 - June 2026', '(13 months)'],
+    team: ['5-6 people'],
+    tools: ['Figma', 'FigJam', 'Cursor', 'Claude', 'ChatGPT', 'Paper notes'],
+  },
+  {
+    slug: 'roomerang',
+    index: '02',
     category: 'Project',
     title: 'Roomerang',
     badges: ['UX/UI', 'Design engineering', 'Web design', 'Branding'],
@@ -18,24 +37,6 @@ export const PROJECTS = [
     timeline: ['May 2026 - Present', '(1 month)'],
     team: ['Solo'],
     tools: ['Figma', 'Supabase', 'Vercel', 'Cursor', 'Claude'],
-  },
-  {
-    slug: 'voicebox',
-    index: '02',
-    category: 'Full-time job',
-    title: 'Voicebox',
-    badges: ['UX/UI', 'Design systems', 'Design engineering', 'Web design', 'Branding'],
-    overview:
-      'Full-time design role, covering UX/UI, design systems, design engineering, web and branding projects.',
-    href: '/work/voicebox',
-    gradient: {
-      top: '#FAFAFA',
-      bottom: '#F5F5F5',
-    },
-    role: ['UX/UI designer & engineer', 'Brand & marketing designer'],
-    timeline: ['May 2025 – June 2026', '(1 year)'],
-    team: ['5-6 people'],
-    tools: ['Figma', 'FigJam','Cursor', 'Claude'],
   },
   {
     slug: 'chainletter',

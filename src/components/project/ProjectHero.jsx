@@ -11,7 +11,7 @@ const DETAIL_COLUMNS = [
   { key: 'tools', title: 'Tools' },
 ]
 
-export default function ProjectHero({ meta, results }) {
+export default function ProjectHero({ meta, results, heroAfterResults }) {
   return (
     <section className="container py-5 d-flex flex-column gap-3">
       <Link className="nav-link project-back-link d-inline-flex align-items-center gap-2" to="/#work">
@@ -43,6 +43,9 @@ export default function ProjectHero({ meta, results }) {
               {results}
             </div>
           </div>
+        ) : null}
+        {heroAfterResults ? (
+          <div className="project-hero-grid__item--span-full">{heroAfterResults}</div>
         ) : null}
       </div>
       <ProjectCardImage

@@ -5,7 +5,7 @@ import Divider from '../Divider.jsx'
 import ProjectHero from './ProjectHero.jsx'
 import { scrollToHashTarget } from '../../utils/scrollToHash.js'
 
-export default function ProjectLayout({ meta, tocItems, results, children }) {
+export default function ProjectLayout({ meta, tocItems, results, heroAfterResults, children }) {
   const contentRef = useRef(null)
   const { hash } = useLocation()
 
@@ -20,7 +20,7 @@ export default function ProjectLayout({ meta, tocItems, results, children }) {
       <TableOfContents items={tocItems} contentRef={contentRef} />
 
       <div ref={contentRef}>
-        <ProjectHero meta={meta} results={results} />
+        <ProjectHero meta={meta} results={results} heroAfterResults={heroAfterResults} />
         <Divider />
         {children}
       </div>
