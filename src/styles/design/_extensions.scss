@@ -578,3 +578,9 @@ strong {
 footer {
   height: 192px;
 }
+
+.btn-link {
+  text-decoration: underline;
+  text-decoration-thickness: 0.75px;
+  text-underline-offset: 3px;
+}

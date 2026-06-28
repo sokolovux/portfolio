@@ -78,7 +78,7 @@ export default function Landing() {
             />
           </p>
           <h4>
-            Nice to meet you! :)
+            Nice to meet you!
           </h4>
           <p className="pb-1">
             I started in brand and visual design, moved into UX/UI, then picked up AI codewriting tools and didn't put them down...
@@ -95,63 +95,49 @@ export default function Landing() {
           <div className="d-flex row row-gap-2 mt-3">
             <div className="row row-gap-1">
               <div className="col-2">
-                <p className="display-mono">2025-Present</p>
-              </div>
-              <div className="col-3">
-                <p className="display-mono text-highlight">Voicebox</p>
-              </div>
-              <div className="col-7">
-                <p className="">UX/UI designer & engineer</p>
-              </div>
-            </div>
-            <div className="row row-gap-1">
-              <div className="col-2">
                 <p className="display-mono">2024-Present</p>
               </div>
-              <div className="col-3">
-                <p className="display-mono text-highlight">Freelance</p>
+              <div className="col-10">
+                <p className="display-mono">Freelance UX/UI & Web designer & engineer</p>
               </div>
-              <div className="col-7">
-                <p className="">UX/UI & web designer</p>
+              <div className="col-2">
+                <p className="display-mono">2025-Present</p>
+              </div>
+              <div className="col-10">
+                <p className="display-mono">UX/UI designer & engineer at <a className="btn-link" href="https://voicebox.ai" target="_blank" rel="noopener noreferrer">Voicebox</a></p>
               </div>
             </div>
             <div className="row row-gap-1">
               <div className="col-2">
                 <p className="display-mono">2023-24</p>
               </div>
-              <div className="col-3">
-                <p className="display-mono text-highlight">Kyruus Health</p>
-              </div>
-              <div className="col-7">
-                <p className="">UX/UI designer</p>
+              <div className="col-10">
+                <p className="display-mono">UX/UI designer at <a className="btn-link" href="https://kyruushealth.com" target="_blank" rel="noopener noreferrer">Kyruus Health</a></p>
               </div>
             </div>
             <div className="row row-gap-1">
               <div className="col-2">
                 <p className="display-mono">2021-22</p>
               </div>
-              <div className="col-3">
-                <p className="display-mono text-highlight">Starta Accelerator</p>
-              </div>
-              <div className="col-7">
-                <p className="">Visual & brand designer</p>
+              <div className="col-10">
+                <p className="display-mono">Visual & brand designer at <a className="btn-link" href="https://gust.com/programs/starta-ventures-global-residency" target="_blank" rel="noopener noreferrer">Starta Accelerator</a></p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
-
       <section id="playground" className="container py-5 d-flex flex-column gap-4">
-        <div className="d-flex flex-column gap-2">
-          <p className="small">
-            <ScrambleInView
-              text="Playground"
-              className="text-highlight display-mono"
-              tag="span"
-            />
-          </p>
-          <h4>Freelance, fun & other work</h4>
+        <div className="d-flex flex-column">
+        <p className="small">
+          <ScrambleInView
+            text="About"
+            className="text-highlight display-mono"
+            tag="span"
+          />
+        </p>
+        <h4>
+          Freelance, fun & other work
+        </h4>
         </div>
         <div className="playground-grid d-grid gap-3">
           <div className="playground-grid__item--span-2">
