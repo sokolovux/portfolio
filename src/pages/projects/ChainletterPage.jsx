@@ -51,21 +51,6 @@ export default function ChainletterPage() {
             The end goal: help university admins upload student degrees without needing to understand
             anything about blockchain.
           </p>
-          <div
-            className="landing-placeholder-image border"
-            role="img"
-            aria-label="Chainletter overview screen 1"
-          />
-          <div
-            className="landing-placeholder-image border"
-            role="img"
-            aria-label="Chainletter overview screen 2"
-          />
-          <div
-            className="landing-placeholder-image border"
-            role="img"
-            aria-label="Chainletter overview screen 3"
-          />
         </section>
 
         <Divider />
@@ -96,21 +81,23 @@ export default function ChainletterPage() {
               </p>
             </div>
           </div>
-          <div
-            className="landing-placeholder-image border"
-            role="img"
-            aria-label="Chainletter legacy UI screen 1"
-          />
-          <div
-            className="landing-placeholder-image border"
-            role="img"
-            aria-label="Chainletter legacy UI screen 2"
-          />
-          <div
-            className="landing-placeholder-image border"
-            role="img"
-            aria-label="Chainletter legacy UI screen 3"
-          />
+          <div className="d-flex flex-column gap-3">
+            <img
+              src="/work/chainletter/ch-1.png"
+              alt="Chainletter legacy UI screen 1"
+              className="img-fluid border w-100"
+            />
+            <img
+              src="/work/chainletter/ch-2.png"
+              alt="Chainletter legacy UI screen 2"
+              className="img-fluid border w-100"
+            />
+            <img
+              src="/work/chainletter/ch-3.png"
+              alt="Chainletter legacy UI screen 3"
+              className="img-fluid border w-100"
+            />
+          </div>
         </section>
 
         <Divider />
@@ -198,16 +185,18 @@ export default function ChainletterPage() {
                   <li>Iterated on terminology with the team until it felt clear and trustworthy</li>
                   <li>Reinforced concepts with tooltips, contextual help, and warning modals across the UI</li>
                 </ul>
-                <div
-                  className="landing-placeholder-image border"
-                  role="img"
-                  aria-label="Chainletter terminology screen 1"
-                />
-                <div
-                  className="landing-placeholder-image border"
-                  role="img"
-                  aria-label="Chainletter terminology screen 2"
-                />
+                <div className="d-flex flex-column gap-3">
+                  <img
+                    src="/work/chainletter/ch-4.png"
+                    alt="Chainletter terminology screen 1"
+                    className="img-fluid border w-100"
+                  />
+                  <img
+                    src="/work/chainletter/ch-5.png"
+                    alt="Chainletter terminology screen 2"
+                    className="img-fluid border w-100"
+                  />
+                </div>
               </div>
             </div>
 
@@ -238,21 +227,18 @@ export default function ChainletterPage() {
                   <li>Added warning modals and non-editable fields post-stamping</li>
                   <li>Used plain, direct language to explain consequences up front</li>
                 </ul>
-                <div
-                  className="landing-placeholder-image border"
-                  role="img"
-                  aria-label="Chainletter two-state collection screen 1"
-                />
-                <div
-                  className="landing-placeholder-image border"
-                  role="img"
-                  aria-label="Chainletter two-state collection screen 2"
-                />
-                <div
-                  className="landing-placeholder-image border"
-                  role="img"
-                  aria-label="Chainletter two-state collection screen 3"
-                />
+                <div className="d-flex flex-column gap-3">
+                  <img
+                    src="/work/chainletter/ch-6.png"
+                    alt="Chainletter permanent actions screen 1"
+                    className="img-fluid border w-100"
+                  />
+                  <img
+                    src="/work/chainletter/ch-7.png"
+                    alt="Chainletter permanent actions screen 2"
+                    className="img-fluid border w-100"
+                  />
+                </div>
               </div>
             </div>
 
@@ -269,20 +255,10 @@ export default function ChainletterPage() {
                   <li>Grouped errors into two buckets: shown before upload and after upload</li>
                   <li>Displayed error tables in modals so users could understand and fix issues quickly</li>
                 </ul>
-                <div
-                  className="landing-placeholder-image border"
-                  role="img"
-                  aria-label="Chainletter file upload screen 1"
-                />
-                <div
-                  className="landing-placeholder-image border"
-                  role="img"
-                  aria-label="Chainletter file upload screen 2"
-                />
-                <div
-                  className="landing-placeholder-image border"
-                  role="img"
-                  aria-label="Chainletter file upload screen 3"
+                <img
+                  src="/work/chainletter/ch-8.png"
+                  alt="Chainletter file upload screen"
+                  className="img-fluid border w-100"
                 />
               </div>
             </div>

@@ -47,6 +47,7 @@ export const PROJECTS = [
     overview:
       'Lead UX/UI redesign of Chainletter\'s university admin MVP so degree verification works for staff who do not need to understand blockchain.',
     href: '/work/chainletter',
+    thumbnail: '/work/chainletter-thumb.png',
     gradient: {
       top: '#797CD3',
       bottom: '#6468CC',

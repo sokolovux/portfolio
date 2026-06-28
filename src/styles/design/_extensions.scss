@@ -167,7 +167,7 @@ a {
   padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
   font-weight: var(--bs-badge-font-weight);
   border: var(--bs-border-width) solid var(--bs-border-color);
-  border-radius: var(--bs-border-radius);
+  border-radius: var(--bs-border-radius-sm);
   background-color: $gray-200;
   color: $gray-700;
 }
