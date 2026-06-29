@@ -39,7 +39,9 @@ export default function ProjectCard({
             ))}
           </div>
         )}
-        <BtnCustom variant="secondary" label="Read more" className="mt-auto" href={href} />
+        {slug !== 'roomerang' && (
+          <BtnCustom variant="secondary" label="Read more" className="mt-auto" href={href} />
+        )}
       </div>
       <div className="col-md-8">
         <ProjectCardImage

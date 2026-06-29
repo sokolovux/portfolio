@@ -24,11 +24,12 @@ export const PROJECTS = [
     slug: 'roomerang',
     index: '02',
     category: 'Project',
-    title: 'Roomerang',
+    title: 'Roomerang (Coming soon)',
     badges: ['UX/UI', 'Design engineering', 'Web design', 'Branding'],
     overview:
       'Self-initiated NYC-metro roommate marketplace — designed and built end-to-end as a solo product designer and engineer.',
     href: '/work/roomerang',
+    thumbnail: '/work/roomerang-thumb.png',
     gradient: {
       top: '#E73F37',
       bottom: '#E4281F',

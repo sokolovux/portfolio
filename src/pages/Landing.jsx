@@ -40,8 +40,8 @@ export default function Landing() {
             <TextScramble text="UX/UI designer & engineer" tag="p" className="p display-mono mb-1" />
             <div className="d-flex flex-wrap gap-1 justify-content-center">
               <div className="badge">Featured on Times Square</div>
+              <div className="badge">Featured on TEDx Talks</div>
               <div className="badge">4+ products shipped</div>
-              <div className="badge">5+ years of experience</div>
             </div>
           </div>
           {/*
@@ -164,7 +164,7 @@ export default function Landing() {
                 alt="TEDx Bayonne team posing behind the event podium"
                 imageLabel="TEDx Bayonne team posing behind the event podium"
               />
-              <small className="xs">Experiment 7</small>
+              <small className="xs">In 2022 and 2023, my friend and I organized TEDx talks events</small>
             </div>
           </div>
           <div>
@@ -174,7 +174,7 @@ export default function Landing() {
                 alt="Speaker on stage at TEDx Bayonne"
                 imageLabel="Speaker on stage at TEDx Bayonne"
               />
-              <small className="xs">Experiment 8</small>
+              <small className="xs">Me on stage at one of our TEDx talks events</small>
             </div>
           </div>
           <div>
@@ -270,8 +270,12 @@ export default function Landing() {
           </div>
           <div>
             <div className="d-flex flex-column gap-2">
-              <PlaygroundImage imageLabel="Playground experiment 11" />
-              <small className="xs">Experiment 11</small>
+              <PlaygroundImage
+                src="/playground/fulflld-logo.png"
+                alt="Fulflld logo on dark, coral, and white backgrounds"
+                imageLabel="Fulflld logo on dark, coral, and white backgrounds"
+              />
+              <small className="xs">Logo for Fulflld</small>
             </div>
           </div>
           <div className="playground-grid__item--span-2">
@@ -287,7 +291,10 @@ export default function Landing() {
           </div>
           <div>
             <div className="d-flex flex-column gap-2">
-              <PlaygroundImage imageLabel="Playground experiment 13" />
+              <PlaygroundVideo
+                src="/playground/ph-gif.mp4"
+                ariaLabel="Portraits of Hope logo design animation"
+              />
               <small className="xs">Portraits of Hope logo design</small>
             </div>
           </div>
